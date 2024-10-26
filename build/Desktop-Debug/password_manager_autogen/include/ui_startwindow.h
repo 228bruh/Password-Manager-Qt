@@ -41,7 +41,7 @@ public:
     QLabel *label_3;
     QLabel *label;
     QPushButton *loginButton;
-    QLabel *warningMsgLabel;
+    QLabel *CAwarningMsgLabel;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_5;
@@ -51,6 +51,7 @@ public:
     QVBoxLayout *verticalLayout;
     QLabel *label_4;
     QLineEdit *loginUsername;
+    QLabel *LIwarningMsgLabel;
 
     void setupUi(QWidget *Startwindow)
     {
@@ -162,13 +163,13 @@ public:
         loginButton = new QPushButton(Startwindow);
         loginButton->setObjectName("loginButton");
         loginButton->setGeometry(QRect(50, 480, 101, 31));
-        warningMsgLabel = new QLabel(Startwindow);
-        warningMsgLabel->setObjectName("warningMsgLabel");
-        warningMsgLabel->setGeometry(QRect(480, 460, 261, 16));
+        CAwarningMsgLabel = new QLabel(Startwindow);
+        CAwarningMsgLabel->setObjectName("CAwarningMsgLabel");
+        CAwarningMsgLabel->setGeometry(QRect(480, 460, 261, 16));
         QFont font5;
         font5.setPointSize(8);
-        warningMsgLabel->setFont(font5);
-        warningMsgLabel->setAlignment(Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft);
+        CAwarningMsgLabel->setFont(font5);
+        CAwarningMsgLabel->setAlignment(Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft);
         verticalLayoutWidget_2 = new QWidget(Startwindow);
         verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
         verticalLayoutWidget_2->setGeometry(QRect(50, 370, 261, 80));
@@ -210,6 +211,11 @@ public:
 
         verticalLayout->addWidget(loginUsername);
 
+        LIwarningMsgLabel = new QLabel(Startwindow);
+        LIwarningMsgLabel->setObjectName("LIwarningMsgLabel");
+        LIwarningMsgLabel->setGeometry(QRect(50, 460, 261, 16));
+        LIwarningMsgLabel->setFont(font5);
+        LIwarningMsgLabel->setAlignment(Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft);
 
         retranslateUi(Startwindow);
 
@@ -227,10 +233,11 @@ public:
         label_3->setText(QCoreApplication::translate("Startwindow", "Log in", nullptr));
         label->setText(QCoreApplication::translate("Startwindow", "Create account", nullptr));
         loginButton->setText(QCoreApplication::translate("Startwindow", "Log in", nullptr));
-        warningMsgLabel->setText(QString());
+        CAwarningMsgLabel->setText(QString());
         label_5->setText(QCoreApplication::translate("Startwindow", "Password", nullptr));
         createButton->setText(QCoreApplication::translate("Startwindow", "Create", nullptr));
         label_4->setText(QCoreApplication::translate("Startwindow", "Username", nullptr));
+        LIwarningMsgLabel->setText(QString());
     } // retranslateUi
 
 };

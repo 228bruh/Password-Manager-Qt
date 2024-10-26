@@ -17,6 +17,8 @@ public:
 private slots:
     void on_createButton_clicked();
 
+    void on_loginButton_clicked();
+
 private:
     Ui::Startwindow *ui;
 };

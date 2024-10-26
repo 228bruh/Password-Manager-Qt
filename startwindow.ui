@@ -226,7 +226,7 @@
     <string>Log in</string>
    </property>
   </widget>
-  <widget class="QLabel" name="warningMsgLabel">
+  <widget class="QLabel" name="CAwarningMsgLabel">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -335,6 +335,27 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="LIwarningMsgLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>460</y>
+     <width>261</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft</set>
+   </property>
   </widget>
  </widget>
  <resources/>
