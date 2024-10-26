@@ -14,6 +14,9 @@ public:
     explicit Startwindow(QWidget *parent = nullptr);
     ~Startwindow();
 
+private slots:
+    void on_createButton_clicked();
+
 private:
     Ui::Startwindow *ui;
 };
