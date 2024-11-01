@@ -18,13 +18,18 @@ void Startwindow::on_createButton_clicked() {
     QString password = ui->createPassword->text();
     QString confirmPassword = ui->confirmCreatePassword->text();
 
-    if (password.length() < 4) {
-        ui->CAwarningMsgLabel->setText("The password must contain at least 4 characters");
+    if (username.length() == 0 || password.length() == 0 || confirmPassword.length() == 0) {
+        ui->CAwarningMsgLabel->setText("All fields are required");
         return;
     }
 
     if (password != confirmPassword) {
         ui->CAwarningMsgLabel->setText("Passwords don't match");
+        return;
+    }
+
+    if (password.length() < 4) {
+        ui->CAwarningMsgLabel->setText("The password must contain at least 4 characters");
         return;
     }
 
@@ -78,6 +83,11 @@ void Startwindow::on_loginButton_clicked() {
     QString username = ui->loginUsername->text();
     QString password = ui->loginPassword->text();
 
+    if (username.length() == 0 || password.length() == 0) {
+        ui->LIwarningMsgLabel->setText("All fields are required");
+        return;
+    }
+
     QFile file("accounts");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QMessageBox::warning(this, "Error", "Failed to open file for reading");
@@ -85,14 +95,12 @@ void Startwindow::on_loginButton_clicked() {
     }
 
     QTextStream in(&file);
-    bool userFound = false;
     QByteArray passwordHash = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
 
     while (!in.atEnd()) {
         QString line = in.readLine();
         QStringList parts = line.split(" ");
         if (parts.size() == 2 && parts[0] == username) {
-            userFound = true;
             if (parts[1] == passwordHash.toHex()) {
                 QMessageBox::information(this, "Success", "Successfully logged in!");
                 file.close();
@@ -109,7 +117,7 @@ void Startwindow::on_loginButton_clicked() {
     }
     file.close();
 
-    ui->LIwarningMsgLabel->setText("Invalid username or password. Please try again");
+    ui->LIwarningMsgLabel->setText("Invalid username or password");
 }
 
 

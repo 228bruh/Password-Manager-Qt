@@ -383,7 +383,8 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets/Qt6WidgetsPlugins.cmake",
-		"/usr/share/cmake-3.29/Modules/GNUInstallDirs.cmake"
+		"/usr/share/cmake-3.29/Modules/GNUInstallDirs.cmake",
+		"/home/kirill/qt creator/password_manager/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/kirill/qt creator/password_manager",
 	"CROSS_CONFIG" : false,

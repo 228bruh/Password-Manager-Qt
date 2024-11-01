@@ -1,0 +1,25 @@
+{
+	"BUILD_DIR" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen",
+	"CMAKE_BINARY_DIR" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/kirill/qt creator/password_manager",
+	"CMAKE_SOURCE_DIR" : "/home/kirill/qt creator/password_manager",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/kirill/qt creator/password_manager/resources/password-manager.png"
+	],
+	"LOCK_FILE" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug/CMakeFiles/password_manager_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/usr/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug/CMakeFiles/password_manager_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/kirill/qt creator/password_manager/resources.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}
