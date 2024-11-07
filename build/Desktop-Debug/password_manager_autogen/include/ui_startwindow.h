@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -55,14 +56,19 @@ public:
     QLabel *label_2;
     QFrame *line;
     QLabel *label_7;
+    QCheckBox *rememberMeCheckBox;
+    QFrame *line_2;
+    QCheckBox *showCApass;
+    QCheckBox *showCAconfpass;
+    QCheckBox *showLIpass;
 
     void setupUi(QWidget *Startwindow)
     {
         if (Startwindow->objectName().isEmpty())
             Startwindow->setObjectName("Startwindow");
-        Startwindow->resize(790, 550);
+        Startwindow->resize(790, 600);
         Startwindow->setMinimumSize(QSize(790, 550));
-        Startwindow->setMaximumSize(QSize(790, 550));
+        Startwindow->setMaximumSize(QSize(790, 600));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/new/prefix1/resources/password-manager.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         Startwindow->setWindowIcon(icon);
@@ -106,10 +112,7 @@ public:
 
         createPassword = new QLineEdit(verticalLayoutWidget_4);
         createPassword->setObjectName("createPassword");
-        QFont font2;
-        font2.setPointSize(10);
-        font2.setWeight(QFont::ExtraLight);
-        createPassword->setFont(font2);
+        createPassword->setFont(font1);
         createPassword->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout_4->addWidget(createPassword);
@@ -123,7 +126,7 @@ public:
 
         confirmCreatePassword = new QLineEdit(verticalLayoutWidget_4);
         confirmCreatePassword->setObjectName("confirmCreatePassword");
-        confirmCreatePassword->setFont(font2);
+        confirmCreatePassword->setFont(font1);
         confirmCreatePassword->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout_4->addWidget(confirmCreatePassword);
@@ -131,25 +134,25 @@ public:
         horizontalLayoutWidget = new QWidget(Startwindow);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
         horizontalLayoutWidget->setGeometry(QRect(-30, 160, 851, 80));
-        QFont font3;
-        font3.setPointSize(16);
-        horizontalLayoutWidget->setFont(font3);
+        QFont font2;
+        font2.setPointSize(16);
+        horizontalLayoutWidget->setFont(font2);
         horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout_4->setObjectName("horizontalLayout_4");
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         label_3 = new QLabel(horizontalLayoutWidget);
         label_3->setObjectName("label_3");
-        QFont font4;
-        font4.setPointSize(16);
-        font4.setBold(true);
-        label_3->setFont(font4);
+        QFont font3;
+        font3.setPointSize(16);
+        font3.setBold(true);
+        label_3->setFont(font3);
         label_3->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         horizontalLayout_4->addWidget(label_3);
 
         label = new QLabel(horizontalLayoutWidget);
         label->setObjectName("label");
-        label->setFont(font4);
+        label->setFont(font3);
         label->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         horizontalLayout_4->addWidget(label);
@@ -157,15 +160,15 @@ public:
         loginButton = new QPushButton(Startwindow);
         loginButton->setObjectName("loginButton");
         loginButton->setGeometry(QRect(50, 480, 101, 31));
-        QFont font5;
-        font5.setBold(true);
-        loginButton->setFont(font5);
+        QFont font4;
+        font4.setBold(true);
+        loginButton->setFont(font4);
         CAwarningMsgLabel = new QLabel(Startwindow);
         CAwarningMsgLabel->setObjectName("CAwarningMsgLabel");
         CAwarningMsgLabel->setGeometry(QRect(480, 460, 261, 16));
-        QFont font6;
-        font6.setPointSize(8);
-        CAwarningMsgLabel->setFont(font6);
+        QFont font5;
+        font5.setPointSize(8);
+        CAwarningMsgLabel->setFont(font5);
         CAwarningMsgLabel->setAlignment(Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft);
         verticalLayoutWidget_2 = new QWidget(Startwindow);
         verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
@@ -182,7 +185,7 @@ public:
 
         loginPassword = new QLineEdit(verticalLayoutWidget_2);
         loginPassword->setObjectName("loginPassword");
-        loginPassword->setFont(font2);
+        loginPassword->setFont(font1);
         loginPassword->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout_2->addWidget(loginPassword);
@@ -190,7 +193,7 @@ public:
         createButton = new QPushButton(Startwindow);
         createButton->setObjectName("createButton");
         createButton->setGeometry(QRect(480, 480, 101, 31));
-        createButton->setFont(font5);
+        createButton->setFont(font4);
         verticalLayoutWidget = new QWidget(Startwindow);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(50, 240, 261, 80));
@@ -213,15 +216,15 @@ public:
         LIwarningMsgLabel = new QLabel(Startwindow);
         LIwarningMsgLabel->setObjectName("LIwarningMsgLabel");
         LIwarningMsgLabel->setGeometry(QRect(50, 460, 261, 16));
-        LIwarningMsgLabel->setFont(font6);
+        LIwarningMsgLabel->setFont(font5);
         LIwarningMsgLabel->setAlignment(Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft);
         label_6 = new QLabel(Startwindow);
         label_6->setObjectName("label_6");
         label_6->setGeometry(QRect(90, 40, 391, 51));
-        QFont font7;
-        font7.setPointSize(18);
-        font7.setBold(true);
-        label_6->setFont(font7);
+        QFont font6;
+        font6.setPointSize(18);
+        font6.setBold(true);
+        label_6->setFont(font6);
         label_6->setAlignment(Qt::AlignmentFlag::AlignCenter);
         label_2 = new QLabel(Startwindow);
         label_2->setObjectName("label_2");
@@ -238,9 +241,59 @@ public:
         label_7 = new QLabel(Startwindow);
         label_7->setObjectName("label_7");
         label_7->setGeometry(QRect(100, 90, 391, 31));
-        QFont font8;
-        font8.setPointSize(10);
-        label_7->setFont(font8);
+        QFont font7;
+        font7.setPointSize(10);
+        label_7->setFont(font7);
+        rememberMeCheckBox = new QCheckBox(Startwindow);
+        rememberMeCheckBox->setObjectName("rememberMeCheckBox");
+        rememberMeCheckBox->setGeometry(QRect(50, 560, 311, 24));
+        line_2 = new QFrame(Startwindow);
+        line_2->setObjectName("line_2");
+        line_2->setGeometry(QRect(50, 530, 691, 20));
+        line_2->setFrameShape(QFrame::Shape::HLine);
+        line_2->setFrameShadow(QFrame::Shadow::Sunken);
+        showCApass = new QCheckBox(Startwindow);
+        showCApass->setObjectName("showCApass");
+        showCApass->setGeometry(QRect(720, 370, 41, 16));
+        showCApass->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/new/prefix1/resources/hide.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        showCApass->setIcon(icon1);
+        showCAconfpass = new QCheckBox(Startwindow);
+        showCAconfpass->setObjectName("showCAconfpass");
+        showCAconfpass->setGeometry(QRect(720, 430, 41, 16));
+        showCAconfpass->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+        showCAconfpass->setIcon(icon1);
+        showLIpass = new QCheckBox(Startwindow);
+        showLIpass->setObjectName("showLIpass");
+        showLIpass->setGeometry(QRect(290, 430, 41, 16));
+        showLIpass->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+        showLIpass->setIcon(icon1);
+        showLIpass->raise();
+        showCAconfpass->raise();
+        showCApass->raise();
+        verticalLayoutWidget_3->raise();
+        verticalLayoutWidget_4->raise();
+        horizontalLayoutWidget->raise();
+        loginButton->raise();
+        CAwarningMsgLabel->raise();
+        verticalLayoutWidget_2->raise();
+        createButton->raise();
+        verticalLayoutWidget->raise();
+        LIwarningMsgLabel->raise();
+        label_6->raise();
+        label_2->raise();
+        line->raise();
+        label_7->raise();
+        rememberMeCheckBox->raise();
+        line_2->raise();
+        QWidget::setTabOrder(loginUsername, loginPassword);
+        QWidget::setTabOrder(loginPassword, loginButton);
+        QWidget::setTabOrder(loginButton, rememberMeCheckBox);
+        QWidget::setTabOrder(rememberMeCheckBox, createUsername);
+        QWidget::setTabOrder(createUsername, createPassword);
+        QWidget::setTabOrder(createPassword, confirmCreatePassword);
+        QWidget::setTabOrder(confirmCreatePassword, createButton);
 
         retranslateUi(Startwindow);
 
@@ -265,6 +318,10 @@ public:
         label_6->setText(QCoreApplication::translate("Startwindow", "Welcome to Password Manager", nullptr));
         label_2->setText(QString());
         label_7->setText(QCoreApplication::translate("Startwindow", "Your personal, secure password vault", nullptr));
+        rememberMeCheckBox->setText(QCoreApplication::translate("Startwindow", "Remember me and skip this window next time", nullptr));
+        showCApass->setText(QString());
+        showCAconfpass->setText(QString());
+        showLIpass->setText(QString());
     } // retranslateUi
 
 };

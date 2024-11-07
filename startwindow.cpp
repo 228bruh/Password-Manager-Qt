@@ -1,5 +1,6 @@
 #include "startwindow.h"
 #include "ui_startwindow.h"
+#include "mainwindow.h"
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
@@ -71,12 +72,11 @@ void Startwindow::on_createButton_clicked() {
     out << username << " " << passwordHash.toHex() << "\n";
     file.close();
 
-    QMessageBox::information(this, "Success", "Account successfully created!");
+    MainWindow *mainWindow = new MainWindow();
+    mainWindow->setUsername(username);
+    mainWindow->show();
 
-    ui->CAwarningMsgLabel->clear();
-    ui->createUsername->clear();
-    ui->createPassword->clear();
-    ui->confirmCreatePassword->clear();
+    close();
 }
 
 void Startwindow::on_loginButton_clicked() {
@@ -102,13 +102,13 @@ void Startwindow::on_loginButton_clicked() {
         QStringList parts = line.split(" ");
         if (parts.size() == 2 && parts[0] == username) {
             if (parts[1] == passwordHash.toHex()) {
-                QMessageBox::information(this, "Success", "Successfully logged in!");
                 file.close();
 
-                ui->LIwarningMsgLabel->clear();
-                ui->loginUsername->clear();
-                ui->loginPassword->clear();
+                MainWindow *mainWindow = new MainWindow();
+                mainWindow->setUsername(username);
+                mainWindow->show();
 
+                close();
                 return;
             } else {
                 break;
@@ -120,4 +120,33 @@ void Startwindow::on_loginButton_clicked() {
     ui->LIwarningMsgLabel->setText("Invalid username or password");
 }
 
+void Startwindow::on_showLIpass_stateChanged(int state) {
+    if (state == Qt::Checked) {
+        ui->loginPassword->setEchoMode(QLineEdit::Normal);
+        ui->showLIpass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
+    } else {
+        ui->loginPassword->setEchoMode(QLineEdit::Password);
+        ui->showLIpass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+    }
+}
+
+void Startwindow::on_showCApass_stateChanged(int state) {
+    if (state == Qt::Checked) {
+        ui->createPassword->setEchoMode(QLineEdit::Normal);
+        ui->showCApass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
+    } else {
+        ui->createPassword->setEchoMode(QLineEdit::Password);
+        ui->showCApass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+    }
+}
+
+void Startwindow::on_showCAconfpass_stateChanged(int state) {
+    if (state == Qt::Checked) {
+        ui->confirmCreatePassword->setEchoMode(QLineEdit::Normal);
+        ui->showCAconfpass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
+    } else {
+        ui->confirmCreatePassword->setEchoMode(QLineEdit::Password);
+        ui->showCAconfpass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+    }
+}
 

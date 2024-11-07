@@ -9,7 +9,9 @@
 	"INCLUDE_DIR" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/include",
 	"INPUTS" : 
 	[
-		"/home/kirill/qt creator/password_manager/resources/password-manager.png"
+		"/home/kirill/qt creator/password_manager/resources/password-manager.png",
+		"/home/kirill/qt creator/password_manager/resources/hide.png",
+		"/home/kirill/qt creator/password_manager/resources/show.png"
 	],
 	"LOCK_FILE" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug/CMakeFiles/password_manager_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,

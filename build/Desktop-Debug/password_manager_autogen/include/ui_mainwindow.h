@@ -27,7 +27,6 @@ public:
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 600);
         MainWindow->setMinimumSize(QSize(800, 600));
-        MainWindow->setWindowTitle(QString::fromUtf8("Password Manager"));
         MainWindow->setWindowOpacity(1.000000000000000);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");

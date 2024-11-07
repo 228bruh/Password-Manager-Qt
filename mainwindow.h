@@ -16,8 +16,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void setUsername(const QString &set_username);
+
 private:
     Ui::MainWindow *ui;
+    QString username;
 };
 
 #endif // MAINWINDOW_H

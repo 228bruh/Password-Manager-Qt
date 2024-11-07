@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>790</width>
-    <height>550</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,7 +19,7 @@
   <property name="maximumSize">
    <size>
     <width>790</width>
-    <height>550</height>
+    <height>600</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -101,7 +101,7 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <fontweight>ExtraLight</fontweight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="echoMode">
@@ -130,7 +130,7 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <fontweight>ExtraLight</fontweight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="echoMode">
@@ -259,7 +259,7 @@
       <property name="font">
        <font>
         <pointsize>10</pointsize>
-        <fontweight>ExtraLight</fontweight>
+        <bold>false</bold>
        </font>
       </property>
       <property name="echoMode">
@@ -430,7 +430,121 @@
     <string>Your personal, secure password vault</string>
    </property>
   </widget>
+  <widget class="QCheckBox" name="rememberMeCheckBox">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>560</y>
+     <width>311</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Remember me and skip this window next time</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>530</y>
+     <width>691</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Orientation::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="showCApass">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>370</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::FocusPolicy::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/new/prefix1/resources/hide.png</normaloff>:/new/prefix1/resources/hide.png</iconset>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="showCAconfpass">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>430</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::FocusPolicy::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/new/prefix1/resources/hide.png</normaloff>:/new/prefix1/resources/hide.png</iconset>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="showLIpass">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>430</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::FocusPolicy::NoFocus</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/new/prefix1/resources/hide.png</normaloff>:/new/prefix1/resources/hide.png</iconset>
+   </property>
+  </widget>
+  <zorder>showLIpass</zorder>
+  <zorder>showCAconfpass</zorder>
+  <zorder>showCApass</zorder>
+  <zorder>verticalLayoutWidget_3</zorder>
+  <zorder>verticalLayoutWidget_4</zorder>
+  <zorder>horizontalLayoutWidget</zorder>
+  <zorder>loginButton</zorder>
+  <zorder>CAwarningMsgLabel</zorder>
+  <zorder>verticalLayoutWidget_2</zorder>
+  <zorder>createButton</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>LIwarningMsgLabel</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_2</zorder>
+  <zorder>line</zorder>
+  <zorder>label_7</zorder>
+  <zorder>rememberMeCheckBox</zorder>
+  <zorder>line_2</zorder>
  </widget>
+ <tabstops>
+  <tabstop>loginUsername</tabstop>
+  <tabstop>loginPassword</tabstop>
+  <tabstop>loginButton</tabstop>
+  <tabstop>rememberMeCheckBox</tabstop>
+  <tabstop>createUsername</tabstop>
+  <tabstop>createPassword</tabstop>
+  <tabstop>confirmCreatePassword</tabstop>
+  <tabstop>createButton</tabstop>
+ </tabstops>
  <resources>
   <include location="resources.qrc"/>
  </resources>

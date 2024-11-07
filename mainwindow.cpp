@@ -8,3 +8,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 MainWindow::~MainWindow() {
     delete ui;
 }
+
+void MainWindow::setUsername(const QString &set_username) {
+    username = set_username;
+    setWindowTitle("Password Manager - " + username);
+}
