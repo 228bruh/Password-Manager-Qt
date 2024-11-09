@@ -2,6 +2,10 @@
 #define STARTWINDOW_H
 
 #include <QWidget>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
+#include <QCryptographicHash>
 
 namespace Ui {
 class Startwindow;
@@ -13,6 +17,10 @@ class Startwindow : public QWidget {
 public:
     explicit Startwindow(QWidget *parent = nullptr);
     ~Startwindow();
+
+    void initializeFile();
+
+    void updateRememberedUser(int lineIndex);
 
 private slots:
     void on_createButton_clicked();

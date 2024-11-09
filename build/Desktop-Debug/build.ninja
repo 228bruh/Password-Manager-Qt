@@ -81,6 +81,14 @@ build CMakeFiles/password_manager.dir/startwindow.cpp.o: CXX_COMPILER__password_
   OBJECT_DIR = CMakeFiles/password_manager.dir
   OBJECT_FILE_DIR = CMakeFiles/password_manager.dir
 
+build CMakeFiles/password_manager.dir/loginwindow.cpp.o: CXX_COMPILER__password_manager_unscanned_Debug /home/kirill/qt$ creator/password_manager/loginwindow.cpp || cmake_object_order_depends_target_password_manager
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/password_manager.dir/loginwindow.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fcolor-diagnostics -fPIC
+  INCLUDES = -I"/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/include" -isystem /usr/include/QtCore -isystem /usr/mkspecs/linux-g++ -isystem /usr/include/QtWidgets -isystem /usr/include/QtGui
+  OBJECT_DIR = CMakeFiles/password_manager.dir
+  OBJECT_FILE_DIR = CMakeFiles/password_manager.dir
+
 build CMakeFiles/password_manager.dir/password_manager_autogen/EWIEGA46WW/qrc_resources.cpp.o: CXX_COMPILER__password_manager_unscanned_Debug /home/kirill/qt$ creator/password_manager/build/Desktop-Debug/password_manager_autogen/EWIEGA46WW/qrc_resources.cpp || cmake_object_order_depends_target_password_manager
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/password_manager.dir/password_manager_autogen/EWIEGA46WW/qrc_resources.cpp.o.d
@@ -97,7 +105,7 @@ build CMakeFiles/password_manager.dir/password_manager_autogen/EWIEGA46WW/qrc_re
 #############################################
 # Link the executable password_manager
 
-build password_manager: CXX_EXECUTABLE_LINKER__password_manager_Debug CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o CMakeFiles/password_manager.dir/main.cpp.o CMakeFiles/password_manager.dir/mainwindow.cpp.o CMakeFiles/password_manager.dir/startwindow.cpp.o CMakeFiles/password_manager.dir/password_manager_autogen/EWIEGA46WW/qrc_resources.cpp.o | /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.7.3 /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.7.3 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.7.3 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || password_manager_autogen password_manager_autogen_timestamp_deps
+build password_manager: CXX_EXECUTABLE_LINKER__password_manager_Debug CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o CMakeFiles/password_manager.dir/main.cpp.o CMakeFiles/password_manager.dir/mainwindow.cpp.o CMakeFiles/password_manager.dir/startwindow.cpp.o CMakeFiles/password_manager.dir/loginwindow.cpp.o CMakeFiles/password_manager.dir/password_manager_autogen/EWIEGA46WW/qrc_resources.cpp.o | /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.7.3 /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.7.3 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.7.3 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || password_manager_autogen password_manager_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.7.3  /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.7.3  /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.7.3  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so
   OBJECT_DIR = CMakeFiles/password_manager.dir
@@ -182,7 +190,7 @@ build password_manager_autogen_timestamp_deps: phony
 #############################################
 # Utility command for password_manager_autogen
 
-build password_manager_autogen: phony CMakeFiles/password_manager_autogen password_manager_autogen/include/ui_mainwindow.h password_manager_autogen/include/ui_startwindow.h password_manager_autogen/timestamp password_manager_autogen/mocs_compilation.cpp password_manager_autogen_timestamp_deps
+build password_manager_autogen: phony CMakeFiles/password_manager_autogen password_manager_autogen/include/ui_mainwindow.h password_manager_autogen/include/ui_startwindow.h password_manager_autogen/include/ui_loginwindow.h password_manager_autogen/timestamp password_manager_autogen/mocs_compilation.cpp password_manager_autogen_timestamp_deps
 
 
 #############################################
@@ -208,7 +216,7 @@ build password_manager_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_work
 #############################################
 # Phony custom command for CMakeFiles/password_manager_autogen
 
-build CMakeFiles/password_manager_autogen password_manager_autogen/include/ui_mainwindow.h password_manager_autogen/include/ui_startwindow.h | ${cmake_ninja_workdir}CMakeFiles/password_manager_autogen ${cmake_ninja_workdir}password_manager_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}password_manager_autogen/include/ui_startwindow.h: phony password_manager_autogen/timestamp || password_manager_autogen_timestamp_deps
+build CMakeFiles/password_manager_autogen password_manager_autogen/include/ui_mainwindow.h password_manager_autogen/include/ui_startwindow.h password_manager_autogen/include/ui_loginwindow.h | ${cmake_ninja_workdir}CMakeFiles/password_manager_autogen ${cmake_ninja_workdir}password_manager_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}password_manager_autogen/include/ui_startwindow.h ${cmake_ninja_workdir}password_manager_autogen/include/ui_loginwindow.h: phony password_manager_autogen/timestamp || password_manager_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

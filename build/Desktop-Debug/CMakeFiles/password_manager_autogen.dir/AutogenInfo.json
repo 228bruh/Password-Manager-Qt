@@ -393,6 +393,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/kirill/qt creator/password_manager/loginwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_loginwindow.cpp",
+			null
+		],
+		[
 			"/home/kirill/qt creator/password_manager/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -462,6 +468,11 @@
 	"SETTINGS_FILE" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug/CMakeFiles/password_manager_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/home/kirill/qt creator/password_manager/loginwindow.cpp",
+			"MU",
+			null
+		],
 		[ "/home/kirill/qt creator/password_manager/main.cpp", "MU", null ],
 		[ "/home/kirill/qt creator/password_manager/mainwindow.cpp", "MU", null ],
 		[

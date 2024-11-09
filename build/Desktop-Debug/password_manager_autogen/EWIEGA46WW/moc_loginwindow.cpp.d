@@ -1,4 +1,4 @@
-/home/kirill/qt\ creator/password_manager/build/Desktop-Debug/password_manager_autogen/EWIEGA46WW/moc_startwindow.cpp: /home/kirill/qt\ creator/password_manager/startwindow.h \
+/home/kirill/qt\ creator/password_manager/build/Desktop-Debug/password_manager_autogen/EWIEGA46WW/moc_loginwindow.cpp: /home/kirill/qt\ creator/password_manager/loginwindow.h \
   /home/kirill/qt\ creator/password_manager/build/Desktop-Debug/password_manager_autogen/moc_predefs.h \
   /app/lib/clang/18/include/__stdarg___gnuc_va_list.h \
   /app/lib/clang/18/include/__stddef_max_align_t.h \
@@ -11,9 +11,7 @@
   /app/lib/clang/18/include/stdarg.h \
   /app/lib/clang/18/include/stdbool.h \
   /app/lib/clang/18/include/stddef.h \
-  /usr/include/QtCore/QCryptographicHash \
   /usr/include/QtCore/QFile \
-  /usr/include/QtCore/QTextStream \
   /usr/include/QtCore/q20functional.h \
   /usr/include/QtCore/q20memory.h \
   /usr/include/QtCore/q20type_traits.h \
@@ -43,7 +41,6 @@
   /usr/include/QtCore/qcontainerinfo.h \
   /usr/include/QtCore/qcontainertools_impl.h \
   /usr/include/QtCore/qcontiguouscache.h \
-  /usr/include/QtCore/qcryptographichash.h \
   /usr/include/QtCore/qdarwinhelpers.h \
   /usr/include/QtCore/qdatastream.h \
   /usr/include/QtCore/qdebug.h \

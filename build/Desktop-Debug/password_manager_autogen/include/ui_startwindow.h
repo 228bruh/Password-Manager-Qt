@@ -302,18 +302,18 @@ public:
 
     void retranslateUi(QWidget *Startwindow)
     {
-        Startwindow->setWindowTitle(QCoreApplication::translate("Startwindow", "Password Manager - Log in", nullptr));
-        label_8->setText(QCoreApplication::translate("Startwindow", "Username", nullptr));
+        Startwindow->setWindowTitle(QCoreApplication::translate("Startwindow", "Password Manager - Welcome", nullptr));
+        label_8->setText(QCoreApplication::translate("Startwindow", " Username", nullptr));
         createUsername->setText(QString());
-        label_9->setText(QCoreApplication::translate("Startwindow", "Password", nullptr));
-        label_10->setText(QCoreApplication::translate("Startwindow", "Confirm password", nullptr));
+        label_9->setText(QCoreApplication::translate("Startwindow", " Password", nullptr));
+        label_10->setText(QCoreApplication::translate("Startwindow", " Confirm password", nullptr));
         label_3->setText(QCoreApplication::translate("Startwindow", "Log in", nullptr));
         label->setText(QCoreApplication::translate("Startwindow", "Create account", nullptr));
         loginButton->setText(QCoreApplication::translate("Startwindow", "Log in", nullptr));
         CAwarningMsgLabel->setText(QString());
-        label_5->setText(QCoreApplication::translate("Startwindow", "Password", nullptr));
+        label_5->setText(QCoreApplication::translate("Startwindow", " Password", nullptr));
         createButton->setText(QCoreApplication::translate("Startwindow", "Create", nullptr));
-        label_4->setText(QCoreApplication::translate("Startwindow", "Username", nullptr));
+        label_4->setText(QCoreApplication::translate("Startwindow", " Username", nullptr));
         LIwarningMsgLabel->setText(QString());
         label_6->setText(QCoreApplication::translate("Startwindow", "Welcome to Password Manager", nullptr));
         label_2->setText(QString());
