@@ -1,6 +1,7 @@
 #include "loginwindow.h"
 #include "mainwindow.h"
 #include "startwindow.h"
+#include "accountsmanager.h"
 #include "ui_loginwindow.h"
 
 Loginwindow::Loginwindow(QWidget *parent) : QWidget(parent), ui(new Ui::Loginwindow) {
@@ -12,47 +13,23 @@ Loginwindow::~Loginwindow() {
 }
 
 void Loginwindow::setUsername() {
-    QFile file("accounts");
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    AccountsManager accountsManager;
 
-    QTextStream in(&file);
-    if (in.atEnd()) {
-        file.close();
-        QMessageBox::warning(this, "Error", "The accounts file is empty or corrupt");
+    index = accountsManager.getIndex();
+    if (index < 0) {
+        QMessageBox::warning(this, "Error", "Invalid or missing index in the accounts file");
+        ui->welcomeLabel->setText("Welcome back, User");
         return;
     }
 
-    QString firstLine = in.readLine();
-    index = firstLine.toInt();
-
-    if (index <= 0) {
-        file.close();
-        QMessageBox::warning(this, "Error", "Invalid index in the accounts file");
-        return;
-    }
-
-    int currentLine = 1;
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        if (currentLine == index) {
-            QStringList parts = line.split(" ");
-            if (parts.size() >= 1) {
-                username = parts[0];
-            }
-            break;
-        }
-        ++currentLine;
-    }
-
-    file.close();
-
-    if (!username.isEmpty()) {
+    QString extractedUsername = accountsManager.getUsernameByIndex(index);
+    if (!extractedUsername.isEmpty()) {
+        username = extractedUsername;
         ui->welcomeLabel->setText("Welcome back, " + username);
     } else {
         ui->welcomeLabel->setText("Welcome back, User");
     }
 }
-
 
 void Loginwindow::on_showLIpass_stateChanged(int state) {
     if (state == Qt::Checked) {
@@ -65,6 +42,8 @@ void Loginwindow::on_showLIpass_stateChanged(int state) {
 }
 
 void Loginwindow::on_loginButton_clicked() {
+    AccountsManager accountsManager;
+
     QString password = ui->loginPassword->text();
 
     if (password.isEmpty()) {
@@ -72,26 +51,13 @@ void Loginwindow::on_loginButton_clicked() {
         return;
     }
 
-    QFile file("accounts");
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-
-    QTextStream in(&file);
     QByteArray passwordHash = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-    QStringList lines;
+    QString storedUsername = accountsManager.getUsernameByIndex(index);
 
-    while (!in.atEnd()) {
-        lines.append(in.readLine());
-    }
-    file.close();
-
-    QString line = lines.at(index);
-    QStringList parts = line.split(" ");
-    QString storedUsername = parts[0];
-    QString storedHash = parts[1];
-
-    if (storedHash == passwordHash.toHex()) {
+    int foundIndex = accountsManager.findUser(storedUsername, passwordHash);
+    if (foundIndex == index) {
         MainWindow *mainWindow = new MainWindow();
-        mainWindow->setUsername(username);
+        mainWindow->setUsername(storedUsername);
         mainWindow->show();
         close();
     } else {
@@ -100,30 +66,11 @@ void Loginwindow::on_loginButton_clicked() {
 }
 
 void Loginwindow::on_logoutButton_clicked() {
-    QFile file("accounts");
-    file.open(QIODevice::ReadWrite | QIODevice::Text);
+    AccountsManager accountsManager;
 
-    QStringList lines;
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        lines.append(in.readLine());
-    }
-    file.close();
-
-    if (!lines.isEmpty()) {
-        lines[0] = QString::number(0);
-    }
-
-    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream out(&file);
-        for (const QString &line : lines) {
-            out << line << "\n";
-        }
-        file.close();
-    }
+    accountsManager.updateRememberedUser(0);
 
     Startwindow *startwindow = new Startwindow();
     startwindow->show();
     close();
 }
-

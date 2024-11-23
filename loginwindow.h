@@ -12,14 +12,15 @@ class Loginwindow;
 class Loginwindow : public QWidget {
     Q_OBJECT
 
+private:
+    QString username;
+    int index;
+
 public:
     explicit Loginwindow(QWidget *parent = nullptr);
     ~Loginwindow();
 
     void setUsername();
-
-    int index;
-    QString username;
 
 private slots:
     void on_showLIpass_stateChanged(int state);

@@ -126,6 +126,13 @@ public:
         logoutButton = new QPushButton(Loginwindow);
         logoutButton->setObjectName("logoutButton");
         logoutButton->setGeometry(QRect(370, 230, 101, 31));
+        QPalette palette;
+        QBrush brush(QColor(255, 0, 0, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        logoutButton->setPalette(palette);
         logoutButton->setFont(font1);
         QWidget::setTabOrder(loginPassword, loginButton);
         QWidget::setTabOrder(loginButton, logoutButton);

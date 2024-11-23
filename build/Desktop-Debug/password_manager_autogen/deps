@@ -11,6 +11,8 @@ password_manager_autogen/timestamp: \
 	/app/lib/clang/18/include/stdbool.h \
 	/app/lib/clang/18/include/stddef.h \
 	/home/kirill/qt\ creator/password_manager/CMakeLists.txt \
+	/home/kirill/qt\ creator/password_manager/accountsmanager.cpp \
+	/home/kirill/qt\ creator/password_manager/accountsmanager.h \
 	/home/kirill/qt\ creator/password_manager/build/Desktop-Debug/.qtc/package-manager/auto-setup.cmake \
 	/home/kirill/qt\ creator/password_manager/build/Desktop-Debug/CMakeFiles/3.29.8/CMakeCXXCompiler.cmake \
 	/home/kirill/qt\ creator/password_manager/build/Desktop-Debug/CMakeFiles/3.29.8/CMakeSystem.cmake \

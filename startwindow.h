@@ -18,10 +18,6 @@ public:
     explicit Startwindow(QWidget *parent = nullptr);
     ~Startwindow();
 
-    void initializeFile();
-
-    void updateRememberedUser(int lineIndex);
-
 private slots:
     void on_createButton_clicked();
 

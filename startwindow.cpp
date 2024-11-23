@@ -1,6 +1,7 @@
 #include "startwindow.h"
 #include "ui_startwindow.h"
 #include "mainwindow.h"
+#include "accountsmanager.h"
 
 Startwindow::Startwindow(QWidget *parent) : QWidget(parent), ui(new Ui::Startwindow) {
     ui->setupUi(this);
@@ -10,32 +11,9 @@ Startwindow::~Startwindow() {
     delete ui;
 }
 
-void Startwindow::updateRememberedUser(int lineIndex) {
-    QFile file("accounts");
-    file.open(QIODevice::ReadWrite | QIODevice::Text);
-
-    QStringList lines;
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        lines.append(in.readLine());
-    }
-    file.close();
-
-    if (!lines.isEmpty()) {
-        lines[0] = QString::number(lineIndex);
-    }
-
-    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QTextStream out(&file);
-        for (const QString &line : lines) {
-            out << line << "\n";
-        }
-        file.close();
-    }
-}
-
-
 void Startwindow::on_createButton_clicked() {
+    AccountsManager accountsManager;
+
     QString username = ui->createUsername->text();
     QString password = ui->createPassword->text();
     QString confirmPassword = ui->confirmCreatePassword->text();
@@ -50,32 +28,26 @@ void Startwindow::on_createButton_clicked() {
         return;
     }
 
-    if (password.length() < 4) {
-        ui->CAwarningMsgLabel->setText(" The password must contain at least 4 characters");
+    if (username.length() < 3) {
+        ui->CAwarningMsgLabel->setText(" Username must contain at least 3 characters");
         return;
     }
 
-    QFile file("accounts");
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-
-    QTextStream in(&file);
-    int lineCount = 0;
-    while (!in.atEnd()) {
-        in.readLine();
-        ++lineCount;
+    if (password.length() < 4) {
+        ui->CAwarningMsgLabel->setText(" Password must contain at least 4 characters");
+        return;
     }
-    file.close();
+
+    if (accountsManager.userExists(username)) {
+        ui->CAwarningMsgLabel->setText(" This username is already taken");
+        return;
+    }
 
     QByteArray passwordHash = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-
-    file.open(QIODevice::Append | QIODevice::Text);
-
-    QTextStream out(&file);
-    out << username << " " << passwordHash.toHex() << "\n";
-    file.close();
+    accountsManager.addAccount(username, passwordHash.toHex());
 
     if (ui->rememberMeCheckBox->isChecked()) {
-        updateRememberedUser(lineCount);
+        accountsManager.updateRememberedUser(accountsManager.newIndex());
     }
 
     MainWindow *mainWindow = new MainWindow();
@@ -94,40 +66,24 @@ void Startwindow::on_loginButton_clicked() {
         return;
     }
 
-    QFile file("accounts");
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    AccountsManager accountsManager("accounts");
 
-    QTextStream in(&file);
     QByteArray passwordHash = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
-    int lineIndex = - 1;
+    int lineIndex = accountsManager.findUser(username, passwordHash);
 
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        ++lineIndex;
-        QStringList parts = line.split(" ");
-        if (parts.size() == 2 && parts[0] == username) {
-            if (parts[1] == passwordHash.toHex()) {
-                file.close();
-
-                if (ui->rememberMeCheckBox->isChecked()) {
-                    updateRememberedUser(lineIndex);
-                }
-
-                MainWindow *mainWindow = new MainWindow();
-                mainWindow->setUsername(username);
-                mainWindow->show();
-                close();
-                return;
-            } else {
-                break;
-            }
+    if (lineIndex != -1) {
+        if (ui->rememberMeCheckBox->isChecked()) {
+            accountsManager.updateRememberedUser(lineIndex);
         }
+
+        MainWindow *mainWindow = new MainWindow();
+        mainWindow->setUsername(username);
+        mainWindow->show();
+        close();
+    } else {
+        ui->LIwarningMsgLabel->setText(" Invalid username or password");
     }
-    file.close();
-
-    ui->LIwarningMsgLabel->setText(" Invalid username or password");
 }
-
 
 void Startwindow::on_showLIpass_stateChanged(int state) {
     if (state == Qt::Checked) {
