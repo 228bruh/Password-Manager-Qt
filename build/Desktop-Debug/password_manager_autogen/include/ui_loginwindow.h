@@ -88,6 +88,7 @@ public:
         font3.setPointSize(10);
         font3.setBold(false);
         loginPassword->setFont(font3);
+        loginPassword->setMaxLength(50);
         loginPassword->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout_2->addWidget(loginPassword);

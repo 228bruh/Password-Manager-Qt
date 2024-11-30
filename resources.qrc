@@ -3,5 +3,6 @@
         <file>resources/password-manager.png</file>
         <file>resources/hide.png</file>
         <file>resources/show.png</file>
+        <file>resources/padlock.png</file>
     </qresource>
 </RCC>

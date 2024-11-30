@@ -4,12 +4,14 @@
 
 #include <QApplication>
 
+#include "mainwindow.h" // temp
+
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
     AccountsManager accountsManager;
     accountsManager.initializeFile();
-
+///*
     Startwindow startwindow;
     Loginwindow loginwindow;
 
@@ -20,6 +22,9 @@ int main(int argc, char *argv[]) {
         loginwindow.setUsername();
         loginwindow.show();
     }
+//*/
+    //MainWindow *mainWindow = new MainWindow();
+    //mainWindow->show();
 
     return a.exec();
 }

@@ -94,6 +94,7 @@ public:
         font1.setPointSize(10);
         font1.setBold(false);
         createUsername->setFont(font1);
+        createUsername->setMaxLength(50);
 
         verticalLayout_3->addWidget(createUsername);
 
@@ -113,6 +114,7 @@ public:
         createPassword = new QLineEdit(verticalLayoutWidget_4);
         createPassword->setObjectName("createPassword");
         createPassword->setFont(font1);
+        createPassword->setMaxLength(50);
         createPassword->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout_4->addWidget(createPassword);
@@ -127,6 +129,7 @@ public:
         confirmCreatePassword = new QLineEdit(verticalLayoutWidget_4);
         confirmCreatePassword->setObjectName("confirmCreatePassword");
         confirmCreatePassword->setFont(font1);
+        confirmCreatePassword->setMaxLength(50);
         confirmCreatePassword->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout_4->addWidget(confirmCreatePassword);
@@ -186,6 +189,7 @@ public:
         loginPassword = new QLineEdit(verticalLayoutWidget_2);
         loginPassword->setObjectName("loginPassword");
         loginPassword->setFont(font1);
+        loginPassword->setMaxLength(50);
         loginPassword->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout_2->addWidget(loginPassword);
@@ -210,6 +214,7 @@ public:
         loginUsername = new QLineEdit(verticalLayoutWidget);
         loginUsername->setObjectName("loginUsername");
         loginUsername->setFont(font1);
+        loginUsername->setMaxLength(50);
 
         verticalLayout->addWidget(loginUsername);
 
