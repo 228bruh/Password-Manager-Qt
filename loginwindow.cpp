@@ -31,17 +31,7 @@ void Loginwindow::setUsername() {
     }
 }
 
-void Loginwindow::on_showLIpass_stateChanged(int state) {
-    if (state == Qt::Checked) {
-        ui->loginPassword->setEchoMode(QLineEdit::Normal);
-        ui->showLIpass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
-    } else {
-        ui->loginPassword->setEchoMode(QLineEdit::Password);
-        ui->showLIpass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
-    }
-}
-
-void Loginwindow::on_loginButton_clicked() {
+void Loginwindow::login() {
     AccountsManager accountsManager;
 
     QString password = ui->loginPassword->text();
@@ -65,6 +55,14 @@ void Loginwindow::on_loginButton_clicked() {
     }
 }
 
+void Loginwindow::on_loginButton_clicked() {
+    login();
+}
+
+void Loginwindow::on_loginPassword_returnPressed() {
+    login();
+}
+
 void Loginwindow::on_logoutButton_clicked() {
     AccountsManager accountsManager;
 
@@ -73,4 +71,14 @@ void Loginwindow::on_logoutButton_clicked() {
     Startwindow *startwindow = new Startwindow();
     startwindow->show();
     close();
+}
+
+void Loginwindow::on_showLIpass_stateChanged(int state) {
+    if (state == Qt::Checked) {
+        ui->loginPassword->setEchoMode(QLineEdit::Normal);
+        ui->showLIpass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
+    } else {
+        ui->loginPassword->setEchoMode(QLineEdit::Password);
+        ui->showLIpass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+    }
 }

@@ -16,20 +16,13 @@ void MainWindow::setUsername(const QString &set_username) {
     setWindowTitle("Password Manager - " + username);
 }
 
-void MainWindow::on_logoutButton_clicked() {
-    AccountsManager accountsManager;
-
-    accountsManager.updateRememberedUser(0);
-
-    Startwindow *startwindow = new Startwindow();
-    startwindow->show();
-    close();
-}
-
+// my passwords
 void MainWindow::on_mypassButton_clicked() {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
+
+// password generator
 void MainWindow::on_genpassButton_clicked() {
     ui->stackedWidget->setCurrentIndex(1);
 }
@@ -43,7 +36,8 @@ void MainWindow::on_checkBox_custom_stateChanged(int state) {
 }
 
 void MainWindow::on_generateButton_clicked() {
-    QString charSet{""}, output{""};
+    QString charSet{""};
+    generatedPassword = "";
 
     if (ui->checkBox_custom->isChecked()) {
         charSet += ui->customCS->text();
@@ -63,51 +57,34 @@ void MainWindow::on_generateButton_clicked() {
 
     if (charSet != "") {
         for (int i = 0; i < ui->spinBox->value(); i++) {
-            output += charSet.at(rand() % (int)charSet.length());
+            generatedPassword += charSet.at(rand() % (int)charSet.length());
         }
 
-        ui->textEdit->append(output);
+        ui->textEdit->append(generatedPassword);
     }
 }
 
+void MainWindow::on_copyGenPassButton_clicked() {
+    if (!generatedPassword.isEmpty()) {
+        QClipboard *clipboard = QApplication::clipboard();
+        clipboard->setText(generatedPassword);
+        ui->copiedLabel->setText(" Password copied to clipboard");
+        QTimer::singleShot(3000, this, [this]() {ui->copiedLabel->clear();});
+    }
+}
 
+void MainWindow::on_clearButton_clicked() {
+    ui->textEdit->setText("");
+    generatedPassword = "";
+}
 
+// logout
+void MainWindow::on_logoutButton_clicked() {
+    AccountsManager accountsManager;
 
+    accountsManager.updateRememberedUser(0);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Startwindow *startwindow = new Startwindow();
+    startwindow->show();
+    close();
+}

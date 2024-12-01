@@ -11,6 +11,7 @@
   /app/lib/clang/18/include/stdarg.h \
   /app/lib/clang/18/include/stdbool.h \
   /app/lib/clang/18/include/stddef.h \
+  /usr/include/QtCore/QTimer \
   /usr/include/QtCore/q20functional.h \
   /usr/include/QtCore/q20memory.h \
   /usr/include/QtCore/q20type_traits.h \
@@ -24,6 +25,7 @@
   /usr/include/QtCore/qatomic.h \
   /usr/include/QtCore/qatomic_cxx11.h \
   /usr/include/QtCore/qbasicatomic.h \
+  /usr/include/QtCore/qbasictimer.h \
   /usr/include/QtCore/qbindingstorage.h \
   /usr/include/QtCore/qbytearray.h \
   /usr/include/QtCore/qbytearrayalgorithms.h \
@@ -112,6 +114,7 @@
   /usr/include/QtCore/qtdeprecationmarkers.h \
   /usr/include/QtCore/qtenvironmentvariables.h \
   /usr/include/QtCore/qtextstream.h \
+  /usr/include/QtCore/qtimer.h \
   /usr/include/QtCore/qtmetamacros.h \
   /usr/include/QtCore/qtnoop.h \
   /usr/include/QtCore/qtpreprocessorsupport.h \
@@ -128,9 +131,11 @@
   /usr/include/QtCore/qversiontagging.h \
   /usr/include/QtCore/qxptype_traits.h \
   /usr/include/QtCore/qyieldcpu.h \
+  /usr/include/QtGui/QClipboard \
   /usr/include/QtGui/qaction.h \
   /usr/include/QtGui/qbitmap.h \
   /usr/include/QtGui/qbrush.h \
+  /usr/include/QtGui/qclipboard.h \
   /usr/include/QtGui/qcolor.h \
   /usr/include/QtGui/qcursor.h \
   /usr/include/QtGui/qfont.h \

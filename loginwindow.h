@@ -22,12 +22,15 @@ public:
 
     void setUsername();
 
-private slots:
-    void on_showLIpass_stateChanged(int state);
+    void login();
 
+private slots:
     void on_loginButton_clicked();
+    void on_loginPassword_returnPressed();
 
     void on_logoutButton_clicked();
+
+    void on_showLIpass_stateChanged(int state);
 
 private:
     Ui::Loginwindow *ui;

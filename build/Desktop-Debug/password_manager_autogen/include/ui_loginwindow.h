@@ -128,7 +128,7 @@ public:
         logoutButton->setObjectName("logoutButton");
         logoutButton->setGeometry(QRect(370, 230, 101, 31));
         QPalette palette;
-        QBrush brush(QColor(255, 0, 0, 255));
+        QBrush brush(QColor(49, 54, 59, 255));
         brush.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Button, brush);
         palette.setBrush(QPalette::Inactive, QPalette::Button, brush);

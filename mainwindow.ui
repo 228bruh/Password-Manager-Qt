@@ -12,8 +12,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
-    <height>600</height>
+    <width>1150</width>
+    <height>780</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -30,7 +30,7 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>-20</y>
+      <y>0</y>
       <width>911</width>
       <height>781</height>
      </rect>
@@ -103,11 +103,14 @@
          <property name="frame">
           <bool>false</bool>
          </property>
+         <property name="minimum">
+          <number>4</number>
+         </property>
          <property name="maximum">
           <number>50</number>
          </property>
          <property name="value">
-          <number>8</number>
+          <number>12</number>
          </property>
         </widget>
        </item>
@@ -145,14 +148,20 @@
        <item>
         <widget class="QCheckBox" name="checkBox_123">
          <property name="text">
-          <string>123</string>
+          <string>0 - 9</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="checkBox_SC">
          <property name="text">
-          <string>@$%</string>
+          <string>!@#$%</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -171,14 +180,20 @@
        <item>
         <widget class="QCheckBox" name="checkBox_abc">
          <property name="text">
-          <string>abc</string>
+          <string>a - z</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="checkBox_ABC">
          <property name="text">
-          <string>ABC</string>
+          <string>A - Z</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -223,7 +238,7 @@
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>390</y>
+        <y>410</y>
         <width>321</width>
         <height>151</height>
        </rect>
@@ -235,15 +250,15 @@
        <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
       </property>
       <property name="readOnly">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="Line" name="line_2">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>350</y>
-        <width>361</width>
+        <x>60</x>
+        <y>360</y>
+        <width>351</width>
         <height>20</height>
        </rect>
       </property>
@@ -255,8 +270,8 @@
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>560</y>
-        <width>121</width>
+        <y>580</y>
+        <width>161</width>
         <height>31</height>
        </rect>
       </property>
@@ -267,6 +282,179 @@
       </property>
       <property name="text">
        <string>Generate</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="copyGenPassButton">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>580</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Copy</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="clearButton">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>580</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Clear</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="copiedLabel">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>620</y>
+        <width>311</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>45</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use passwords that are &lt;span style=&quot; font-weight:700;&quot;&gt;at least 12 characters long.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::RichText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>65</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For enhanced security, consider using &lt;span style=&quot; font-weight:700;&quot;&gt;16 or more characters&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::RichText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>140</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A strong password should include a mix of:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::RichText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>200</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; - Uppercase letters (A - Z)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::RichText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>180</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;- Lowercase letters (a - z)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::RichText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>160</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;- Numbers (0 - 9)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::RichText</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>220</y>
+        <width>401</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;- Special characters (!@#$%^&amp;amp;*)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::TextFormat::RichText</enum>
       </property>
      </widget>
     </widget>
@@ -360,9 +548,9 @@
   </widget>
  </widget>
  <tabstops>
-  <tabstop>mypassButton</tabstop>
-  <tabstop>genpassButton</tabstop>
-  <tabstop>logoutButton</tabstop>
+  <tabstop>generateButton</tabstop>
+  <tabstop>copyGenPassButton</tabstop>
+  <tabstop>clearButton</tabstop>
   <tabstop>spinBox</tabstop>
   <tabstop>checkBox_123</tabstop>
   <tabstop>checkBox_abc</tabstop>
@@ -371,7 +559,9 @@
   <tabstop>checkBox_custom</tabstop>
   <tabstop>customCS</tabstop>
   <tabstop>textEdit</tabstop>
-  <tabstop>generateButton</tabstop>
+  <tabstop>mypassButton</tabstop>
+  <tabstop>genpassButton</tabstop>
+  <tabstop>logoutButton</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>

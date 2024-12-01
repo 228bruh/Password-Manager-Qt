@@ -18,15 +18,18 @@ public:
     explicit Startwindow(QWidget *parent = nullptr);
     ~Startwindow();
 
+    void createAccount();
+    void login();
+
 private slots:
     void on_createButton_clicked();
+    void on_confirmCreatePassword_returnPressed();
 
     void on_loginButton_clicked();
+    void on_loginPassword_returnPressed();
 
     void on_showLIpass_stateChanged(int state);
-
     void on_showCApass_stateChanged(int state);
-
     void on_showCAconfpass_stateChanged(int state);
 
 private:

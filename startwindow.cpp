@@ -11,7 +11,7 @@ Startwindow::~Startwindow() {
     delete ui;
 }
 
-void Startwindow::on_createButton_clicked() {
+void Startwindow::createAccount() {
     AccountsManager accountsManager;
 
     QString username = ui->createUsername->text();
@@ -57,7 +57,7 @@ void Startwindow::on_createButton_clicked() {
     close();
 }
 
-void Startwindow::on_loginButton_clicked() {
+void Startwindow::login() {
     QString username = ui->loginUsername->text();
     QString password = ui->loginPassword->text();
 
@@ -83,6 +83,22 @@ void Startwindow::on_loginButton_clicked() {
     } else {
         ui->LIwarningMsgLabel->setText(" Invalid username or password");
     }
+}
+
+void Startwindow::on_createButton_clicked() {
+   createAccount();
+}
+
+void Startwindow::on_confirmCreatePassword_returnPressed() {
+    createAccount();
+}
+
+void Startwindow::on_loginButton_clicked() {
+    login();
+}
+
+void Startwindow::on_loginPassword_returnPressed() {
+    login();
 }
 
 void Startwindow::on_showLIpass_stateChanged(int state) {

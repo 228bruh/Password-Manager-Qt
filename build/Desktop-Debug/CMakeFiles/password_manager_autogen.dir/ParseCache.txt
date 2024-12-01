@@ -14,6 +14,7 @@
  mdp:/app/lib/clang/18/include/stddef.h
  mdp:/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/moc_predefs.h
  mdp:/home/kirill/qt creator/password_manager/mainwindow.h
+ mdp:/usr/include/QtCore/QTimer
  mdp:/usr/include/QtCore/q20functional.h
  mdp:/usr/include/QtCore/q20memory.h
  mdp:/usr/include/QtCore/q20type_traits.h
@@ -27,6 +28,7 @@
  mdp:/usr/include/QtCore/qatomic.h
  mdp:/usr/include/QtCore/qatomic_cxx11.h
  mdp:/usr/include/QtCore/qbasicatomic.h
+ mdp:/usr/include/QtCore/qbasictimer.h
  mdp:/usr/include/QtCore/qbindingstorage.h
  mdp:/usr/include/QtCore/qbytearray.h
  mdp:/usr/include/QtCore/qbytearrayalgorithms.h
@@ -115,6 +117,7 @@
  mdp:/usr/include/QtCore/qtdeprecationmarkers.h
  mdp:/usr/include/QtCore/qtenvironmentvariables.h
  mdp:/usr/include/QtCore/qtextstream.h
+ mdp:/usr/include/QtCore/qtimer.h
  mdp:/usr/include/QtCore/qtmetamacros.h
  mdp:/usr/include/QtCore/qtnoop.h
  mdp:/usr/include/QtCore/qtpreprocessorsupport.h
@@ -131,9 +134,11 @@
  mdp:/usr/include/QtCore/qversiontagging.h
  mdp:/usr/include/QtCore/qxptype_traits.h
  mdp:/usr/include/QtCore/qyieldcpu.h
+ mdp:/usr/include/QtGui/QClipboard
  mdp:/usr/include/QtGui/qaction.h
  mdp:/usr/include/QtGui/qbitmap.h
  mdp:/usr/include/QtGui/qbrush.h
+ mdp:/usr/include/QtGui/qclipboard.h
  mdp:/usr/include/QtGui/qcolor.h
  mdp:/usr/include/QtGui/qcursor.h
  mdp:/usr/include/QtGui/qfont.h

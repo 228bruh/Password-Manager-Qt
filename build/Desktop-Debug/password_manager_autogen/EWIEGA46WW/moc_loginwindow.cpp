@@ -36,11 +36,12 @@ namespace {
 struct qt_meta_stringdata_CLASSLoginwindowENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSLoginwindowENDCLASS = QtMocHelpers::stringData(
     "Loginwindow",
-    "on_showLIpass_stateChanged",
-    "",
-    "state",
     "on_loginButton_clicked",
-    "on_logoutButton_clicked"
+    "",
+    "on_loginPassword_returnPressed",
+    "on_logoutButton_clicked",
+    "on_showLIpass_stateChanged",
+    "state"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -53,7 +54,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSLoginwindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,14 +62,16 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSLoginwindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   32,    2, 0x08,    1 /* Private */,
-       4,    0,   35,    2, 0x08,    3 /* Private */,
-       5,    0,   36,    2, 0x08,    4 /* Private */,
+       1,    0,   38,    2, 0x08,    1 /* Private */,
+       3,    0,   39,    2, 0x08,    2 /* Private */,
+       4,    0,   40,    2, 0x08,    3 /* Private */,
+       5,    1,   41,    2, 0x08,    4 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    6,
 
        0        // eod
 };
@@ -82,13 +85,15 @@ Q_CONSTINIT const QMetaObject Loginwindow::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSLoginwindowENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<Loginwindow, std::true_type>,
-        // method 'on_showLIpass_stateChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_loginButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_loginPassword_returnPressed'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_logoutButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_showLIpass_stateChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
 } };
@@ -99,9 +104,10 @@ void Loginwindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         auto *_t = static_cast<Loginwindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_showLIpass_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 1: _t->on_loginButton_clicked(); break;
+        case 0: _t->on_loginButton_clicked(); break;
+        case 1: _t->on_loginPassword_returnPressed(); break;
         case 2: _t->on_logoutButton_clicked(); break;
+        case 3: _t->on_showLIpass_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     }
@@ -126,13 +132,13 @@ int Loginwindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }
