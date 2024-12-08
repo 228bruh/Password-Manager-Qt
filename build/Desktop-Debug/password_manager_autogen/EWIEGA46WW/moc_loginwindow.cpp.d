@@ -11,7 +11,6 @@
   /app/lib/clang/18/include/stdarg.h \
   /app/lib/clang/18/include/stdbool.h \
   /app/lib/clang/18/include/stddef.h \
-  /usr/include/QtCore/QFile \
   /usr/include/QtCore/q20functional.h \
   /usr/include/QtCore/q20memory.h \
   /usr/include/QtCore/q20type_traits.h \
@@ -46,8 +45,6 @@
   /usr/include/QtCore/qdebug.h \
   /usr/include/QtCore/qendian.h \
   /usr/include/QtCore/qexceptionhandling.h \
-  /usr/include/QtCore/qfile.h \
-  /usr/include/QtCore/qfiledevice.h \
   /usr/include/QtCore/qflags.h \
   /usr/include/QtCore/qfloat16.h \
   /usr/include/QtCore/qforeach.h \
@@ -58,7 +55,6 @@
   /usr/include/QtCore/qglobalstatic.h \
   /usr/include/QtCore/qhash.h \
   /usr/include/QtCore/qhashfunctions.h \
-  /usr/include/QtCore/qiodevice.h \
   /usr/include/QtCore/qiodevicebase.h \
   /usr/include/QtCore/qiterable.h \
   /usr/include/QtCore/qiterator.h \
@@ -156,11 +152,7 @@
   /usr/include/QtGui/qtguiglobal.h \
   /usr/include/QtGui/qtransform.h \
   /usr/include/QtGui/qwindowdefs.h \
-  /usr/include/QtWidgets/QMessageBox \
   /usr/include/QtWidgets/QWidget \
-  /usr/include/QtWidgets/qdialog.h \
-  /usr/include/QtWidgets/qdialogbuttonbox.h \
-  /usr/include/QtWidgets/qmessagebox.h \
   /usr/include/QtWidgets/qsizepolicy.h \
   /usr/include/QtWidgets/qtwidgets-config.h \
   /usr/include/QtWidgets/qtwidgetsexports.h \
@@ -183,14 +175,11 @@
   /usr/include/c++/13.2.0/bits/allocator.h \
   /usr/include/c++/13.2.0/bits/atomic_base.h \
   /usr/include/c++/13.2.0/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/13.2.0/bits/basic_ios.h \
-  /usr/include/c++/13.2.0/bits/basic_ios.tcc \
   /usr/include/c++/13.2.0/bits/basic_string.h \
   /usr/include/c++/13.2.0/bits/basic_string.tcc \
   /usr/include/c++/13.2.0/bits/char_traits.h \
   /usr/include/c++/13.2.0/bits/charconv.h \
   /usr/include/c++/13.2.0/bits/chrono.h \
-  /usr/include/c++/13.2.0/bits/codecvt.h \
   /usr/include/c++/13.2.0/bits/concept_check.h \
   /usr/include/c++/13.2.0/bits/cpp_type_traits.h \
   /usr/include/c++/13.2.0/bits/cxxabi_forced.h \
@@ -200,10 +189,6 @@
   /usr/include/c++/13.2.0/bits/exception.h \
   /usr/include/c++/13.2.0/bits/exception_defines.h \
   /usr/include/c++/13.2.0/bits/exception_ptr.h \
-  /usr/include/c++/13.2.0/bits/fs_dir.h \
-  /usr/include/c++/13.2.0/bits/fs_fwd.h \
-  /usr/include/c++/13.2.0/bits/fs_ops.h \
-  /usr/include/c++/13.2.0/bits/fs_path.h \
   /usr/include/c++/13.2.0/bits/functexcept.h \
   /usr/include/c++/13.2.0/bits/functional_hash.h \
   /usr/include/c++/13.2.0/bits/hash_bytes.h \
@@ -211,15 +196,9 @@
   /usr/include/c++/13.2.0/bits/hashtable_policy.h \
   /usr/include/c++/13.2.0/bits/invoke.h \
   /usr/include/c++/13.2.0/bits/ios_base.h \
-  /usr/include/c++/13.2.0/bits/istream.tcc \
   /usr/include/c++/13.2.0/bits/list.tcc \
   /usr/include/c++/13.2.0/bits/locale_classes.h \
   /usr/include/c++/13.2.0/bits/locale_classes.tcc \
-  /usr/include/c++/13.2.0/bits/locale_conv.h \
-  /usr/include/c++/13.2.0/bits/locale_facets.h \
-  /usr/include/c++/13.2.0/bits/locale_facets.tcc \
-  /usr/include/c++/13.2.0/bits/locale_facets_nonio.h \
-  /usr/include/c++/13.2.0/bits/locale_facets_nonio.tcc \
   /usr/include/c++/13.2.0/bits/localefwd.h \
   /usr/include/c++/13.2.0/bits/memory_resource.h \
   /usr/include/c++/13.2.0/bits/memoryfwd.h \
@@ -227,13 +206,11 @@
   /usr/include/c++/13.2.0/bits/nested_exception.h \
   /usr/include/c++/13.2.0/bits/new_allocator.h \
   /usr/include/c++/13.2.0/bits/node_handle.h \
-  /usr/include/c++/13.2.0/bits/ostream.tcc \
   /usr/include/c++/13.2.0/bits/ostream_insert.h \
   /usr/include/c++/13.2.0/bits/parse_numbers.h \
   /usr/include/c++/13.2.0/bits/postypes.h \
   /usr/include/c++/13.2.0/bits/predefined_ops.h \
   /usr/include/c++/13.2.0/bits/ptr_traits.h \
-  /usr/include/c++/13.2.0/bits/quoted_string.h \
   /usr/include/c++/13.2.0/bits/range_access.h \
   /usr/include/c++/13.2.0/bits/refwrap.h \
   /usr/include/c++/13.2.0/bits/requires_hosted.h \
@@ -241,7 +218,6 @@
   /usr/include/c++/13.2.0/bits/shared_ptr_atomic.h \
   /usr/include/c++/13.2.0/bits/shared_ptr_base.h \
   /usr/include/c++/13.2.0/bits/specfun.h \
-  /usr/include/c++/13.2.0/bits/sstream.tcc \
   /usr/include/c++/13.2.0/bits/std_abs.h \
   /usr/include/c++/13.2.0/bits/std_function.h \
   /usr/include/c++/13.2.0/bits/stl_algo.h \
@@ -282,7 +258,6 @@
   /usr/include/c++/13.2.0/climits \
   /usr/include/c++/13.2.0/clocale \
   /usr/include/c++/13.2.0/cmath \
-  /usr/include/c++/13.2.0/codecvt \
   /usr/include/c++/13.2.0/compare \
   /usr/include/c++/13.2.0/cstddef \
   /usr/include/c++/13.2.0/cstdint \
@@ -291,7 +266,6 @@
   /usr/include/c++/13.2.0/cstring \
   /usr/include/c++/13.2.0/ctime \
   /usr/include/c++/13.2.0/cwchar \
-  /usr/include/c++/13.2.0/cwctype \
   /usr/include/c++/13.2.0/debug/assertions.h \
   /usr/include/c++/13.2.0/debug/debug.h \
   /usr/include/c++/13.2.0/exception \
@@ -302,29 +276,22 @@
   /usr/include/c++/13.2.0/ext/numeric_traits.h \
   /usr/include/c++/13.2.0/ext/string_conversions.h \
   /usr/include/c++/13.2.0/ext/type_traits.h \
-  /usr/include/c++/13.2.0/filesystem \
   /usr/include/c++/13.2.0/functional \
   /usr/include/c++/13.2.0/initializer_list \
-  /usr/include/c++/13.2.0/iomanip \
-  /usr/include/c++/13.2.0/ios \
   /usr/include/c++/13.2.0/iosfwd \
-  /usr/include/c++/13.2.0/istream \
   /usr/include/c++/13.2.0/iterator \
   /usr/include/c++/13.2.0/limits \
   /usr/include/c++/13.2.0/list \
-  /usr/include/c++/13.2.0/locale \
   /usr/include/c++/13.2.0/map \
   /usr/include/c++/13.2.0/memory \
   /usr/include/c++/13.2.0/new \
   /usr/include/c++/13.2.0/numeric \
   /usr/include/c++/13.2.0/optional \
-  /usr/include/c++/13.2.0/ostream \
   /usr/include/c++/13.2.0/pstl/execution_defs.h \
   /usr/include/c++/13.2.0/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13.2.0/pstl/glue_memory_defs.h \
   /usr/include/c++/13.2.0/pstl/glue_numeric_defs.h \
   /usr/include/c++/13.2.0/ratio \
-  /usr/include/c++/13.2.0/sstream \
   /usr/include/c++/13.2.0/stdexcept \
   /usr/include/c++/13.2.0/streambuf \
   /usr/include/c++/13.2.0/string \
@@ -354,20 +321,15 @@
   /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/c++config.h \
   /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/c++locale.h \
   /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/cpu_defines.h \
-  /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/ctype_base.h \
-  /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/ctype_inline.h \
   /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/error_constants.h \
   /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/gthr-default.h \
   /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/gthr.h \
-  /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/messages_members.h \
   /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/os_defines.h \
-  /usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/time_members.h \
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
-  /usr/include/libintl.h \
   /usr/include/limits.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
@@ -382,7 +344,6 @@
   /usr/include/strings.h \
   /usr/include/time.h \
   /usr/include/wchar.h \
-  /usr/include/wctype.h \
   /usr/lib/x86_64-linux-gnu/include/asm/errno.h \
   /usr/lib/x86_64-linux-gnu/include/bits/atomic_wide_counter.h \
   /usr/lib/x86_64-linux-gnu/include/bits/byteswap.h \
@@ -446,7 +407,6 @@
   /usr/lib/x86_64-linux-gnu/include/bits/waitflags.h \
   /usr/lib/x86_64-linux-gnu/include/bits/waitstatus.h \
   /usr/lib/x86_64-linux-gnu/include/bits/wchar.h \
-  /usr/lib/x86_64-linux-gnu/include/bits/wctype-wchar.h \
   /usr/lib/x86_64-linux-gnu/include/bits/wordsize.h \
   /usr/lib/x86_64-linux-gnu/include/bits/xopen_lim.h \
   /usr/lib/x86_64-linux-gnu/include/gnu/stubs-64.h \

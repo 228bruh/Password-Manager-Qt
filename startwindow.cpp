@@ -4,6 +4,9 @@
 #include "accountsmanager.h"
 
 Startwindow::Startwindow(QWidget *parent) : QWidget(parent), ui(new Ui::Startwindow) {
+    QShortcut *shortcut = new QShortcut(QKeySequence("Ctrl+Q"), this);
+    connect(shortcut, &QShortcut::activated, qApp, &QApplication::quit);
+
     ui->setupUi(this);
 }
 
@@ -52,8 +55,12 @@ void Startwindow::createAccount() {
 
     MainWindow *mainWindow = new MainWindow();
     mainWindow->setUsername(username);
-    mainWindow->show();
 
+    ///////////////////////////////
+    mainWindow->loadTabsFromJson(); // replase later
+    ///////////////////////////////
+
+    mainWindow->show();
     close();
 }
 
@@ -78,6 +85,11 @@ void Startwindow::login() {
 
         MainWindow *mainWindow = new MainWindow();
         mainWindow->setUsername(username);
+
+        ///////////////////////////////
+        mainWindow->loadTabsFromJson(); // replase later
+        ///////////////////////////////
+
         mainWindow->show();
         close();
     } else {

@@ -5,6 +5,9 @@
 #include "ui_loginwindow.h"
 
 Loginwindow::Loginwindow(QWidget *parent) : QWidget(parent), ui(new Ui::Loginwindow) {
+    QShortcut *shortcut = new QShortcut(QKeySequence("Ctrl+Q"), this);
+    connect(shortcut, &QShortcut::activated, qApp, &QApplication::quit);
+
     ui->setupUi(this);
 }
 
@@ -48,6 +51,11 @@ void Loginwindow::login() {
     if (foundIndex == index) {
         MainWindow *mainWindow = new MainWindow();
         mainWindow->setUsername(storedUsername);
+
+        ///////////////////////////////
+        mainWindow->loadTabsFromJson(); // replase later
+        ///////////////////////////////
+
         mainWindow->show();
         close();
     } else {

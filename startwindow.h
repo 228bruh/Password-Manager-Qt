@@ -2,10 +2,6 @@
 #define STARTWINDOW_H
 
 #include <QWidget>
-#include <QFile>
-#include <QTextStream>
-#include <QMessageBox>
-#include <QCryptographicHash>
 
 namespace Ui {
 class Startwindow;

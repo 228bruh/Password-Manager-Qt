@@ -2,6 +2,11 @@
 
 AccountsManager::AccountsManager(const QString &fileName) : fileName(fileName) {}
 
+
+
+//////////////////////////////////////////////////////////////////////////////
+// ACCOUNTS file
+//////////////////////////////////////////////////////////////////////////////
 void AccountsManager::initializeFile() {
     QFile file(fileName);
     if (!file.exists()) {
@@ -65,6 +70,12 @@ void AccountsManager::addAccount(const QString &username, const QString &hashedP
     QTextStream out(&file);
     out << username << " " << hashedPassword << "\n";
     file.close();
+
+    QFile userFile(username + ".json");
+    if (!userFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::warning(nullptr, "Error", QString("Failed to create file for user: %1").arg(username));
+        return;
+    }
 }
 
 int AccountsManager::findUser(const QString &username, const QByteArray &hashedPassword) {
@@ -150,3 +161,38 @@ QString AccountsManager::getUsernameByIndex(int index) {
     file.close();
     return QString();
 }
+
+
+/*
+//////////////////////////////////////////////////////////////////////////////
+// .JSON file
+//////////////////////////////////////////////////////////////////////////////
+void AccountsManager::loadTabsFromJson() {
+    QString username = "user"; // Получите имя пользователя из подходящего места
+    QString fileName = username + ".json";
+
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly)) {
+        // Если файл отсутствует, ничего не делаем
+        return;
+    }
+
+    QByteArray data = file.readAll();
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    file.close();
+
+    if (!doc.isObject()) {
+        // Если структура файла неверная, ничего не делаем
+        return;
+    }
+
+    QJsonObject rootObject = doc.object();
+    QJsonObject categories = rootObject["categories"].toObject();
+
+    // Создаём вкладки для каждой категории
+    for (const QString &categoryName : categories.keys()) {
+        addCategoryTab(categoryName);
+    }
+}
+
+*/

@@ -20,6 +20,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -32,7 +33,17 @@ public:
     QWidget *centralwidget;
     QStackedWidget *stackedWidget;
     QWidget *page;
+    QTabWidget *tabWidget;
+    QWidget *All_tab;
+    QWidget *Edit_tab;
+    QPushButton *addTab_button;
     QLabel *label_2;
+    QLineEdit *tabName_lineEdit;
+    QLabel *label_12;
+    QFrame *line_3;
+    QLabel *label_13;
+    QLabel *addTab_label;
+    QPushButton *removeTab_button;
     QWidget *page_2;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
@@ -80,13 +91,65 @@ public:
         centralwidget->setObjectName("centralwidget");
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(240, 0, 911, 781));
+        stackedWidget->setGeometry(QRect(220, 0, 931, 781));
         stackedWidget->setMaximumSize(QSize(16777215, 16777215));
         page = new QWidget();
         page->setObjectName("page");
-        label_2 = new QLabel(page);
+        tabWidget = new QTabWidget(page);
+        tabWidget->setObjectName("tabWidget");
+        tabWidget->setGeometry(QRect(36, 115, 901, 671));
+        QFont font;
+        font.setBold(false);
+        tabWidget->setFont(font);
+        All_tab = new QWidget();
+        All_tab->setObjectName("All_tab");
+        tabWidget->addTab(All_tab, QString());
+        Edit_tab = new QWidget();
+        Edit_tab->setObjectName("Edit_tab");
+        addTab_button = new QPushButton(Edit_tab);
+        addTab_button->setObjectName("addTab_button");
+        addTab_button->setGeometry(QRect(40, 170, 161, 31));
+        QFont font1;
+        font1.setBold(true);
+        addTab_button->setFont(font1);
+        label_2 = new QLabel(Edit_tab);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(150, 260, 121, 51));
+        label_2->setGeometry(QRect(40, 40, 141, 31));
+        QFont font2;
+        font2.setPointSize(12);
+        font2.setBold(true);
+        label_2->setFont(font2);
+        tabName_lineEdit = new QLineEdit(Edit_tab);
+        tabName_lineEdit->setObjectName("tabName_lineEdit");
+        tabName_lineEdit->setGeometry(QRect(40, 120, 191, 26));
+        label_12 = new QLabel(Edit_tab);
+        label_12->setObjectName("label_12");
+        label_12->setGeometry(QRect(40, 100, 121, 18));
+        QFont font3;
+        font3.setPointSize(10);
+        font3.setBold(true);
+        label_12->setFont(font3);
+        line_3 = new QFrame(Edit_tab);
+        line_3->setObjectName("line_3");
+        line_3->setGeometry(QRect(435, 30, 20, 575));
+        line_3->setFrameShape(QFrame::Shape::VLine);
+        line_3->setFrameShadow(QFrame::Shadow::Sunken);
+        label_13 = new QLabel(Edit_tab);
+        label_13->setObjectName("label_13");
+        label_13->setGeometry(QRect(485, 40, 141, 31));
+        label_13->setFont(font2);
+        addTab_label = new QLabel(Edit_tab);
+        addTab_label->setObjectName("addTab_label");
+        addTab_label->setGeometry(QRect(40, 150, 311, 21));
+        QFont font4;
+        font4.setPointSize(8);
+        font4.setBold(false);
+        addTab_label->setFont(font4);
+        removeTab_button = new QPushButton(Edit_tab);
+        removeTab_button->setObjectName("removeTab_button");
+        removeTab_button->setGeometry(QRect(500, 160, 161, 31));
+        removeTab_button->setFont(font1);
+        tabWidget->addTab(Edit_tab, QString());
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
@@ -98,10 +161,7 @@ public:
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         label_3 = new QLabel(horizontalLayoutWidget);
         label_3->setObjectName("label_3");
-        QFont font;
-        font.setPointSize(12);
-        font.setBold(true);
-        label_3->setFont(font);
+        label_3->setFont(font2);
 
         horizontalLayout->addWidget(label_3);
 
@@ -120,7 +180,7 @@ public:
         label_4 = new QLabel(page_2);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(60, 130, 301, 31));
-        label_4->setFont(font);
+        label_4->setFont(font2);
         verticalLayoutWidget = new QWidget(page_2);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(60, 150, 91, 91));
@@ -162,7 +222,7 @@ public:
         checkBox_custom->setGeometry(QRect(60, 260, 151, 24));
         customCS = new QLineEdit(page_2);
         customCS->setObjectName("customCS");
-        customCS->setGeometry(QRect(60, 295, 171, 26));
+        customCS->setGeometry(QRect(60, 295, 191, 26));
         customCS->setMaxLength(50);
         customCS->setFrame(true);
         customCS->setDragEnabled(false);
@@ -181,8 +241,6 @@ public:
         generateButton = new QPushButton(page_2);
         generateButton->setObjectName("generateButton");
         generateButton->setGeometry(QRect(60, 580, 161, 31));
-        QFont font1;
-        font1.setBold(true);
         generateButton->setFont(font1);
         copyGenPassButton = new QPushButton(page_2);
         copyGenPassButton->setObjectName("copyGenPassButton");
@@ -195,9 +253,9 @@ public:
         copiedLabel = new QLabel(page_2);
         copiedLabel->setObjectName("copiedLabel");
         copiedLabel->setGeometry(QRect(60, 620, 311, 21));
-        QFont font2;
-        font2.setPointSize(8);
-        copiedLabel->setFont(font2);
+        QFont font5;
+        font5.setPointSize(8);
+        copiedLabel->setFont(font5);
         label_5 = new QLabel(page_2);
         label_5->setObjectName("label_5");
         label_5->setGeometry(QRect(470, 45, 401, 21));
@@ -229,7 +287,7 @@ public:
         stackedWidget->addWidget(page_2);
         line = new QFrame(centralwidget);
         line->setObjectName("line");
-        line->setGeometry(QRect(210, 38, 20, 701));
+        line->setGeometry(QRect(210, 28, 20, 721));
         line->setFrameShape(QFrame::Shape::VLine);
         line->setFrameShadow(QFrame::Shadow::Sunken);
         logoutButton = new QPushButton(centralwidget);
@@ -263,10 +321,15 @@ public:
         QWidget::setTabOrder(textEdit, mypassButton);
         QWidget::setTabOrder(mypassButton, genpassButton);
         QWidget::setTabOrder(genpassButton, logoutButton);
+        QWidget::setTabOrder(logoutButton, tabWidget);
+        QWidget::setTabOrder(tabWidget, tabName_lineEdit);
+        QWidget::setTabOrder(tabName_lineEdit, addTab_button);
+        QWidget::setTabOrder(addTab_button, removeTab_button);
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -274,7 +337,14 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        label_2->setText(QCoreApplication::translate("MainWindow", "My passwords", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(All_tab), QCoreApplication::translate("MainWindow", "All", nullptr));
+        addTab_button->setText(QCoreApplication::translate("MainWindow", "Add tab", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Add new tab", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", " Tab name", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "Edit tabs", nullptr));
+        addTab_label->setText(QString());
+        removeTab_button->setText(QCoreApplication::translate("MainWindow", "Remove last tab", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(Edit_tab), QCoreApplication::translate("MainWindow", "Edit", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Length:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Charset's:", nullptr));
         checkBox_123->setText(QCoreApplication::translate("MainWindow", "0 - 9", nullptr));

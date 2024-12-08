@@ -1,11 +1,23 @@
 #ifndef ACCOUNTSMANAGER_H
 #define ACCOUNTSMANAGER_H
 
+//#include "ui_mainwindow.h"
+//#include "mainwindow.h"
+
 #include <QString>
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
 #include <QCryptographicHash>
+#include <QShortcut>
+#include <QKeySequence>
+#include <QClipboard>
+#include <QTimer>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QVBoxLayout>
+
 
 class AccountsManager {
 private:
@@ -14,6 +26,7 @@ private:
 public:
     AccountsManager(const QString &fileName = "accounts");
 
+    // ACCOUNTS file
     void initializeFile();
 
     int getIndex();
@@ -29,6 +42,14 @@ public:
     int newIndex();
 
     QString getUsernameByIndex(int index);
+
+
+
+    // .JSON file
+    //void loadTabsFromJson();
+
+    //void addCategoryTab(const QString &categoryName);
+
 };
 
 #endif // ACCOUNTSMANAGER_H
