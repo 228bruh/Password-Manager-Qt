@@ -26,6 +26,11 @@ void Startwindow::createAccount() {
         return;
     }
 
+    if (username.contains(" ")) {
+        ui->CAwarningMsgLabel->setText(" Spaces are not allowed in Username");
+        return;
+    }
+
     if (password != confirmPassword) {
         ui->CAwarningMsgLabel->setText(" Passwords don't match");
         return;
@@ -55,11 +60,7 @@ void Startwindow::createAccount() {
 
     MainWindow *mainWindow = new MainWindow();
     mainWindow->setUsername(username);
-
-    ///////////////////////////////
-    mainWindow->loadTabsFromJson(); // replase later
-    ///////////////////////////////
-
+    mainWindow->loadTabsFromJson();
     mainWindow->show();
     close();
 }
@@ -85,11 +86,7 @@ void Startwindow::login() {
 
         MainWindow *mainWindow = new MainWindow();
         mainWindow->setUsername(username);
-
-        ///////////////////////////////
-        mainWindow->loadTabsFromJson(); // replase later
-        ///////////////////////////////
-
+        mainWindow->loadTabsFromJson();
         mainWindow->show();
         close();
     } else {

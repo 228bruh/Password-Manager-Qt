@@ -1,99 +1,80 @@
 # ninja log v5
 39	63	1732994717318099402	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/EWIEGA46WW/qrc_resources.cpp	fe99b3d2e45ddc9a
-5	30	1733696824874602464	password_manager_autogen/timestamp	2f6160664dcdfd39
-5	30	1733696824874602464	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-32	2345	1733696828487422361	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-5	30	1733696824874602464	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-301	2939	1733696616898239707	CMakeFiles/password_manager.dir/accountsmanager.cpp.o	8e74c01863164e06
+7	30	1733952648377886244	password_manager_autogen/timestamp	2f6160664dcdfd39
+7	30	1733952648377886244	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+33	2316	1733952651444139781	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
+7	30	1733952648377886244	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
+224	2581	1733952048584021626	CMakeFiles/password_manager.dir/accountsmanager.cpp.o	8e74c01863164e06
 64	219	1732994717474776806	CMakeFiles/password_manager.dir/password_manager_autogen/EWIEGA46WW/qrc_resources.cpp.o	95df494b5130c770
-300	2509	1733696616464888961	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
+222	2125	1733952048128053428	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
 39	63	1732994717318099402	password_manager_autogen/EWIEGA46WW/qrc_resources.cpp	fe99b3d2e45ddc9a
-5	30	1733696824874602464	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-300	2864	1733696616824903427	CMakeFiles/password_manager.dir/main.cpp.o	efc2aa5da5d02c32
-32	2408	1733696828550746760	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-2500	2777	1733696828930693150	password_manager	a00da0aebeed418b
-31	2499	1733696828640734063	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2	153	1733238350490878190	build.ninja	9082c31682c51be4
-6	30	1733696894602552007	password_manager_autogen/timestamp	2f6160664dcdfd39
-6	30	1733696894602552007	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-6	30	1733696894602552007	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-6	30	1733696894602552007	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-32	2367	1733696899608681091	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-32	2436	1733696899675340668	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-31	2517	1733696899758665139	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2517	2735	1733696899985307700	password_manager	a00da0aebeed418b
-5	240	1733697061342694608	password_manager_autogen/timestamp	2f6160664dcdfd39
-5	240	1733697061342694608	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-5	240	1733697061342694608	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-5	240	1733697061342694608	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-240	2070	1733697063165927154	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
-241	2643	1733697063735895808	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-241	2677	1733697063769227309	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-241	2803	1733697063895887010	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2804	3035	1733697064135873841	password_manager	a00da0aebeed418b
-6	32	1733697115233343345	password_manager_autogen/timestamp	2f6160664dcdfd39
-6	32	1733697115233343345	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-6	32	1733697115233343345	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-6	32	1733697115233343345	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-35	2427	1733697124162952844	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-34	2525	1733697124259615366	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-34	2571	1733697124306280032	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2571	2800	1733697124542936552	password_manager	a00da0aebeed418b
-9	461	1733697170561139363	password_manager_autogen/timestamp	2f6160664dcdfd39
-9	461	1733697170561139363	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-9	461	1733697170561139363	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-9	461	1733697170561139363	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-461	2491	1733697172591067681	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
-462	3023	1733697173121049056	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-462	3052	1733697173151048005	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-461	3078	1733697173177713737	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-3078	3305	1733697173411038897	password_manager	a00da0aebeed418b
-7	238	1733697267758306279	password_manager_autogen/timestamp	2f6160664dcdfd39
-7	238	1733697267758306279	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-7	238	1733697267758306279	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-7	238	1733697267758306279	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-238	2038	1733697269551597481	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
-239	2683	1733697270194915773	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-239	2685	1733697270194915773	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-239	2776	1733697270284913675	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2776	3002	1733697270521574825	password_manager	a00da0aebeed418b
-6	33	1733697665977288109	password_manager_autogen/timestamp	2f6160664dcdfd39
-6	33	1733697665977288109	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-6	33	1733697665977288109	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-6	33	1733697665977288109	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-35	2300	1733697679863910539	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-35	2379	1733697679943910295	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-35	2455	1733697680017243405	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2455	2784	1733697680353909051	password_manager	a00da0aebeed418b
-7	37	1733697701243849905	password_manager_autogen/timestamp	2f6160664dcdfd39
-7	37	1733697701243849905	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-7	37	1733697701243849905	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-7	37	1733697701243849905	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-40	2342	1733697703590510443	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-40	2426	1733697703670510236	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-40	2489	1733697703733843405	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2490	2807	1733697704060509226	password_manager	a00da0aebeed418b
-7	226	1733697956251197017	password_manager_autogen/timestamp	2f6160664dcdfd39
-7	226	1733697956251197017	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-7	226	1733697956251197017	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-7	226	1733697956251197017	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-226	2005	1733697958024539000	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
-227	2604	1733697958617875224	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-227	2672	1733697958687875565	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-6	253	1733698582060282740	password_manager_autogen/timestamp	2f6160664dcdfd39
-6	253	1733698582060282740	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-6	253	1733698582060282740	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-6	253	1733698582060282740	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-254	2032	1733698583833621722	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
-255	2616	1733698584413623568	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-255	2674	1733698584473623759	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-254	2741	1733698584540290638	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2741	2981	1733698584790291434	password_manager	a00da0aebeed418b
-6	28	1733699053385002502	password_manager_autogen/timestamp	2f6160664dcdfd39
-6	28	1733699053385002502	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-6	28	1733699053385002502	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
-6	28	1733699053385002502	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
-30	2323	1733699071795053241	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
-30	2369	1733699071838386694	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
-30	2438	1733699071908386887	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
-2439	2759	1733699072235054452	password_manager	a00da0aebeed418b
+7	30	1733952648377886244	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+222	2506	1733952048507472220	CMakeFiles/password_manager.dir/main.cpp.o	efc2aa5da5d02c32
+33	2396	1733952651524129058	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
+2	153	1733954010801424915	build.ninja	9082c31682c51be4
+33	2448	1733952651574122357	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
+2448	2743	1733952651880747918	password_manager	a00da0aebeed418b
+3	235	1733955361013058952	password_manager_autogen/timestamp	2f6160664dcdfd39
+3	235	1733955361013058952	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+3	235	1733955361013058952	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
+3	235	1733955361013058952	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+235	2267	1733955363036351142	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
+235	2653	1733955363423009950	CMakeFiles/password_manager.dir/main.cpp.o	efc2aa5da5d02c32
+236	2734	1733955363499675059	CMakeFiles/password_manager.dir/accountsmanager.cpp.o	8e74c01863164e06
+236	2842	1733955363613006089	CMakeFiles/password_manager.dir/passwordsmanager.cpp.o	26f572df5636ffb0
+236	2873	1733955363646338744	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
+236	2930	1733955363703004259	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
+235	3025	1733955363799668962	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
+3025	3250	1733955364029664286	password_manager	9946693946f24081
+4	232	1733955783848268763	password_manager_autogen/timestamp	2f6160664dcdfd39
+4	232	1733955783848268763	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+4	232	1733955783848268763	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
+4	232	1733955783848268763	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+232	2012	1733955785621569556	CMakeFiles/password_manager.dir/password_manager_autogen/mocs_compilation.cpp.o	f0ac1dab43a6c637
+233	2532	1733955786144893287	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
+232	2586	1733955786198225642	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
+232	2676	1733955786288223992	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
+2676	2899	1733955786514886500	password_manager	9946693946f24081
+4	28	1733955795698051498	password_manager_autogen/timestamp	2f6160664dcdfd39
+4	28	1733955795698051498	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+4	28	1733955795698051498	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
+4	28	1733955795698051498	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+31	2381	1733956045203559844	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
+31	2421	1733956045246892409	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
+30	2512	1733956045336890812	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
+2512	2759	1733956045590219653	password_manager	9946693946f24081
+4	29	1733956132452019101	password_manager_autogen/timestamp	2f6160664dcdfd39
+4	29	1733956132452019101	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+4	29	1733956132452019101	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
+4	29	1733956132452019101	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+32	2362	1733956226167043780	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
+32	2425	1733956226230376008	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
+31	2516	1733956226323707712	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
+2516	2733	1733956226543703872	password_manager	9946693946f24081
+4	31	1733956362224679357	password_manager_autogen/timestamp	2f6160664dcdfd39
+4	31	1733956362224679357	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+4	31	1733956362224679357	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
+4	31	1733956362224679357	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+33	2252	1733956374794461911	CMakeFiles/password_manager.dir/main.cpp.o	efc2aa5da5d02c32
+34	2256	1733956374797795186	CMakeFiles/password_manager.dir/accountsmanager.cpp.o	8e74c01863164e06
+34	2415	1733956374957792420	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
+34	2477	1733956375021124657	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
+34	2562	1733956375104456549	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
+2562	2780	1733956375327786021	password_manager	9946693946f24081
+3	24	1733956454056427380	password_manager_autogen/timestamp	2f6160664dcdfd39
+3	24	1733956454056427380	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+3	24	1733956454056427380	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
+3	24	1733956454056427380	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+27	2322	1733956458053025220	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
+27	2363	1733956458096357808	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
+26	2464	1733956458196356085	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
+2464	2681	1733956458416352296	password_manager	9946693946f24081
+3	17	1733956940679320525	password_manager_autogen/timestamp	2f6160664dcdfd39
+3	17	1733956940679320525	password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+3	17	1733956940679320525	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/timestamp	2f6160664dcdfd39
+3	17	1733956940679320525	/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/mocs_compilation.cpp	2f6160664dcdfd39
+18	2004	1733956986348692416	CMakeFiles/password_manager.dir/accountsmanager.cpp.o	8e74c01863164e06
+18	2159	1733956986502034419	CMakeFiles/password_manager.dir/loginwindow.cpp.o	8d36d3a4c7d77a05
+18	2211	1733956986555370768	CMakeFiles/password_manager.dir/startwindow.cpp.o	e890c87040654596
+18	2315	1733956986658709944	CMakeFiles/password_manager.dir/mainwindow.cpp.o	4dab82d72b710761
+2315	2538	1733956986885389427	password_manager	9946693946f24081

@@ -411,6 +411,12 @@
 			null
 		],
 		[
+			"/home/kirill/qt creator/password_manager/passwordsmanager.h",
+			"MU",
+			"EWIEGA46WW/moc_passwordsmanager.cpp",
+			null
+		],
+		[
 			"/home/kirill/qt creator/password_manager/startwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_startwindow.cpp",
@@ -486,6 +492,11 @@
 		],
 		[ "/home/kirill/qt creator/password_manager/main.cpp", "MU", null ],
 		[ "/home/kirill/qt creator/password_manager/mainwindow.cpp", "MU", null ],
+		[
+			"/home/kirill/qt creator/password_manager/passwordsmanager.cpp",
+			"MU",
+			null
+		],
 		[
 			"/home/kirill/qt creator/password_manager/startwindow.cpp",
 			"MU",

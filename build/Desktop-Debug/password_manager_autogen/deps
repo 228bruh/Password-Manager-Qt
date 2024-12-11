@@ -22,6 +22,8 @@ password_manager_autogen/timestamp: \
 	/home/kirill/qt\ creator/password_manager/main.cpp \
 	/home/kirill/qt\ creator/password_manager/mainwindow.cpp \
 	/home/kirill/qt\ creator/password_manager/mainwindow.h \
+	/home/kirill/qt\ creator/password_manager/passwordsmanager.cpp \
+	/home/kirill/qt\ creator/password_manager/passwordsmanager.h \
 	/home/kirill/qt\ creator/password_manager/resources.qrc \
 	/home/kirill/qt\ creator/password_manager/startwindow.cpp \
 	/home/kirill/qt\ creator/password_manager/startwindow.h \

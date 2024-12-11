@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "startwindow.h"
 #include "accountsmanager.h"
+#include "passwordsmanager.h"
 #include "./ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -21,38 +22,28 @@ void MainWindow::setUsername(const QString &set_username) {
 
 
 
-//////////////////////////////////////////////////////////////////////////////
-// my passwords
-//////////////////////////////////////////////////////////////////////////////
+/////// my passwords ///////////////////////////////////////////////////////////
 void MainWindow::loadTabsFromJson() {
+    PasswordManager passwordManager;
+
     QString fileName = username + ".json";
+    passwordManager.loadFromFile(fileName);
 
-    QFile file(fileName);
-    if (!file.open(QIODevice::ReadOnly)) {
-        QMessageBox::warning(nullptr, "Error", "Failed to open .json file for reading");
-        return;
-    }
-
-    QByteArray data = file.readAll();
-    QJsonDocument doc = QJsonDocument::fromJson(data);
-    file.close();
-
-    if (!doc.isObject()) {
-        QMessageBox::warning(nullptr, "Error", "Error in .json file");
-        return;
-    }
-
-    QJsonObject rootObject = doc.object();
-    QJsonObject categories = rootObject["categories"].toObject();
-
-    for (const QString &categoryName : categories.keys()) {
-        addCategoryTab(categoryName);
+    QVector<Category> &categories = passwordManager.getCategories();
+    for (const Category &category : categories) {
+        addCategoryTab(category.name);
     }
 }
 
 void MainWindow::addCategoryTab(const QString &categoryName) {
-    if (categoryName == "All" || categoryName == "Edit") {
-        return;
+    //if (categoryName == "All" || categoryName == "Edit") {
+    //    return;
+    //}
+
+    for (int i = 0; i < ui->tabWidget->count(); ++i) {
+        if (ui->tabWidget->tabText(i) == categoryName) {
+            return;
+        }
     }
 
     QWidget *newTab = new QWidget(ui->tabWidget);
@@ -62,7 +53,6 @@ void MainWindow::addCategoryTab(const QString &categoryName) {
     int insertIndex = ui->tabWidget->count() - 1;
     ui->tabWidget->insertTab(insertIndex, newTab, categoryName);
 }
-//////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -123,10 +113,7 @@ void MainWindow::on_removeTab_button_clicked() {
 
 
 
-
-//////////////////////////////////////////////////////////////////////////////
-// password generator
-//////////////////////////////////////////////////////////////////////////////
+/////// password generator //////////////////////////////////////////////////
 void MainWindow::on_genpassButton_clicked() {
     ui->stackedWidget->setCurrentIndex(1);
 }
@@ -184,10 +171,7 @@ void MainWindow::on_clearButton_clicked() {
 
 
 
-
-//////////////////////////////////////////////////////////////////////////////
-// logout
-//////////////////////////////////////////////////////////////////////////////
+/////// logout //////////////////////////////////////////////////////////////
 void MainWindow::on_logoutButton_clicked() {
     AccountsManager accountsManager;
 

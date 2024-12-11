@@ -28,7 +28,6 @@ public:
 
 private slots:
     // my passwords
-
     void on_mypassButton_clicked();
     void on_addTab_button_clicked();     // tab widget
     void on_removeTab_button_clicked();

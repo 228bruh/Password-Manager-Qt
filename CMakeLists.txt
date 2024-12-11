@@ -27,6 +27,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         resources.qrc
         loginwindow.h loginwindow.cpp loginwindow.ui
         accountsmanager.h accountsmanager.cpp
+        passwordsmanager.h passwordsmanager.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET password_manager APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

@@ -1,9 +1,6 @@
 #ifndef ACCOUNTSMANAGER_H
 #define ACCOUNTSMANAGER_H
 
-//#include "ui_mainwindow.h"
-//#include "mainwindow.h"
-
 #include <QString>
 #include <QFile>
 #include <QTextStream>
@@ -17,6 +14,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QVBoxLayout>
+#include <QVector>
 
 
 class AccountsManager {
@@ -42,13 +40,6 @@ public:
     int newIndex();
 
     QString getUsernameByIndex(int index);
-
-
-
-    // .JSON file
-    //void loadTabsFromJson();
-
-    //void addCategoryTab(const QString &categoryName);
 
 };
 
