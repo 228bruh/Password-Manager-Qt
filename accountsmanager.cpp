@@ -168,37 +168,3 @@ QString AccountsManager::getUsernameByIndex(int index) {
     return QString();
 }
 
-
-/*
-//////////////////////////////////////////////////////////////////////////////
-// .JSON file
-//////////////////////////////////////////////////////////////////////////////
-void AccountsManager::loadTabsFromJson() {
-    QString username = "user"; // Получите имя пользователя из подходящего места
-    QString fileName = username + ".json";
-
-    QFile file(fileName);
-    if (!file.open(QIODevice::ReadOnly)) {
-        // Если файл отсутствует, ничего не делаем
-        return;
-    }
-
-    QByteArray data = file.readAll();
-    QJsonDocument doc = QJsonDocument::fromJson(data);
-    file.close();
-
-    if (!doc.isObject()) {
-        // Если структура файла неверная, ничего не делаем
-        return;
-    }
-
-    QJsonObject rootObject = doc.object();
-    QJsonObject categories = rootObject["categories"].toObject();
-
-    // Создаём вкладки для каждой категории
-    for (const QString &categoryName : categories.keys()) {
-        addCategoryTab(categoryName);
-    }
-}
-
-*/
