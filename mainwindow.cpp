@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "startwindow.h"
 #include "accountsmanager.h"
-#include "passwordsmanager.h"
 #include "./ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -18,46 +17,55 @@ MainWindow::~MainWindow() {
 void MainWindow::setUsername(const QString &set_username) {
     username = set_username;
     setWindowTitle("Password Manager - " + username);
+    passwordManager.loadFromJsonFileToClass(username + ".json");
+    loadTabsFromClass();
+}
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    passwordManager.loadFromClassToJsonFile(username + ".json");
+    event->accept();
 }
 
 
 
 /////// my passwords ///////////////////////////////////////////////////////////
-void MainWindow::loadTabsFromJson() {
-    PasswordManager passwordManager;
-
-    QString fileName = username + ".json";
-    passwordManager.loadFromFile(fileName);
-
-    QVector<Category> &categories = passwordManager.getCategories();
-    for (const Category &category : categories) {
-        addCategoryTab(category.name);
-    }
+void MainWindow::on_mypassButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainWindow::addCategoryTab(const QString &categoryName) {
-    //if (categoryName == "All" || categoryName == "Edit") {
-    //    return;
-    //}
+void MainWindow::loadTabsFromClass() {
+    QVector<Category> &categories = passwordManager.getCategories();
+    QStringList categoryNames;
+    for (const Category &category : categories) {
+        categoryNames.append(category.name);
+    }
 
-    for (int i = 0; i < ui->tabWidget->count(); ++i) {
-        if (ui->tabWidget->tabText(i) == categoryName) {
-            return;
+    for (int i = 1; i < ui->tabWidget->count() - 1; ++i) {
+        QString tabName = ui->tabWidget->tabText(i);
+        if (!categoryNames.contains(tabName)) {
+            ui->tabWidget->removeTab(i);
+            --i;
         }
     }
 
-    QWidget *newTab = new QWidget(ui->tabWidget);
-    QVBoxLayout *layout = new QVBoxLayout(newTab);
-    newTab->setLayout(layout);
+    for (const QString &categoryName : categoryNames) {
+        bool tabExists = false;
+        for (int i = 1; i < ui->tabWidget->count() - 1; ++i) {
+            if (ui->tabWidget->tabText(i) == categoryName) {
+                tabExists = true;
+                break;
+            }
+        }
 
-    int insertIndex = ui->tabWidget->count() - 1;
-    ui->tabWidget->insertTab(insertIndex, newTab, categoryName);
-}
+        if (!tabExists) {
+            QWidget *newTab = new QWidget(ui->tabWidget);
+            QVBoxLayout *layout = new QVBoxLayout(newTab);
+            newTab->setLayout(layout);
 
-
-
-void MainWindow::on_mypassButton_clicked() {
-    ui->stackedWidget->setCurrentIndex(0);
+            int insertIndex = ui->tabWidget->count() - 1;
+            ui->tabWidget->insertTab(insertIndex, newTab, categoryName);
+        }
+    }
 }
 
 void MainWindow::on_addTab_button_clicked() {
@@ -73,6 +81,9 @@ void MainWindow::on_addTab_button_clicked() {
         return;
     }
 
+    loadTabsFromClass();
+
+    /*
     QWidget *newTab = new QWidget(ui->tabWidget);
     QVBoxLayout *layout = new QVBoxLayout(newTab);
     newTab->setLayout(layout);
@@ -102,6 +113,9 @@ void MainWindow::on_addTab_button_clicked() {
             file.close();
         }
     }
+    */
+
+
 
     ui->addTab_label->setText("");
     ui->tabName_lineEdit->clear();

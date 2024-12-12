@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QCloseEvent>
+#include "passwordsmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -11,10 +13,17 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
+protected:
+    void closeEvent(QCloseEvent *event) override;
+
 private:
     Ui::MainWindow *ui;
 
+    PasswordManager passwordManager;
+
     QString username;
+    QString filename = username + ".json";
+
     QString generatedPassword;
 
 public:
@@ -23,8 +32,7 @@ public:
 
     void setUsername(const QString &set_username);
 
-    void loadTabsFromJson();
-    void addCategoryTab(const QString &categoryName);
+    void loadTabsFromClass();
 
 private slots:
     // my passwords

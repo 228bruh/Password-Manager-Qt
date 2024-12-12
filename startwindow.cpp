@@ -60,7 +60,6 @@ void Startwindow::createAccount() {
 
     MainWindow *mainWindow = new MainWindow();
     mainWindow->setUsername(username);
-    mainWindow->loadTabsFromJson();
     mainWindow->show();
     close();
 }
@@ -86,7 +85,6 @@ void Startwindow::login() {
 
         MainWindow *mainWindow = new MainWindow();
         mainWindow->setUsername(username);
-        mainWindow->loadTabsFromJson();
         mainWindow->show();
         close();
     } else {

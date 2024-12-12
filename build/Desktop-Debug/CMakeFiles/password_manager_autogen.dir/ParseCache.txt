@@ -16,6 +16,18 @@
  mdp:/app/lib/clang/18/include/stddef.h
  mdp:/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/moc_predefs.h
  mdp:/home/kirill/qt creator/password_manager/mainwindow.h
+ mdp:/home/kirill/qt creator/password_manager/passwordsmanager.h
+ mdp:/usr/include/QtCore/QFile
+ mdp:/usr/include/QtCore/QJsonArray
+ mdp:/usr/include/QtCore/QJsonDocument
+ mdp:/usr/include/QtCore/QJsonObject
+ mdp:/usr/include/QtCore/QList
+ mdp:/usr/include/QtCore/QObject
+ mdp:/usr/include/QtCore/QRect
+ mdp:/usr/include/QtCore/QSize
+ mdp:/usr/include/QtCore/QSizeF
+ mdp:/usr/include/QtCore/QString
+ mdp:/usr/include/QtCore/QVector
  mdp:/usr/include/QtCore/q20functional.h
  mdp:/usr/include/QtCore/q20memory.h
  mdp:/usr/include/QtCore/q20type_traits.h
@@ -34,6 +46,9 @@
  mdp:/usr/include/QtCore/qbytearrayalgorithms.h
  mdp:/usr/include/QtCore/qbytearraylist.h
  mdp:/usr/include/QtCore/qbytearrayview.h
+ mdp:/usr/include/QtCore/qcalendar.h
+ mdp:/usr/include/QtCore/qcborcommon.h
+ mdp:/usr/include/QtCore/qcborvalue.h
  mdp:/usr/include/QtCore/qchar.h
  mdp:/usr/include/QtCore/qcompare.h
  mdp:/usr/include/QtCore/qcompare_impl.h
@@ -45,11 +60,20 @@
  mdp:/usr/include/QtCore/qcontainerinfo.h
  mdp:/usr/include/QtCore/qcontainertools_impl.h
  mdp:/usr/include/QtCore/qcontiguouscache.h
+ mdp:/usr/include/QtCore/qcoreapplication.h
+ mdp:/usr/include/QtCore/qcoreapplication_platform.h
+ mdp:/usr/include/QtCore/qcoreevent.h
  mdp:/usr/include/QtCore/qdarwinhelpers.h
  mdp:/usr/include/QtCore/qdatastream.h
+ mdp:/usr/include/QtCore/qdatetime.h
+ mdp:/usr/include/QtCore/qdeadlinetimer.h
  mdp:/usr/include/QtCore/qdebug.h
+ mdp:/usr/include/QtCore/qelapsedtimer.h
  mdp:/usr/include/QtCore/qendian.h
+ mdp:/usr/include/QtCore/qeventloop.h
  mdp:/usr/include/QtCore/qexceptionhandling.h
+ mdp:/usr/include/QtCore/qfile.h
+ mdp:/usr/include/QtCore/qfiledevice.h
  mdp:/usr/include/QtCore/qflags.h
  mdp:/usr/include/QtCore/qfloat16.h
  mdp:/usr/include/QtCore/qforeach.h
@@ -60,12 +84,18 @@
  mdp:/usr/include/QtCore/qglobalstatic.h
  mdp:/usr/include/QtCore/qhash.h
  mdp:/usr/include/QtCore/qhashfunctions.h
+ mdp:/usr/include/QtCore/qiodevice.h
  mdp:/usr/include/QtCore/qiodevicebase.h
  mdp:/usr/include/QtCore/qiterable.h
  mdp:/usr/include/QtCore/qiterator.h
+ mdp:/usr/include/QtCore/qjsonarray.h
+ mdp:/usr/include/QtCore/qjsondocument.h
+ mdp:/usr/include/QtCore/qjsonobject.h
+ mdp:/usr/include/QtCore/qjsonvalue.h
  mdp:/usr/include/QtCore/qlatin1stringview.h
  mdp:/usr/include/QtCore/qline.h
  mdp:/usr/include/QtCore/qlist.h
+ mdp:/usr/include/QtCore/qlocale.h
  mdp:/usr/include/QtCore/qlogging.h
  mdp:/usr/include/QtCore/qmalloc.h
  mdp:/usr/include/QtCore/qmap.h
@@ -75,6 +105,7 @@
  mdp:/usr/include/QtCore/qmetatype.h
  mdp:/usr/include/QtCore/qminmax.h
  mdp:/usr/include/QtCore/qnamespace.h
+ mdp:/usr/include/QtCore/qnativeinterface.h
  mdp:/usr/include/QtCore/qnumeric.h
  mdp:/usr/include/QtCore/qobject.h
  mdp:/usr/include/QtCore/qobject_impl.h
@@ -86,6 +117,7 @@
  mdp:/usr/include/QtCore/qprocessordetection.h
  mdp:/usr/include/QtCore/qrect.h
  mdp:/usr/include/QtCore/qrefcount.h
+ mdp:/usr/include/QtCore/qregularexpression.h
  mdp:/usr/include/QtCore/qscopedpointer.h
  mdp:/usr/include/QtCore/qscopeguard.h
  mdp:/usr/include/QtCore/qset.h
@@ -127,38 +159,58 @@
  mdp:/usr/include/QtCore/qtversionchecks.h
  mdp:/usr/include/QtCore/qtypeinfo.h
  mdp:/usr/include/QtCore/qtypes.h
+ mdp:/usr/include/QtCore/qurl.h
  mdp:/usr/include/QtCore/qutf8stringview.h
+ mdp:/usr/include/QtCore/quuid.h
  mdp:/usr/include/QtCore/qvariant.h
  mdp:/usr/include/QtCore/qvarlengtharray.h
+ mdp:/usr/include/QtCore/qvector.h
  mdp:/usr/include/QtCore/qversiontagging.h
  mdp:/usr/include/QtCore/qxptype_traits.h
  mdp:/usr/include/QtCore/qyieldcpu.h
+ mdp:/usr/include/QtGui/QCloseEvent
+ mdp:/usr/include/QtGui/QTransform
  mdp:/usr/include/QtGui/qaction.h
  mdp:/usr/include/QtGui/qbitmap.h
  mdp:/usr/include/QtGui/qbrush.h
  mdp:/usr/include/QtGui/qcolor.h
  mdp:/usr/include/QtGui/qcursor.h
+ mdp:/usr/include/QtGui/qevent.h
+ mdp:/usr/include/QtGui/qeventpoint.h
  mdp:/usr/include/QtGui/qfont.h
  mdp:/usr/include/QtGui/qfontinfo.h
  mdp:/usr/include/QtGui/qfontmetrics.h
+ mdp:/usr/include/QtGui/qguiapplication.h
+ mdp:/usr/include/QtGui/qguiapplication_platform.h
  mdp:/usr/include/QtGui/qicon.h
  mdp:/usr/include/QtGui/qimage.h
+ mdp:/usr/include/QtGui/qinputdevice.h
+ mdp:/usr/include/QtGui/qinputmethod.h
  mdp:/usr/include/QtGui/qkeysequence.h
  mdp:/usr/include/QtGui/qpaintdevice.h
  mdp:/usr/include/QtGui/qpalette.h
  mdp:/usr/include/QtGui/qpixelformat.h
  mdp:/usr/include/QtGui/qpixmap.h
+ mdp:/usr/include/QtGui/qpointingdevice.h
  mdp:/usr/include/QtGui/qpolygon.h
  mdp:/usr/include/QtGui/qregion.h
  mdp:/usr/include/QtGui/qrgb.h
  mdp:/usr/include/QtGui/qrgba64.h
+ mdp:/usr/include/QtGui/qscreen.h
+ mdp:/usr/include/QtGui/qscreen_platform.h
  mdp:/usr/include/QtGui/qtgui-config.h
  mdp:/usr/include/QtGui/qtguiexports.h
  mdp:/usr/include/QtGui/qtguiglobal.h
  mdp:/usr/include/QtGui/qtransform.h
+ mdp:/usr/include/QtGui/qvector2d.h
+ mdp:/usr/include/QtGui/qvectornd.h
  mdp:/usr/include/QtGui/qwindowdefs.h
  mdp:/usr/include/QtWidgets/QMainWindow
+ mdp:/usr/include/QtWidgets/QMessageBox
+ mdp:/usr/include/QtWidgets/qdialog.h
+ mdp:/usr/include/QtWidgets/qdialogbuttonbox.h
  mdp:/usr/include/QtWidgets/qmainwindow.h
+ mdp:/usr/include/QtWidgets/qmessagebox.h
  mdp:/usr/include/QtWidgets/qsizepolicy.h
  mdp:/usr/include/QtWidgets/qtabwidget.h
  mdp:/usr/include/QtWidgets/qtwidgets-config.h
@@ -182,11 +234,14 @@
  mdp:/usr/include/c++/13.2.0/bits/allocator.h
  mdp:/usr/include/c++/13.2.0/bits/atomic_base.h
  mdp:/usr/include/c++/13.2.0/bits/atomic_lockfree_defines.h
+ mdp:/usr/include/c++/13.2.0/bits/basic_ios.h
+ mdp:/usr/include/c++/13.2.0/bits/basic_ios.tcc
  mdp:/usr/include/c++/13.2.0/bits/basic_string.h
  mdp:/usr/include/c++/13.2.0/bits/basic_string.tcc
  mdp:/usr/include/c++/13.2.0/bits/char_traits.h
  mdp:/usr/include/c++/13.2.0/bits/charconv.h
  mdp:/usr/include/c++/13.2.0/bits/chrono.h
+ mdp:/usr/include/c++/13.2.0/bits/codecvt.h
  mdp:/usr/include/c++/13.2.0/bits/concept_check.h
  mdp:/usr/include/c++/13.2.0/bits/cpp_type_traits.h
  mdp:/usr/include/c++/13.2.0/bits/cxxabi_forced.h
@@ -196,6 +251,10 @@
  mdp:/usr/include/c++/13.2.0/bits/exception.h
  mdp:/usr/include/c++/13.2.0/bits/exception_defines.h
  mdp:/usr/include/c++/13.2.0/bits/exception_ptr.h
+ mdp:/usr/include/c++/13.2.0/bits/fs_dir.h
+ mdp:/usr/include/c++/13.2.0/bits/fs_fwd.h
+ mdp:/usr/include/c++/13.2.0/bits/fs_ops.h
+ mdp:/usr/include/c++/13.2.0/bits/fs_path.h
  mdp:/usr/include/c++/13.2.0/bits/functexcept.h
  mdp:/usr/include/c++/13.2.0/bits/functional_hash.h
  mdp:/usr/include/c++/13.2.0/bits/hash_bytes.h
@@ -203,9 +262,15 @@
  mdp:/usr/include/c++/13.2.0/bits/hashtable_policy.h
  mdp:/usr/include/c++/13.2.0/bits/invoke.h
  mdp:/usr/include/c++/13.2.0/bits/ios_base.h
+ mdp:/usr/include/c++/13.2.0/bits/istream.tcc
  mdp:/usr/include/c++/13.2.0/bits/list.tcc
  mdp:/usr/include/c++/13.2.0/bits/locale_classes.h
  mdp:/usr/include/c++/13.2.0/bits/locale_classes.tcc
+ mdp:/usr/include/c++/13.2.0/bits/locale_conv.h
+ mdp:/usr/include/c++/13.2.0/bits/locale_facets.h
+ mdp:/usr/include/c++/13.2.0/bits/locale_facets.tcc
+ mdp:/usr/include/c++/13.2.0/bits/locale_facets_nonio.h
+ mdp:/usr/include/c++/13.2.0/bits/locale_facets_nonio.tcc
  mdp:/usr/include/c++/13.2.0/bits/localefwd.h
  mdp:/usr/include/c++/13.2.0/bits/memory_resource.h
  mdp:/usr/include/c++/13.2.0/bits/memoryfwd.h
@@ -213,11 +278,13 @@
  mdp:/usr/include/c++/13.2.0/bits/nested_exception.h
  mdp:/usr/include/c++/13.2.0/bits/new_allocator.h
  mdp:/usr/include/c++/13.2.0/bits/node_handle.h
+ mdp:/usr/include/c++/13.2.0/bits/ostream.tcc
  mdp:/usr/include/c++/13.2.0/bits/ostream_insert.h
  mdp:/usr/include/c++/13.2.0/bits/parse_numbers.h
  mdp:/usr/include/c++/13.2.0/bits/postypes.h
  mdp:/usr/include/c++/13.2.0/bits/predefined_ops.h
  mdp:/usr/include/c++/13.2.0/bits/ptr_traits.h
+ mdp:/usr/include/c++/13.2.0/bits/quoted_string.h
  mdp:/usr/include/c++/13.2.0/bits/range_access.h
  mdp:/usr/include/c++/13.2.0/bits/refwrap.h
  mdp:/usr/include/c++/13.2.0/bits/requires_hosted.h
@@ -225,6 +292,7 @@
  mdp:/usr/include/c++/13.2.0/bits/shared_ptr_atomic.h
  mdp:/usr/include/c++/13.2.0/bits/shared_ptr_base.h
  mdp:/usr/include/c++/13.2.0/bits/specfun.h
+ mdp:/usr/include/c++/13.2.0/bits/sstream.tcc
  mdp:/usr/include/c++/13.2.0/bits/std_abs.h
  mdp:/usr/include/c++/13.2.0/bits/std_function.h
  mdp:/usr/include/c++/13.2.0/bits/stl_algo.h
@@ -265,6 +333,7 @@
  mdp:/usr/include/c++/13.2.0/climits
  mdp:/usr/include/c++/13.2.0/clocale
  mdp:/usr/include/c++/13.2.0/cmath
+ mdp:/usr/include/c++/13.2.0/codecvt
  mdp:/usr/include/c++/13.2.0/compare
  mdp:/usr/include/c++/13.2.0/cstddef
  mdp:/usr/include/c++/13.2.0/cstdint
@@ -273,6 +342,7 @@
  mdp:/usr/include/c++/13.2.0/cstring
  mdp:/usr/include/c++/13.2.0/ctime
  mdp:/usr/include/c++/13.2.0/cwchar
+ mdp:/usr/include/c++/13.2.0/cwctype
  mdp:/usr/include/c++/13.2.0/debug/assertions.h
  mdp:/usr/include/c++/13.2.0/debug/debug.h
  mdp:/usr/include/c++/13.2.0/exception
@@ -283,22 +353,29 @@
  mdp:/usr/include/c++/13.2.0/ext/numeric_traits.h
  mdp:/usr/include/c++/13.2.0/ext/string_conversions.h
  mdp:/usr/include/c++/13.2.0/ext/type_traits.h
+ mdp:/usr/include/c++/13.2.0/filesystem
  mdp:/usr/include/c++/13.2.0/functional
  mdp:/usr/include/c++/13.2.0/initializer_list
+ mdp:/usr/include/c++/13.2.0/iomanip
+ mdp:/usr/include/c++/13.2.0/ios
  mdp:/usr/include/c++/13.2.0/iosfwd
+ mdp:/usr/include/c++/13.2.0/istream
  mdp:/usr/include/c++/13.2.0/iterator
  mdp:/usr/include/c++/13.2.0/limits
  mdp:/usr/include/c++/13.2.0/list
+ mdp:/usr/include/c++/13.2.0/locale
  mdp:/usr/include/c++/13.2.0/map
  mdp:/usr/include/c++/13.2.0/memory
  mdp:/usr/include/c++/13.2.0/new
  mdp:/usr/include/c++/13.2.0/numeric
  mdp:/usr/include/c++/13.2.0/optional
+ mdp:/usr/include/c++/13.2.0/ostream
  mdp:/usr/include/c++/13.2.0/pstl/execution_defs.h
  mdp:/usr/include/c++/13.2.0/pstl/glue_algorithm_defs.h
  mdp:/usr/include/c++/13.2.0/pstl/glue_memory_defs.h
  mdp:/usr/include/c++/13.2.0/pstl/glue_numeric_defs.h
  mdp:/usr/include/c++/13.2.0/ratio
+ mdp:/usr/include/c++/13.2.0/sstream
  mdp:/usr/include/c++/13.2.0/stdexcept
  mdp:/usr/include/c++/13.2.0/streambuf
  mdp:/usr/include/c++/13.2.0/string
@@ -328,15 +405,20 @@
  mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/c++config.h
  mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/c++locale.h
  mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/cpu_defines.h
+ mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/ctype_base.h
+ mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/ctype_inline.h
  mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/error_constants.h
  mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/gthr-default.h
  mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/gthr.h
+ mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/messages_members.h
  mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/os_defines.h
+ mdp:/usr/include/c++/13.2.0/x86_64-unknown-linux-gnu/bits/time_members.h
  mdp:/usr/include/ctype.h
  mdp:/usr/include/endian.h
  mdp:/usr/include/errno.h
  mdp:/usr/include/features-time64.h
  mdp:/usr/include/features.h
+ mdp:/usr/include/libintl.h
  mdp:/usr/include/limits.h
  mdp:/usr/include/linux/errno.h
  mdp:/usr/include/linux/limits.h
@@ -351,6 +433,7 @@
  mdp:/usr/include/strings.h
  mdp:/usr/include/time.h
  mdp:/usr/include/wchar.h
+ mdp:/usr/include/wctype.h
  mdp:/usr/lib/x86_64-linux-gnu/include/asm/errno.h
  mdp:/usr/lib/x86_64-linux-gnu/include/bits/atomic_wide_counter.h
  mdp:/usr/lib/x86_64-linux-gnu/include/bits/byteswap.h
@@ -414,6 +497,7 @@
  mdp:/usr/lib/x86_64-linux-gnu/include/bits/waitflags.h
  mdp:/usr/lib/x86_64-linux-gnu/include/bits/waitstatus.h
  mdp:/usr/lib/x86_64-linux-gnu/include/bits/wchar.h
+ mdp:/usr/lib/x86_64-linux-gnu/include/bits/wctype-wchar.h
  mdp:/usr/lib/x86_64-linux-gnu/include/bits/wordsize.h
  mdp:/usr/lib/x86_64-linux-gnu/include/bits/xopen_lim.h
  mdp:/usr/lib/x86_64-linux-gnu/include/gnu/stubs-64.h

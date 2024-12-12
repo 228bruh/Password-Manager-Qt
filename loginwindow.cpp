@@ -51,7 +51,6 @@ void Loginwindow::login() {
     if (foundIndex == index) {
         MainWindow *mainWindow = new MainWindow();
         mainWindow->setUsername(storedUsername);
-        mainWindow->loadTabsFromJson();
         mainWindow->show();
         close();
     } else {
