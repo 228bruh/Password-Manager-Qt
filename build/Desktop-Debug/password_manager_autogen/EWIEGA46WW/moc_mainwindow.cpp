@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../../mainwindow.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -39,7 +40,8 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "on_mypassButton_clicked",
     "",
     "on_addTab_button_clicked",
-    "on_removeTab_button_clicked",
+    "on_tabListWidget_customContextMenuRequested",
+    "pos",
     "on_genpassButton_clicked",
     "on_checkBox_custom_stateChanged",
     "state",
@@ -69,20 +71,20 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    0,   68,    2, 0x08,    1 /* Private */,
        3,    0,   69,    2, 0x08,    2 /* Private */,
-       4,    0,   70,    2, 0x08,    3 /* Private */,
-       5,    0,   71,    2, 0x08,    4 /* Private */,
-       6,    1,   72,    2, 0x08,    5 /* Private */,
-       8,    0,   75,    2, 0x08,    7 /* Private */,
-       9,    0,   76,    2, 0x08,    8 /* Private */,
-      10,    0,   77,    2, 0x08,    9 /* Private */,
-      11,    0,   78,    2, 0x08,   10 /* Private */,
+       4,    1,   70,    2, 0x08,    3 /* Private */,
+       6,    0,   73,    2, 0x08,    5 /* Private */,
+       7,    1,   74,    2, 0x08,    6 /* Private */,
+       9,    0,   77,    2, 0x08,    8 /* Private */,
+      10,    0,   78,    2, 0x08,    9 /* Private */,
+      11,    0,   79,    2, 0x08,   10 /* Private */,
+      12,    0,   80,    2, 0x08,   11 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QPoint,    5,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, QMetaType::Int,    8,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -104,8 +106,9 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_addTab_button_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_removeTab_button_clicked'
+        // method 'on_tabListWidget_customContextMenuRequested'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QPoint &, std::false_type>,
         // method 'on_genpassButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_checkBox_custom_stateChanged'
@@ -131,7 +134,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->on_mypassButton_clicked(); break;
         case 1: _t->on_addTab_button_clicked(); break;
-        case 2: _t->on_removeTab_button_clicked(); break;
+        case 2: _t->on_tabListWidget_customContextMenuRequested((*reinterpret_cast< std::add_pointer_t<QPoint>>(_a[1]))); break;
         case 3: _t->on_genpassButton_clicked(); break;
         case 4: _t->on_checkBox_custom_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 5: _t->on_generateButton_clicked(); break;

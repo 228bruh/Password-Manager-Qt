@@ -41,6 +41,14 @@ void MainWindow::loadTabsFromClass() {
     }
 
     for (int i = 1; i < ui->tabWidget->count() - 1; ++i) {
+        QString tabName = ui->tabWidget->tabText(i).replace("&", "");
+        if (!categoryNames.contains(tabName)) {
+            ui->tabWidget->removeTab(i);
+            --i;
+        }
+    }
+
+    for (int i = 1; i < ui->tabWidget->count() - 1; ++i) {
         QString tabName = ui->tabWidget->tabText(i);
         if (!categoryNames.contains(tabName)) {
             ui->tabWidget->removeTab(i);
@@ -66,6 +74,11 @@ void MainWindow::loadTabsFromClass() {
             ui->tabWidget->insertTab(insertIndex, newTab, categoryName);
         }
     }
+
+    ui->tabListWidget->clear();
+    for (const QString &categoryName : categoryNames) {
+        ui->tabListWidget->addItem(categoryName);
+    }
 }
 
 void MainWindow::on_addTab_button_clicked() {
@@ -81,48 +94,107 @@ void MainWindow::on_addTab_button_clicked() {
         return;
     }
 
+    QVector<Category> &categories = passwordManager.getCategories();
+
+    auto it = std::find_if(categories.begin(), categories.end(),
+                           [&tabName](const Category &category) {
+                               return category.name == tabName;
+                           });
+
+    if (it != categories.end()) {
+        ui->addTab_label->setText(" Tab with this name already exists");
+        return;
+    }
+
+    auto insertPos = std::lower_bound(categories.begin(), categories.end(), tabName,
+                                      [](const Category &category, const QString &name) {
+                                          return category.name < name;
+                                      });
+    categories.insert(insertPos, Category(tabName));
+
     loadTabsFromClass();
-
-    /*
-    QWidget *newTab = new QWidget(ui->tabWidget);
-    QVBoxLayout *layout = new QVBoxLayout(newTab);
-    newTab->setLayout(layout);
-
-    int insertIndex = ui->tabWidget->count() - 1;
-    ui->tabWidget->insertTab(insertIndex, newTab, tabName);
-
-    QString fileName = username + ".json";
-    QFile file(fileName);
-
-    QJsonObject rootObject;
-    if (file.open(QIODevice::ReadOnly)) {
-        QByteArray data = file.readAll();
-        QJsonDocument doc = QJsonDocument::fromJson(data);
-        rootObject = doc.object();
-        file.close();
-    }
-
-    QJsonObject categories = rootObject["categories"].toObject();
-    if (!categories.contains(tabName)) {
-        categories[tabName] = QJsonArray();
-        rootObject["categories"] = categories;
-
-        if (file.open(QIODevice::WriteOnly)) {
-            QJsonDocument doc(rootObject);
-            file.write(doc.toJson(QJsonDocument::Indented));
-            file.close();
-        }
-    }
-    */
-
-
 
     ui->addTab_label->setText("");
     ui->tabName_lineEdit->clear();
 }
 
-void MainWindow::on_removeTab_button_clicked() {
-    ui->tabWidget->removeTab(ui->tabWidget->count() - 2);
+void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) {
+    QListWidgetItem *item = ui->tabListWidget->itemAt(pos);
+    if (!item) return;
+
+    QMenu contextMenu;
+    QAction *deleteAction = contextMenu.addAction("Delete");
+    QAction *editNameAction = contextMenu.addAction("Edit name");
+    QAction *selectedAction = contextMenu.exec(ui->tabListWidget->mapToGlobal(pos));
+
+    QString tabName = item->text();
+
+    if (selectedAction == deleteAction) {
+        QMessageBox::StandardButton reply = QMessageBox::question(
+            this, "Confirm Deletion",
+            QString("Are you sure you want to delete '%1' tab with all passwords included?").arg(tabName),
+            QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::Yes) {
+            for (int i = 0; i < ui->tabWidget->count(); ++i) {
+                QString currentTabName = ui->tabWidget->tabText(i).replace("&", "");
+                if (currentTabName == tabName) {
+                    ui->tabWidget->removeTab(i);
+                    break;
+                }
+            }
+
+            QVector<Category> &categories = passwordManager.getCategories();
+            auto it = std::find_if(categories.begin(), categories.end(),
+                                   [&tabName](const Category &category) { return category.name == tabName; });
+            if (it != categories.end()) {
+                categories.erase(it);
+            }
+
+            delete item;
+        }
+    } else if (selectedAction == editNameAction) {
+        bool ok;
+
+        QInputDialog inputDialog(this);
+        inputDialog.setWindowTitle("Edit Tab Name");
+        inputDialog.setLabelText(QString("Enter new name for tab '%1':").arg(tabName));
+        inputDialog.setTextValue(tabName);
+
+        ok = inputDialog.exec() == QDialog::Accepted;
+        QString newTabName = inputDialog.textValue();
+
+        if (ok && !newTabName.isEmpty()) {
+            if (newTabName == "All" || newTabName == "Edit") {
+                QMessageBox::warning(this, "Error", "Cannot use reserved names");
+                return;
+            }
+
+            for (int i = 0; i < ui->tabWidget->count(); ++i) {
+                QString existingTabName = ui->tabWidget->tabText(i).replace("&", "");
+                if (existingTabName == newTabName) {
+                    QMessageBox::warning(this, "Error", "A tab with this name already exists");
+                    return;
+                }
+            }
+
+            QVector<Category> &categories = passwordManager.getCategories();
+            auto it = std::find_if(categories.begin(), categories.end(),
+                                   [&tabName](const Category &category) { return category.name == tabName; });
+
+            if (it != categories.end()) {
+                Category updatedCategory = *it;
+                updatedCategory.name = newTabName;
+
+                categories.erase(it);
+                auto newIt = std::lower_bound(categories.begin(), categories.end(), updatedCategory,
+                                              [](const Category &a, const Category &b) { return a.name < b.name; });
+                categories.insert(newIt, updatedCategory);
+            }
+
+            loadTabsFromClass();
+        }
+    }
 }
 
 

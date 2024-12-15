@@ -189,6 +189,7 @@
  mdp:/usr/include/QtGui/qkeysequence.h
  mdp:/usr/include/QtGui/qpaintdevice.h
  mdp:/usr/include/QtGui/qpalette.h
+ mdp:/usr/include/QtGui/qpen.h
  mdp:/usr/include/QtGui/qpixelformat.h
  mdp:/usr/include/QtGui/qpixmap.h
  mdp:/usr/include/QtGui/qpointingdevice.h
@@ -198,6 +199,10 @@
  mdp:/usr/include/QtGui/qrgba64.h
  mdp:/usr/include/QtGui/qscreen.h
  mdp:/usr/include/QtGui/qscreen_platform.h
+ mdp:/usr/include/QtGui/qtextcursor.h
+ mdp:/usr/include/QtGui/qtextdocument.h
+ mdp:/usr/include/QtGui/qtextformat.h
+ mdp:/usr/include/QtGui/qtextoption.h
  mdp:/usr/include/QtGui/qtgui-config.h
  mdp:/usr/include/QtGui/qtguiexports.h
  mdp:/usr/include/QtGui/qtguiglobal.h
@@ -205,11 +210,17 @@
  mdp:/usr/include/QtGui/qvector2d.h
  mdp:/usr/include/QtGui/qvectornd.h
  mdp:/usr/include/QtGui/qwindowdefs.h
+ mdp:/usr/include/QtWidgets/QInputDialog
  mdp:/usr/include/QtWidgets/QMainWindow
+ mdp:/usr/include/QtWidgets/QMenu
  mdp:/usr/include/QtWidgets/QMessageBox
  mdp:/usr/include/QtWidgets/qdialog.h
  mdp:/usr/include/QtWidgets/qdialogbuttonbox.h
+ mdp:/usr/include/QtWidgets/qframe.h
+ mdp:/usr/include/QtWidgets/qinputdialog.h
+ mdp:/usr/include/QtWidgets/qlineedit.h
  mdp:/usr/include/QtWidgets/qmainwindow.h
+ mdp:/usr/include/QtWidgets/qmenu.h
  mdp:/usr/include/QtWidgets/qmessagebox.h
  mdp:/usr/include/QtWidgets/qsizepolicy.h
  mdp:/usr/include/QtWidgets/qtabwidget.h

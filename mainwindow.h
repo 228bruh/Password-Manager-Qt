@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QCloseEvent>
+#include <QMenu>
+#include <QInputDialog>
 #include "passwordsmanager.h"
 
 QT_BEGIN_NAMESPACE
@@ -38,7 +40,7 @@ private slots:
     // my passwords
     void on_mypassButton_clicked();
     void on_addTab_button_clicked();     // tab widget
-    void on_removeTab_button_clicked();
+    void on_tabListWidget_customContextMenuRequested(const QPoint &pos);
 
     // generate password
     void on_genpassButton_clicked();

@@ -93,7 +93,7 @@ void Startwindow::login() {
 }
 
 void Startwindow::on_createButton_clicked() {
-   createAccount();
+    createAccount();
 }
 
 void Startwindow::on_confirmCreatePassword_returnPressed() {

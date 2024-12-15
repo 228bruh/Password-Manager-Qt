@@ -167,4 +167,3 @@ QString AccountsManager::getUsernameByIndex(int index) {
     file.close();
     return QString();
 }
-

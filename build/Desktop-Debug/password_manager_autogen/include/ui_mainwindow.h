@@ -16,6 +16,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
@@ -43,7 +44,8 @@ public:
     QFrame *line_3;
     QLabel *label_13;
     QLabel *addTab_label;
-    QPushButton *removeTab_button;
+    QListWidget *tabListWidget;
+    QLabel *label_15;
     QWidget *page_2;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
@@ -122,13 +124,17 @@ public:
         tabName_lineEdit = new QLineEdit(Edit_tab);
         tabName_lineEdit->setObjectName("tabName_lineEdit");
         tabName_lineEdit->setGeometry(QRect(40, 120, 191, 26));
+        QFont font3;
+        font3.setPointSize(10);
+        font3.setBold(false);
+        tabName_lineEdit->setFont(font3);
         label_12 = new QLabel(Edit_tab);
         label_12->setObjectName("label_12");
         label_12->setGeometry(QRect(40, 100, 121, 18));
-        QFont font3;
-        font3.setPointSize(10);
-        font3.setBold(true);
-        label_12->setFont(font3);
+        QFont font4;
+        font4.setPointSize(10);
+        font4.setBold(true);
+        label_12->setFont(font4);
         line_3 = new QFrame(Edit_tab);
         line_3->setObjectName("line_3");
         line_3->setGeometry(QRect(435, 30, 20, 575));
@@ -136,19 +142,29 @@ public:
         line_3->setFrameShadow(QFrame::Shadow::Sunken);
         label_13 = new QLabel(Edit_tab);
         label_13->setObjectName("label_13");
-        label_13->setGeometry(QRect(485, 40, 141, 31));
+        label_13->setGeometry(QRect(485, 40, 81, 31));
         label_13->setFont(font2);
         addTab_label = new QLabel(Edit_tab);
         addTab_label->setObjectName("addTab_label");
         addTab_label->setGeometry(QRect(40, 150, 311, 21));
-        QFont font4;
-        font4.setPointSize(8);
-        font4.setBold(false);
-        addTab_label->setFont(font4);
-        removeTab_button = new QPushButton(Edit_tab);
-        removeTab_button->setObjectName("removeTab_button");
-        removeTab_button->setGeometry(QRect(500, 160, 161, 31));
-        removeTab_button->setFont(font1);
+        QFont font5;
+        font5.setPointSize(8);
+        font5.setBold(false);
+        addTab_label->setFont(font5);
+        tabListWidget = new QListWidget(Edit_tab);
+        tabListWidget->setObjectName("tabListWidget");
+        tabListWidget->setGeometry(QRect(485, 120, 300, 150));
+        tabListWidget->setContextMenuPolicy(Qt::ContextMenuPolicy::CustomContextMenu);
+        tabListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+        tabListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+        tabListWidget->setEditTriggers(QAbstractItemView::EditTrigger::AllEditTriggers);
+        tabListWidget->setVerticalScrollMode(QAbstractItemView::ScrollMode::ScrollPerPixel);
+        tabListWidget->setHorizontalScrollMode(QAbstractItemView::ScrollMode::ScrollPerPixel);
+        tabListWidget->setProperty("isWrapping", QVariant(false));
+        label_15 = new QLabel(Edit_tab);
+        label_15->setObjectName("label_15");
+        label_15->setGeometry(QRect(620, 100, 161, 21));
+        label_15->setTextFormat(Qt::TextFormat::RichText);
         tabWidget->addTab(Edit_tab, QString());
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
@@ -253,9 +269,9 @@ public:
         copiedLabel = new QLabel(page_2);
         copiedLabel->setObjectName("copiedLabel");
         copiedLabel->setGeometry(QRect(60, 620, 311, 21));
-        QFont font5;
-        font5.setPointSize(8);
-        copiedLabel->setFont(font5);
+        QFont font6;
+        font6.setPointSize(8);
+        copiedLabel->setFont(font6);
         label_5 = new QLabel(page_2);
         label_5->setObjectName("label_5");
         label_5->setGeometry(QRect(470, 45, 401, 21));
@@ -324,7 +340,6 @@ public:
         QWidget::setTabOrder(logoutButton, tabWidget);
         QWidget::setTabOrder(tabWidget, tabName_lineEdit);
         QWidget::setTabOrder(tabName_lineEdit, addTab_button);
-        QWidget::setTabOrder(addTab_button, removeTab_button);
 
         retranslateUi(MainWindow);
 
@@ -343,7 +358,14 @@ public:
         label_12->setText(QCoreApplication::translate("MainWindow", " Tab name", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindow", "Edit tabs", nullptr));
         addTab_label->setText(QString());
-        removeTab_button->setText(QCoreApplication::translate("MainWindow", "Remove last tab", nullptr));
+        label_15->setText(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Use <span style=\" font-weight:700;\">right click </span>to edit tab</p></body></html>", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(Edit_tab), QCoreApplication::translate("MainWindow", "Edit", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Length:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Charset's:", nullptr));
