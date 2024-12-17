@@ -95,6 +95,7 @@ public:
         font1.setBold(false);
         createUsername->setFont(font1);
         createUsername->setMaxLength(50);
+        createUsername->setClearButtonEnabled(true);
 
         verticalLayout_3->addWidget(createUsername);
 
@@ -116,6 +117,7 @@ public:
         createPassword->setFont(font1);
         createPassword->setMaxLength(50);
         createPassword->setEchoMode(QLineEdit::EchoMode::Password);
+        createPassword->setClearButtonEnabled(true);
 
         verticalLayout_4->addWidget(createPassword);
 
@@ -131,6 +133,7 @@ public:
         confirmCreatePassword->setFont(font1);
         confirmCreatePassword->setMaxLength(50);
         confirmCreatePassword->setEchoMode(QLineEdit::EchoMode::Password);
+        confirmCreatePassword->setClearButtonEnabled(true);
 
         verticalLayout_4->addWidget(confirmCreatePassword);
 
@@ -191,6 +194,7 @@ public:
         loginPassword->setFont(font1);
         loginPassword->setMaxLength(50);
         loginPassword->setEchoMode(QLineEdit::EchoMode::Password);
+        loginPassword->setClearButtonEnabled(true);
 
         verticalLayout_2->addWidget(loginPassword);
 
@@ -215,6 +219,7 @@ public:
         loginUsername->setObjectName("loginUsername");
         loginUsername->setFont(font1);
         loginUsername->setMaxLength(50);
+        loginUsername->setClearButtonEnabled(true);
 
         verticalLayout->addWidget(loginUsername);
 

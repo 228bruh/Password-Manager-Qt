@@ -90,6 +90,7 @@ public:
         loginPassword->setFont(font3);
         loginPassword->setMaxLength(50);
         loginPassword->setEchoMode(QLineEdit::EchoMode::Password);
+        loginPassword->setClearButtonEnabled(true);
 
         verticalLayout_2->addWidget(loginPassword);
 

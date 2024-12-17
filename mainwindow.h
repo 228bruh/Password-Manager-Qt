@@ -39,7 +39,7 @@ public:
 private slots:
     // my passwords
     void on_mypassButton_clicked();
-    void on_addTab_button_clicked();     // tab widget
+    void on_tabName_lineEdit_returnPressed();
     void on_tabListWidget_customContextMenuRequested(const QPoint &pos);
 
     // generate password

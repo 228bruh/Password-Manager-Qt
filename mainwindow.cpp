@@ -36,43 +36,22 @@ void MainWindow::on_mypassButton_clicked() {
 void MainWindow::loadTabsFromClass() {
     QVector<Category> &categories = passwordManager.getCategories();
     QStringList categoryNames;
+
     for (const Category &category : categories) {
         categoryNames.append(category.name);
     }
 
-    for (int i = 1; i < ui->tabWidget->count() - 1; ++i) {
-        QString tabName = ui->tabWidget->tabText(i).replace("&", "");
-        if (!categoryNames.contains(tabName)) {
-            ui->tabWidget->removeTab(i);
-            --i;
-        }
-    }
-
-    for (int i = 1; i < ui->tabWidget->count() - 1; ++i) {
-        QString tabName = ui->tabWidget->tabText(i);
-        if (!categoryNames.contains(tabName)) {
-            ui->tabWidget->removeTab(i);
-            --i;
-        }
+    while (ui->tabWidget->count() > 1) {
+        ui->tabWidget->removeTab(1);
     }
 
     for (const QString &categoryName : categoryNames) {
-        bool tabExists = false;
-        for (int i = 1; i < ui->tabWidget->count() - 1; ++i) {
-            if (ui->tabWidget->tabText(i) == categoryName) {
-                tabExists = true;
-                break;
-            }
-        }
+        QWidget *newTab = new QWidget(ui->tabWidget);
+        QVBoxLayout *layout = new QVBoxLayout(newTab);
+        newTab->setLayout(layout);
 
-        if (!tabExists) {
-            QWidget *newTab = new QWidget(ui->tabWidget);
-            QVBoxLayout *layout = new QVBoxLayout(newTab);
-            newTab->setLayout(layout);
-
-            int insertIndex = ui->tabWidget->count() - 1;
-            ui->tabWidget->insertTab(insertIndex, newTab, categoryName);
-        }
+        int insertIndex = ui->tabWidget->count();
+        ui->tabWidget->insertTab(insertIndex, newTab, categoryName);
     }
 
     ui->tabListWidget->clear();
@@ -81,16 +60,16 @@ void MainWindow::loadTabsFromClass() {
     }
 }
 
-void MainWindow::on_addTab_button_clicked() {
+void MainWindow::on_tabName_lineEdit_returnPressed() {
     if (ui->tabName_lineEdit->text().isEmpty()) {
-        ui->addTab_label->setText(" Tab must have a name");
+        ui->addTab_label->setText("Tab must have a name");
         return;
     }
 
     QString tabName = ui->tabName_lineEdit->text();
 
-    if (tabName == "All" || tabName == "Edit") {
-        ui->addTab_label->setText(" Reserved tab name");
+    if (tabName == "All") {
+        ui->addTab_label->setText("Reserved tab name");
         return;
     }
 
@@ -102,7 +81,7 @@ void MainWindow::on_addTab_button_clicked() {
                            });
 
     if (it != categories.end()) {
-        ui->addTab_label->setText(" Tab with this name already exists");
+        ui->addTab_label->setText("Tab with this name already exists");
         return;
     }
 
@@ -130,6 +109,11 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
     QString tabName = item->text();
 
     if (selectedAction == deleteAction) {
+        if (tabName == "All") {
+            QMessageBox::warning(this, "Error", "Cannot delete the 'All' tab.");
+            return;
+        }
+
         QMessageBox::StandardButton reply = QMessageBox::question(
             this, "Confirm Deletion",
             QString("Are you sure you want to delete '%1' tab with all passwords included?").arg(tabName),
@@ -154,6 +138,11 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
             delete item;
         }
     } else if (selectedAction == editNameAction) {
+        if (tabName == "All") {
+            QMessageBox::warning(this, "Error", "Cannot rename the 'All' tab.");
+            return;
+        }
+
         bool ok;
 
         QInputDialog inputDialog(this);
@@ -165,8 +154,8 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
         QString newTabName = inputDialog.textValue();
 
         if (ok && !newTabName.isEmpty()) {
-            if (newTabName == "All" || newTabName == "Edit") {
-                QMessageBox::warning(this, "Error", "Cannot use reserved names");
+            if (newTabName == "All") {
+                QMessageBox::warning(this, "Error", "Cannot use the reserved name 'All'.");
                 return;
             }
 
@@ -196,6 +185,7 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
         }
     }
 }
+
 
 
 
@@ -267,4 +257,3 @@ void MainWindow::on_logoutButton_clicked() {
     startwindow->show();
     close();
 }
-

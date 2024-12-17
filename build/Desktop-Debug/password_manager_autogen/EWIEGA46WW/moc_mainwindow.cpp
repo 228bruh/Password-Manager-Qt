@@ -39,7 +39,7 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "MainWindow",
     "on_mypassButton_clicked",
     "",
-    "on_addTab_button_clicked",
+    "on_tabName_lineEdit_returnPressed",
     "on_tabListWidget_customContextMenuRequested",
     "pos",
     "on_genpassButton_clicked",
@@ -104,7 +104,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
         // method 'on_mypassButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_addTab_button_clicked'
+        // method 'on_tabName_lineEdit_returnPressed'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_tabListWidget_customContextMenuRequested'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -133,7 +133,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->on_mypassButton_clicked(); break;
-        case 1: _t->on_addTab_button_clicked(); break;
+        case 1: _t->on_tabName_lineEdit_returnPressed(); break;
         case 2: _t->on_tabListWidget_customContextMenuRequested((*reinterpret_cast< std::add_pointer_t<QPoint>>(_a[1]))); break;
         case 3: _t->on_genpassButton_clicked(); break;
         case 4: _t->on_checkBox_custom_stateChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;

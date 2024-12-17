@@ -40,19 +40,3 @@ public:
 };
 
 #endif // PASSWORDSMANAGER_H
-
-
-
-/*
-    bool readJsonFile(QJsonObject &rootObject, const QString &fileName);
-    bool writeJsonFile(const QJsonObject &rootObject, const QString &fileName);
-
-    void loadFromFile(const QString &fileName);
-    void saveToFile(const QString &fileName) const;
-
-    void addCategory(const QString &name);
-    void removeCategory(const QString &name);
-
-    QVector<Category>& getCategories();
-    Category* findCategory(const QString &name);
-*/
