@@ -10,8 +10,10 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -19,6 +21,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTabWidget>
@@ -36,7 +39,8 @@ public:
     QWidget *page;
     QTabWidget *tabWidget;
     QWidget *All_tab;
-    QLineEdit *search_lineEdit;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
     QPushButton *addPassword_button;
     QLabel *label_2;
     QLineEdit *tabName_lineEdit;
@@ -45,6 +49,14 @@ public:
     QListWidget *tabListWidget;
     QFrame *line_3;
     QFrame *line_4;
+    QLineEdit *addWebsite_lineEdit;
+    QLabel *label_12;
+    QLineEdit *addUsername_lineEdit;
+    QLineEdit *addPassword_lineEdit;
+    QCheckBox *showAddPass;
+    QComboBox *add_comboBox;
+    QLineEdit *search_lineEdit;
+    QLabel *addPassword_label;
     QWidget *page_2;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
@@ -98,34 +110,47 @@ public:
         page->setObjectName("page");
         tabWidget = new QTabWidget(page);
         tabWidget->setObjectName("tabWidget");
-        tabWidget->setGeometry(QRect(15, 215, 901, 551));
+        tabWidget->setGeometry(QRect(-5, 215, 935, 565));
+        QPalette palette;
+        QBrush brush(QColor(42, 46, 50, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        tabWidget->setPalette(palette);
         QFont font;
         font.setBold(false);
         tabWidget->setFont(font);
+        tabWidget->setTabShape(QTabWidget::TabShape::Rounded);
+        tabWidget->setElideMode(Qt::TextElideMode::ElideNone);
+        tabWidget->setDocumentMode(true);
         All_tab = new QWidget();
         All_tab->setObjectName("All_tab");
+        scrollArea = new QScrollArea(All_tab);
+        scrollArea->setObjectName("scrollArea");
+        scrollArea->setGeometry(QRect(4, 0, 931, 541));
+        scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 929, 539));
+        scrollArea->setWidget(scrollAreaWidgetContents);
         tabWidget->addTab(All_tab, QString());
-        search_lineEdit = new QLineEdit(page);
-        search_lineEdit->setObjectName("search_lineEdit");
-        search_lineEdit->setGeometry(QRect(20, 50, 281, 30));
-        search_lineEdit->setMaxLength(50);
-        search_lineEdit->setClearButtonEnabled(true);
         addPassword_button = new QPushButton(page);
         addPassword_button->setObjectName("addPassword_button");
-        addPassword_button->setGeometry(QRect(20, 110, 121, 31));
+        addPassword_button->setGeometry(QRect(250, 150, 111, 31));
         QFont font1;
         font1.setBold(true);
         addPassword_button->setFont(font1);
         label_2 = new QLabel(page);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(421, 10, 141, 31));
+        label_2->setGeometry(QRect(416, 10, 141, 31));
         QFont font2;
         font2.setPointSize(12);
         font2.setBold(true);
         label_2->setFont(font2);
         tabName_lineEdit = new QLineEdit(page);
         tabName_lineEdit->setObjectName("tabName_lineEdit");
-        tabName_lineEdit->setGeometry(QRect(420, 50, 181, 30));
+        tabName_lineEdit->setGeometry(QRect(415, 50, 181, 30));
         QFont font3;
         font3.setPointSize(10);
         font3.setBold(false);
@@ -136,18 +161,22 @@ public:
         tabName_lineEdit->setClearButtonEnabled(true);
         addTab_label = new QLabel(page);
         addTab_label->setObjectName("addTab_label");
-        addTab_label->setGeometry(QRect(422, 78, 191, 21));
+        addTab_label->setGeometry(QRect(417, 80, 221, 21));
         QFont font4;
         font4.setPointSize(8);
         font4.setBold(false);
         addTab_label->setFont(font4);
         label_13 = new QLabel(page);
         label_13->setObjectName("label_13");
-        label_13->setGeometry(QRect(670, 10, 81, 31));
+        label_13->setGeometry(QRect(666, 10, 131, 31));
         label_13->setFont(font2);
         tabListWidget = new QListWidget(page);
         tabListWidget->setObjectName("tabListWidget");
-        tabListWidget->setGeometry(QRect(670, 50, 211, 121));
+        tabListWidget->setGeometry(QRect(665, 50, 211, 141));
+        QPalette palette1;
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        tabListWidget->setPalette(palette1);
         tabListWidget->setFont(font1);
         tabListWidget->setContextMenuPolicy(Qt::ContextMenuPolicy::CustomContextMenu);
         tabListWidget->setFrameShape(QFrame::Shape::StyledPanel);
@@ -168,7 +197,78 @@ public:
         line_4->setGeometry(QRect(639, 20, 20, 171));
         line_4->setFrameShape(QFrame::Shape::VLine);
         line_4->setFrameShadow(QFrame::Shadow::Sunken);
+        addWebsite_lineEdit = new QLineEdit(page);
+        addWebsite_lineEdit->setObjectName("addWebsite_lineEdit");
+        addWebsite_lineEdit->setGeometry(QRect(15, 50, 345, 30));
+        addWebsite_lineEdit->setFont(font3);
+        addWebsite_lineEdit->setMaxLength(30);
+        addWebsite_lineEdit->setFrame(true);
+        addWebsite_lineEdit->setDragEnabled(false);
+        addWebsite_lineEdit->setClearButtonEnabled(true);
+        label_12 = new QLabel(page);
+        label_12->setObjectName("label_12");
+        label_12->setGeometry(QRect(16, 10, 141, 31));
+        label_12->setFont(font2);
+        addUsername_lineEdit = new QLineEdit(page);
+        addUsername_lineEdit->setObjectName("addUsername_lineEdit");
+        addUsername_lineEdit->setGeometry(QRect(15, 100, 163, 30));
+        addUsername_lineEdit->setFont(font3);
+        addUsername_lineEdit->setMaxLength(30);
+        addUsername_lineEdit->setFrame(true);
+        addUsername_lineEdit->setDragEnabled(false);
+        addUsername_lineEdit->setClearButtonEnabled(true);
+        addPassword_lineEdit = new QLineEdit(page);
+        addPassword_lineEdit->setObjectName("addPassword_lineEdit");
+        addPassword_lineEdit->setGeometry(QRect(197, 100, 163, 30));
+        addPassword_lineEdit->setFont(font3);
+        addPassword_lineEdit->setMaxLength(30);
+        addPassword_lineEdit->setFrame(true);
+        addPassword_lineEdit->setEchoMode(QLineEdit::EchoMode::Password);
+        addPassword_lineEdit->setDragEnabled(false);
+        addPassword_lineEdit->setClearButtonEnabled(true);
+        showAddPass = new QCheckBox(page);
+        showAddPass->setObjectName("showAddPass");
+        showAddPass->setGeometry(QRect(342, 107, 41, 16));
+        showAddPass->setFocusPolicy(Qt::FocusPolicy::NoFocus);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/new/prefix1/resources/hide.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        showAddPass->setIcon(icon);
+        add_comboBox = new QComboBox(page);
+        add_comboBox->setObjectName("add_comboBox");
+        add_comboBox->setGeometry(QRect(15, 150, 163, 30));
+        add_comboBox->setEditable(true);
+        add_comboBox->setFrame(true);
+        search_lineEdit = new QLineEdit(page);
+        search_lineEdit->setObjectName("search_lineEdit");
+        search_lineEdit->setGeometry(QRect(700, 100, 141, 30));
+        search_lineEdit->setMaxLength(50);
+        search_lineEdit->setClearButtonEnabled(true);
+        addPassword_label = new QLabel(page);
+        addPassword_label->setObjectName("addPassword_label");
+        addPassword_label->setGeometry(QRect(167, 180, 191, 21));
+        addPassword_label->setFont(font4);
+        addPassword_label->setLayoutDirection(Qt::LayoutDirection::RightToLeft);
+        addPassword_label->setTextFormat(Qt::TextFormat::AutoText);
+        addPassword_label->setScaledContents(false);
+        addPassword_label->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
         stackedWidget->addWidget(page);
+        search_lineEdit->raise();
+        showAddPass->raise();
+        tabWidget->raise();
+        addPassword_button->raise();
+        label_2->raise();
+        tabName_lineEdit->raise();
+        addTab_label->raise();
+        label_13->raise();
+        tabListWidget->raise();
+        line_3->raise();
+        line_4->raise();
+        addWebsite_lineEdit->raise();
+        label_12->raise();
+        addUsername_lineEdit->raise();
+        addPassword_lineEdit->raise();
+        add_comboBox->raise();
+        addPassword_label->raise();
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
         horizontalLayoutWidget = new QWidget(page_2);
@@ -188,7 +288,7 @@ public:
         spinBox->setMinimumSize(QSize(0, 30));
         spinBox->setMaximumSize(QSize(50, 16777215));
         spinBox->setWrapping(false);
-        spinBox->setFrame(false);
+        spinBox->setFrame(true);
         spinBox->setMinimum(4);
         spinBox->setMaximum(50);
         spinBox->setValue(12);
@@ -249,6 +349,12 @@ public:
         textEdit = new QTextEdit(page_2);
         textEdit->setObjectName("textEdit");
         textEdit->setGeometry(QRect(60, 410, 321, 151));
+        QPalette palette2;
+        QBrush brush1(QColor(36, 40, 43, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette2.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette2.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        textEdit->setPalette(palette2);
         textEdit->setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
         textEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
         textEdit->setReadOnly(true);
@@ -263,8 +369,12 @@ public:
         generateButton->setFont(font1);
         copyGenPassButton = new QPushButton(page_2);
         copyGenPassButton->setObjectName("copyGenPassButton");
-        copyGenPassButton->setGeometry(QRect(270, 580, 51, 31));
+        copyGenPassButton->setGeometry(QRect(290, 580, 31, 31));
         copyGenPassButton->setFont(font1);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/new/prefix1/resources/Copy.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        copyGenPassButton->setIcon(icon1);
+        copyGenPassButton->setIconSize(QSize(20, 20));
         clearButton = new QPushButton(page_2);
         clearButton->setObjectName("clearButton");
         clearButton->setGeometry(QRect(330, 580, 51, 31));
@@ -355,12 +465,19 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         tabWidget->setTabText(tabWidget->indexOf(All_tab), QCoreApplication::translate("MainWindow", "All", nullptr));
-        search_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search...", nullptr));
         addPassword_button->setText(QCoreApplication::translate("MainWindow", "Add password", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Add tab", nullptr));
-        tabName_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Tab name", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Add category", nullptr));
+        tabName_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Category name", nullptr));
         addTab_label->setText(QString());
-        label_13->setText(QCoreApplication::translate("MainWindow", "Edit tabs", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "Edit categories", nullptr));
+        addWebsite_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Website", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "Add password", nullptr));
+        addUsername_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "User Name*", nullptr));
+        addPassword_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Password*", nullptr));
+        showAddPass->setText(QString());
+        add_comboBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Select category", nullptr));
+        search_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search...", nullptr));
+        addPassword_label->setText(QString());
         label_3->setText(QCoreApplication::translate("MainWindow", "Length:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Charset's:", nullptr));
         checkBox_123->setText(QCoreApplication::translate("MainWindow", "0 - 9", nullptr));
@@ -369,7 +486,7 @@ public:
         checkBox_ABC->setText(QCoreApplication::translate("MainWindow", "A - Z", nullptr));
         checkBox_custom->setText(QCoreApplication::translate("MainWindow", "Custom charset", nullptr));
         generateButton->setText(QCoreApplication::translate("MainWindow", "Generate", nullptr));
-        copyGenPassButton->setText(QCoreApplication::translate("MainWindow", "Copy", nullptr));
+        copyGenPassButton->setText(QString());
         clearButton->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
         copiedLabel->setText(QString());
         label_5->setText(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

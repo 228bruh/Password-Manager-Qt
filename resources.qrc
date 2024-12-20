@@ -4,5 +4,7 @@
         <file>resources/hide.png</file>
         <file>resources/show.png</file>
         <file>resources/padlock.png</file>
+        <file>resources/edit.png</file>
+        <file>resources/Copy.png</file>
     </qresource>
 </RCC>

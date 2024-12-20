@@ -210,6 +210,7 @@
  mdp:/usr/include/QtGui/qvector2d.h
  mdp:/usr/include/QtGui/qvectornd.h
  mdp:/usr/include/QtGui/qwindowdefs.h
+ mdp:/usr/include/QtWidgets/QGroupBox
  mdp:/usr/include/QtWidgets/QInputDialog
  mdp:/usr/include/QtWidgets/QMainWindow
  mdp:/usr/include/QtWidgets/QMenu
@@ -217,6 +218,7 @@
  mdp:/usr/include/QtWidgets/qdialog.h
  mdp:/usr/include/QtWidgets/qdialogbuttonbox.h
  mdp:/usr/include/QtWidgets/qframe.h
+ mdp:/usr/include/QtWidgets/qgroupbox.h
  mdp:/usr/include/QtWidgets/qinputdialog.h
  mdp:/usr/include/QtWidgets/qlineedit.h
  mdp:/usr/include/QtWidgets/qmainwindow.h

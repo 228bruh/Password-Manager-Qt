@@ -61,7 +61,7 @@ public:
         loginButton->setFont(font1);
         showLIpass = new QCheckBox(Loginwindow);
         showLIpass->setObjectName("showLIpass");
-        showLIpass->setGeometry(QRect(270, 180, 41, 16));
+        showLIpass->setGeometry(QRect(273, 177, 41, 16));
         showLIpass->setFocusPolicy(Qt::FocusPolicy::NoFocus);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/new/prefix1/resources/hide.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);

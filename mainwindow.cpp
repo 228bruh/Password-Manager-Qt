@@ -19,6 +19,7 @@ void MainWindow::setUsername(const QString &set_username) {
     setWindowTitle("Password Manager - " + username);
     passwordManager.loadFromJsonFileToClass(username + ".json");
     loadTabsFromClass();
+    loadPasswordsFromClass();
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
@@ -29,10 +30,6 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 
 
 /////// my passwords ///////////////////////////////////////////////////////////
-void MainWindow::on_mypassButton_clicked() {
-    ui->stackedWidget->setCurrentIndex(0);
-}
-
 void MainWindow::loadTabsFromClass() {
     QVector<Category> &categories = passwordManager.getCategories();
     QStringList categoryNames;
@@ -58,18 +55,141 @@ void MainWindow::loadTabsFromClass() {
     for (const QString &categoryName : categoryNames) {
         ui->tabListWidget->addItem(categoryName);
     }
+
+    ui->add_comboBox->clear();
+    for (const QString &categoryName : categoryNames) {
+        ui->add_comboBox->addItem(categoryName);
+    }
 }
+
+void MainWindow::loadPasswordsFromClass() {
+    QVector<Category> &categories = passwordManager.getCategories();
+
+    QWidget *allTab = ui->tabWidget->widget(0);
+    QScrollArea *scrollArea = allTab->findChild<QScrollArea *>("scrollArea");
+
+    QWidget *contentWidget = scrollArea->widget();
+    if (!contentWidget) {
+        contentWidget = new QWidget(scrollArea);
+        scrollArea->setWidget(contentWidget);
+    }
+    QLayout *layout = contentWidget->layout();
+    if (layout) {
+        delete layout;
+    }
+
+    int x = 0, y = 0;
+    constexpr int WIDTH = 430;
+    constexpr int HEIGHT = 180;
+    constexpr int SPACING = 20;
+
+    for (const Category &category : categories) {
+        for (Password password : category.passwords) {
+            QGroupBox *passwordBox = new QGroupBox(contentWidget);
+            passwordBox->setGeometry(x, y, WIDTH, HEIGHT);
+            passwordBox->setStyleSheet("QGroupBox { border: none; }");
+
+            QLineEdit *websiteEdit = new QLineEdit(password.website, passwordBox);
+            websiteEdit->setGeometry(20, 10, WIDTH - 20, 30);
+            websiteEdit->setReadOnly(true);
+
+            QLabel *usernameLabel = new QLabel("User Name:", passwordBox);
+            usernameLabel->setGeometry(20, 50, 80, 30);
+            QFont blotFont;
+            QFont font_8;
+            blotFont.setBold(true);
+            font_8.setPointSize(8);
+            usernameLabel->setFont(blotFont);
+            QLineEdit *usernameEdit = new QLineEdit(password.username, passwordBox);
+            usernameEdit->setGeometry(110, 50, WIDTH - 110, 30);
+            usernameEdit->setReadOnly(true);
+
+            QLabel *passwordLabel = new QLabel("Password:", passwordBox);
+            passwordLabel->setGeometry(20, 90, 80, 30);
+            passwordLabel->setFont(blotFont);
+            QLineEdit *passwordEdit = new QLineEdit(password.password, passwordBox);
+            passwordEdit->setGeometry(110, 90, WIDTH - 110, 30);
+            passwordEdit->setEchoMode(QLineEdit::Password);
+            passwordEdit->setReadOnly(true);
+
+            QLabel *copyLabel = new QLabel("", passwordBox);
+            copyLabel->setGeometry(200, 130, 180, 30);
+            copyLabel->setFont(font_8);
+            QPushButton *copyButton = new QPushButton(passwordBox);
+            copyButton->setIcon(QIcon(":/new/prefix1/resources/Copy.png"));
+            copyButton->setIconSize(QSize(18, 18));
+            copyButton->setGeometry(WIDTH - 70, 130, 30, 30);
+            connect(copyButton, &QPushButton::clicked, [password, copyLabel]() {
+                QClipboard *clipboard = QGuiApplication::clipboard();
+                clipboard->setText(password.password);
+                copyLabel->setText("Password copied to clipboard");
+                QTimer::singleShot(3000, [copyLabel]() { copyLabel->clear(); });
+            });
+
+            QPushButton *editButton = new QPushButton(passwordBox);
+            editButton->setIcon(QIcon(":/new/prefix1/resources/edit.png"));
+            editButton->setIconSize(QSize(24, 24));
+            editButton->setGeometry(WIDTH - 30, 130, 30, 30);
+            connect(editButton, &QPushButton::clicked, [this, password]() mutable {
+                openEditDialog(password);
+            });
+
+            x += WIDTH + SPACING;
+            if (x + WIDTH > scrollArea->width()) {
+                x = 0;
+                y += HEIGHT + SPACING;
+            }
+        }
+    }
+
+    contentWidget->setMinimumSize(scrollArea->width(), y + HEIGHT);
+}
+
+void MainWindow::openEditDialog(Password &password) {
+    QDialog *editDialog = new QDialog(this);
+    editDialog->setWindowTitle("Edit Password");
+    editDialog->setFixedSize(450, 200);
+
+    QLineEdit *websiteEdit = new QLineEdit(password.website, editDialog);
+    websiteEdit->setGeometry(10, 10, 430, 30);
+
+    QLabel *usernameLabel = new QLabel("User Name:", editDialog);
+    usernameLabel->setGeometry(10, 50, 80, 30);
+    QLineEdit *usernameEdit = new QLineEdit(password.username, editDialog);
+    usernameEdit->setGeometry(100, 50, 330, 30);
+
+    QLabel *passwordLabel = new QLabel("Password:", editDialog);
+    passwordLabel->setGeometry(10, 90, 80, 30);
+    QLineEdit *passwordEdit = new QLineEdit(password.password, editDialog);
+    passwordEdit->setGeometry(100, 90, 330, 30);
+    passwordEdit->setEchoMode(QLineEdit::Password);
+
+    QPushButton *saveButton = new QPushButton("Save", editDialog);
+    saveButton->setGeometry(350, 150, 80, 30);
+
+    connect(saveButton, &QPushButton::clicked, [&, websiteEdit, usernameEdit, passwordEdit, editDialog]() {
+        password.website = websiteEdit->text();
+        password.username = usernameEdit->text();
+        password.password = passwordEdit->text();
+        passwordManager.sortPasswordsAlphabetically();
+        editDialog->accept();
+        //loadPasswordsFromClass();
+    });
+
+    editDialog->exec();
+}
+
 
 void MainWindow::on_tabName_lineEdit_returnPressed() {
     if (ui->tabName_lineEdit->text().isEmpty()) {
-        ui->addTab_label->setText("Tab must have a name");
+        ui->addTab_label->setText("Category must have a name");
         return;
     }
 
     QString tabName = ui->tabName_lineEdit->text();
 
     if (tabName == "All") {
-        ui->addTab_label->setText("Reserved tab name");
+        ui->addTab_label->setText("Reserved category name");
         return;
     }
 
@@ -81,7 +201,7 @@ void MainWindow::on_tabName_lineEdit_returnPressed() {
                            });
 
     if (it != categories.end()) {
-        ui->addTab_label->setText("Tab with this name already exists");
+        ui->addTab_label->setText("Category with this name already exists");
         return;
     }
 
@@ -116,26 +236,19 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
 
         QMessageBox::StandardButton reply = QMessageBox::question(
             this, "Confirm Deletion",
-            QString("Are you sure you want to delete '%1' tab with all passwords included?").arg(tabName),
+            QString("Are you sure you want to delete '%1' category with all passwords included?").arg(tabName),
             QMessageBox::Yes | QMessageBox::No);
 
         if (reply == QMessageBox::Yes) {
-            for (int i = 0; i < ui->tabWidget->count(); ++i) {
-                QString currentTabName = ui->tabWidget->tabText(i).replace("&", "");
-                if (currentTabName == tabName) {
-                    ui->tabWidget->removeTab(i);
-                    break;
-                }
-            }
-
             QVector<Category> &categories = passwordManager.getCategories();
+
             auto it = std::find_if(categories.begin(), categories.end(),
                                    [&tabName](const Category &category) { return category.name == tabName; });
             if (it != categories.end()) {
                 categories.erase(it);
             }
 
-            delete item;
+            loadTabsFromClass();
         }
     } else if (selectedAction == editNameAction) {
         if (tabName == "All") {
@@ -146,8 +259,8 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
         bool ok;
 
         QInputDialog inputDialog(this);
-        inputDialog.setWindowTitle("Edit Tab Name");
-        inputDialog.setLabelText(QString("Enter new name for tab '%1':").arg(tabName));
+        inputDialog.setWindowTitle("Edit Category Name");
+        inputDialog.setLabelText(QString("Enter new name for category '%1':").arg(tabName));
         inputDialog.setTextValue(tabName);
 
         ok = inputDialog.exec() == QDialog::Accepted;
@@ -162,7 +275,7 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
             for (int i = 0; i < ui->tabWidget->count(); ++i) {
                 QString existingTabName = ui->tabWidget->tabText(i).replace("&", "");
                 if (existingTabName == newTabName) {
-                    QMessageBox::warning(this, "Error", "A tab with this name already exists");
+                    QMessageBox::warning(this, "Error", "Category with this name already exists");
                     return;
                 }
             }
@@ -186,22 +299,58 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
     }
 }
 
+void MainWindow::on_addPassword_button_clicked() {
+    QString addedWebsite = ui->addWebsite_lineEdit->text();
+    QString addedUsername = ui->addUsername_lineEdit->text();
+    QString addedPassword = ui->addPassword_lineEdit->text();
+    QString selectedCategory = ui->add_comboBox->currentText();
+
+    if (selectedCategory.isEmpty() || addedUsername.isEmpty() || addedPassword.isEmpty()) {
+        ui->addPassword_label->setText("Fill the required fields");
+        return;
+    }
+
+    QVector<Category> &categories = passwordManager.getCategories();
+
+    auto it = std::find_if(categories.begin(), categories.end(),
+                           [&selectedCategory](const Category &category) {
+                               return category.name == selectedCategory;
+                           });
+
+    if (it != categories.end()) {
+        it->addPassword(Password(addedWebsite, addedUsername, addedPassword));
+    } else {
+        ui->addPassword_label->setText("Category not found");
+        return;
+    }
+
+    ui->addWebsite_lineEdit->clear();
+    ui->addUsername_lineEdit->clear();
+    ui->addPassword_lineEdit->clear();
+    ui->addPassword_label->setText("");
+
+    loadTabsFromClass();
+    loadPasswordsFromClass();
+}
+
+
+void MainWindow::on_mypassButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_showAddPass_stateChanged(int state) {
+    if (state == Qt::Checked) {
+        ui->addPassword_lineEdit->setEchoMode(QLineEdit::Normal);
+        ui->showAddPass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
+    } else {
+        ui->addPassword_lineEdit->setEchoMode(QLineEdit::Password);
+        ui->showAddPass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+    }
+}
 
 
 
 /////// password generator //////////////////////////////////////////////////
-void MainWindow::on_genpassButton_clicked() {
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
-void MainWindow::on_checkBox_custom_stateChanged(int state) {
-    if (state == Qt::Checked) {
-        ui->customCS->setReadOnly(0);
-    } else {
-        ui->customCS->setReadOnly(1);
-    }
-}
-
 void MainWindow::on_generateButton_clicked() {
     QString charSet{""};
     generatedPassword = "";
@@ -243,6 +392,18 @@ void MainWindow::on_copyGenPassButton_clicked() {
 void MainWindow::on_clearButton_clicked() {
     ui->textEdit->setText("");
     generatedPassword = "";
+}
+
+void MainWindow::on_genpassButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_checkBox_custom_stateChanged(int state) {
+    if (state == Qt::Checked) {
+        ui->customCS->setReadOnly(0);
+    } else {
+        ui->customCS->setReadOnly(1);
+    }
 }
 
 

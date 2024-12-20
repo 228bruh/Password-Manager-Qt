@@ -1,0 +1,16 @@
+{
+    "categories": {
+        "Qwerty": [
+            {
+                "password": "Qwerty",
+                "username": "Qwerty",
+                "website": "Qwerty"
+            },
+            {
+                "password": "Zxcvbn",
+                "username": "Zxcvbn",
+                "website": "Zxcvbn"
+            }
+        ]
+    }
+}

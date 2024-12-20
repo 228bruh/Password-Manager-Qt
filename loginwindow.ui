@@ -61,8 +61,8 @@
   <widget class="QCheckBox" name="showLIpass">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>180</y>
+     <x>273</x>
+     <y>177</y>
      <width>41</width>
      <height>16</height>
     </rect>

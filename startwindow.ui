@@ -489,8 +489,8 @@
   <widget class="QCheckBox" name="showCApass">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>370</y>
+     <x>722</x>
+     <y>365</y>
      <width>41</width>
      <height>16</height>
     </rect>
@@ -509,8 +509,8 @@
   <widget class="QCheckBox" name="showCAconfpass">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>430</y>
+     <x>722</x>
+     <y>428</y>
      <width>41</width>
      <height>16</height>
     </rect>
@@ -529,8 +529,8 @@
   <widget class="QCheckBox" name="showLIpass">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>430</y>
+     <x>292</x>
+     <y>427</y>
      <width>41</width>
      <height>16</height>
     </rect>

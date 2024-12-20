@@ -16,6 +16,8 @@ public:
     QString password;
 
     Password(const QString &website, const QString &username, const QString &password);
+
+    Password& operator=(const Password &other);
 };
 
 class Category {
@@ -34,6 +36,7 @@ private:
 public:
     void loadFromJsonFileToClass(const QString &fileName);
     void loadFromClassToJsonFile(const QString &fileName);
+    void sortPasswordsAlphabetically();
 
     QVector<Category>& getCategories();
 

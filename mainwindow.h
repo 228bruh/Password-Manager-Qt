@@ -5,6 +5,7 @@
 #include <QCloseEvent>
 #include <QMenu>
 #include <QInputDialog>
+#include <QGroupBox>
 #include "passwordsmanager.h"
 
 QT_BEGIN_NAMESPACE
@@ -35,20 +36,25 @@ public:
     void setUsername(const QString &set_username);
 
     void loadTabsFromClass();
+    void loadPasswordsFromClass();
+    void openEditDialog(Password &password);
 
 private slots:
     // my passwords
-    void on_mypassButton_clicked();
     void on_tabName_lineEdit_returnPressed();
     void on_tabListWidget_customContextMenuRequested(const QPoint &pos);
+    void on_addPassword_button_clicked();
+
+    void on_mypassButton_clicked();
+    void on_showAddPass_stateChanged(int state);
 
     // generate password
-    void on_genpassButton_clicked();
-    void on_checkBox_custom_stateChanged(int state);
     void on_generateButton_clicked();
     void on_copyGenPassButton_clicked();
     void on_clearButton_clicked();
 
+    void on_genpassButton_clicked();
+    void on_checkBox_custom_stateChanged(int state);
 
     // log out
     void on_logoutButton_clicked();
