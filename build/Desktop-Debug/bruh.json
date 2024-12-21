@@ -1,17 +1,32 @@
 {
     "categories": {
         "Apple": [
-            {
-                "password": "132454679",
-                "username": "kirill",
-                "website": "AppleID"
-            }
         ],
         "Google": [
             {
                 "password": "1234567890",
-                "username": "kirill Yarmak",
+                "username": "kirill Bruh",
                 "website": "ChatGPT"
+            },
+            {
+                "password": "gc vhbjjn",
+                "username": "kirill",
+                "website": "FireFox"
+            },
+            {
+                "password": "svbhsvbefjhs",
+                "username": "kirillarmak7@gmail.com",
+                "website": "Google"
+            },
+            {
+                "password": "2536bruh$",
+                "username": "kirillarmak7@gmail.com",
+                "website": "Microsoft"
+            },
+            {
+                "password": "2536bruh",
+                "username": "bruh",
+                "website": "Pornhub"
             }
         ],
         "Uni": [

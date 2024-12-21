@@ -6,5 +6,6 @@
         <file>resources/padlock.png</file>
         <file>resources/edit.png</file>
         <file>resources/Copy.png</file>
+        <file>resources/delete.png</file>
     </qresource>
 </RCC>

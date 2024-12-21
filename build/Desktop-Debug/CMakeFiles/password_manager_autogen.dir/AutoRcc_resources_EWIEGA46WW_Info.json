@@ -9,6 +9,7 @@
 	"INCLUDE_DIR" : "/home/kirill/qt creator/password_manager/build/Desktop-Debug/password_manager_autogen/include",
 	"INPUTS" : 
 	[
+		"/home/kirill/qt creator/password_manager/resources/delete.png",
 		"/home/kirill/qt creator/password_manager/resources/password-manager.png",
 		"/home/kirill/qt creator/password_manager/resources/padlock.png",
 		"/home/kirill/qt creator/password_manager/resources/Copy.png",

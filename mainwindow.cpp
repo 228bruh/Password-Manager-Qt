@@ -73,108 +73,195 @@ void MainWindow::loadPasswordsFromClass() {
         contentWidget = new QWidget(scrollArea);
         scrollArea->setWidget(contentWidget);
     }
+
     QLayout *layout = contentWidget->layout();
     if (layout) {
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            if (item->widget()) {
+                delete item->widget();
+            }
+            delete item;
+        }
         delete layout;
     }
 
-    int x = 0, y = 0;
-    constexpr int WIDTH = 430;
-    constexpr int HEIGHT = 180;
-    constexpr int SPACING = 20;
+    QGridLayout *gridLayout = new QGridLayout(contentWidget);
+    contentWidget->setLayout(gridLayout);
 
-    for (const Category &category : categories) {
-        for (Password password : category.passwords) {
-            QGroupBox *passwordBox = new QGroupBox(contentWidget);
-            passwordBox->setGeometry(x, y, WIDTH, HEIGHT);
-            passwordBox->setStyleSheet("QGroupBox { border: none; }");
+    int row = 0, col = 0;
 
-            QLineEdit *websiteEdit = new QLineEdit(password.website, passwordBox);
-            websiteEdit->setGeometry(20, 10, WIDTH - 20, 30);
-            websiteEdit->setReadOnly(true);
+    for (Category &category : categories) {
+        for (Password &password : category.passwords) {
+            QGroupBox *passwordBox = createPasswordBox(password, contentWidget);
+            gridLayout->addWidget(passwordBox, row, col);
 
-            QLabel *usernameLabel = new QLabel("User Name:", passwordBox);
-            usernameLabel->setGeometry(20, 50, 80, 30);
-            QFont blotFont;
-            QFont font_8;
-            blotFont.setBold(true);
-            font_8.setPointSize(8);
-            usernameLabel->setFont(blotFont);
-            QLineEdit *usernameEdit = new QLineEdit(password.username, passwordBox);
-            usernameEdit->setGeometry(110, 50, WIDTH - 110, 30);
-            usernameEdit->setReadOnly(true);
-
-            QLabel *passwordLabel = new QLabel("Password:", passwordBox);
-            passwordLabel->setGeometry(20, 90, 80, 30);
-            passwordLabel->setFont(blotFont);
-            QLineEdit *passwordEdit = new QLineEdit(password.password, passwordBox);
-            passwordEdit->setGeometry(110, 90, WIDTH - 110, 30);
-            passwordEdit->setEchoMode(QLineEdit::Password);
-            passwordEdit->setReadOnly(true);
-
-            QLabel *copyLabel = new QLabel("", passwordBox);
-            copyLabel->setGeometry(200, 130, 180, 30);
-            copyLabel->setFont(font_8);
-            QPushButton *copyButton = new QPushButton(passwordBox);
-            copyButton->setIcon(QIcon(":/new/prefix1/resources/Copy.png"));
-            copyButton->setIconSize(QSize(18, 18));
-            copyButton->setGeometry(WIDTH - 70, 130, 30, 30);
-            connect(copyButton, &QPushButton::clicked, [password, copyLabel]() {
-                QClipboard *clipboard = QGuiApplication::clipboard();
-                clipboard->setText(password.password);
-                copyLabel->setText("Password copied to clipboard");
-                QTimer::singleShot(3000, [copyLabel]() { copyLabel->clear(); });
-            });
-
-            QPushButton *editButton = new QPushButton(passwordBox);
-            editButton->setIcon(QIcon(":/new/prefix1/resources/edit.png"));
-            editButton->setIconSize(QSize(24, 24));
-            editButton->setGeometry(WIDTH - 30, 130, 30, 30);
-            connect(editButton, &QPushButton::clicked, [this, password]() mutable {
-                openEditDialog(password);
-            });
-
-            x += WIDTH + SPACING;
-            if (x + WIDTH > scrollArea->width()) {
-                x = 0;
-                y += HEIGHT + SPACING;
+            col++;
+            if (col == 2) {
+                col = 0;
+                row++;
             }
         }
     }
 
-    contentWidget->setMinimumSize(scrollArea->width(), y + HEIGHT);
+    contentWidget->setMinimumSize(scrollArea->width(), (row + 1) * 200);
+}
+
+QGroupBox* MainWindow::createPasswordBox(Password &password, QWidget *parent) {
+    // UI description
+    constexpr int WIDTH = 430, HEIGHT = 180;
+
+    QGroupBox *passwordBox = new QGroupBox(parent);
+    passwordBox->setFixedSize(WIDTH, HEIGHT);
+    passwordBox->setStyleSheet("QGroupBox { border: none; }");
+
+    QLineEdit *websiteEdit = new QLineEdit(password.website, passwordBox);
+    websiteEdit->setGeometry(20, 10, WIDTH - 20, 30);
+    websiteEdit->setReadOnly(true);
+    websiteEdit->setStyleSheet("QLineEdit { background-color: #2A2E32; }");
+
+    QLabel *usernameLabel = new QLabel("User Name:", passwordBox);
+    usernameLabel->setGeometry(21, 50, 80, 30);
+    QFont boldFont;
+    boldFont.setBold(true);
+    usernameLabel->setFont(boldFont);
+
+    QLineEdit *usernameEdit = new QLineEdit(password.username, passwordBox);
+    usernameEdit->setGeometry(110, 50, WIDTH - 110, 30);
+    usernameEdit->setReadOnly(true);
+    usernameEdit->setStyleSheet("QLineEdit { background-color: #2A2E32; }");
+
+    QLabel *passwordLabel = new QLabel("Password:", passwordBox);
+    passwordLabel->setGeometry(21, 90, 80, 30);
+    passwordLabel->setFont(boldFont);
+
+    QLineEdit *passwordEdit = new QLineEdit(password.password, passwordBox);
+    passwordEdit->setGeometry(110, 90, WIDTH - 110, 30);
+    passwordEdit->setEchoMode(QLineEdit::Password);
+    passwordEdit->setReadOnly(true);
+    passwordEdit->setStyleSheet("QLineEdit { background-color: #2A2E32; }");
+
+    QLabel *copyLabel = new QLabel("", passwordBox);
+    copyLabel->setGeometry(150, 130, 180, 30);
+    QFont smallFont;
+    smallFont.setPointSize(8);
+    copyLabel->setFont(smallFont);
+
+    QPushButton *copyButton = new QPushButton(passwordBox);
+    copyButton->setIcon(QIcon(":/new/prefix1/resources/Copy.png"));
+    copyButton->setIconSize(QSize(18, 18));
+    copyButton->setGeometry(WIDTH - 30, 130, 30, 30);
+
+    QPushButton *editButton = new QPushButton(passwordBox);
+    editButton->setIcon(QIcon(":/new/prefix1/resources/edit.png"));
+    editButton->setIconSize(QSize(24, 24));
+    editButton->setGeometry(WIDTH - 75, 130, 30, 30);
+
+    QPushButton *deleteButton = new QPushButton(passwordBox);
+    deleteButton->setIcon(QIcon(":/new/prefix1/resources/delete.png"));
+    deleteButton->setIconSize(QSize(20, 20));
+    deleteButton->setGeometry(WIDTH - 115, 130, 30, 30);
+
+    // COPY button slot
+    connect(copyButton, &QPushButton::clicked, [password, copyLabel]() {
+        QClipboard *clipboard = QGuiApplication::clipboard();
+        clipboard->setText(password.password);
+        copyLabel->setText("Password copied to clipboard");
+        QTimer::singleShot(3000, [copyLabel]() { copyLabel->clear(); });
+    });
+
+    // EDIT button slot
+    connect(editButton, &QPushButton::clicked, [this, &password]() {
+        openEditDialog(password);
+    });
+
+    // DELETE button slot
+    connect(deleteButton, &QPushButton::clicked, [this, &password]() {
+        QMessageBox::StandardButton reply = QMessageBox::question(
+            this,
+            "Delete Confirmation",
+            "Are you sure you want to delete this password?",
+            QMessageBox::Yes | QMessageBox::No
+            );
+
+        if (reply == QMessageBox::Yes) {
+            for (Category &category : passwordManager.getCategories()) {
+                auto &passwords = category.passwords;
+                auto it = std::find(passwords.begin(), passwords.end(), password);
+                if (it != passwords.end()) {
+                    passwords.erase(it);
+                    break;
+                }
+            }
+
+            loadPasswordsFromClass();
+        }
+    });
+
+    return passwordBox;
 }
 
 void MainWindow::openEditDialog(Password &password) {
+    // UI description
     QDialog *editDialog = new QDialog(this);
     editDialog->setWindowTitle("Edit Password");
-    editDialog->setFixedSize(450, 200);
+    editDialog->setFixedSize(460, 195);
 
     QLineEdit *websiteEdit = new QLineEdit(password.website, editDialog);
-    websiteEdit->setGeometry(10, 10, 430, 30);
+    websiteEdit->setGeometry(10, 10, 420, 30);
 
     QLabel *usernameLabel = new QLabel("User Name:", editDialog);
-    usernameLabel->setGeometry(10, 50, 80, 30);
+    usernameLabel->setGeometry(11, 50, 80, 30);
     QLineEdit *usernameEdit = new QLineEdit(password.username, editDialog);
     usernameEdit->setGeometry(100, 50, 330, 30);
 
+    QCheckBox *showPassword = new QCheckBox(editDialog);
+    showPassword->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+    showPassword->setGeometry(410, 98, 40, 15);
+
     QLabel *passwordLabel = new QLabel("Password:", editDialog);
-    passwordLabel->setGeometry(10, 90, 80, 30);
+    passwordLabel->setGeometry(11, 90, 80, 30);
     QLineEdit *passwordEdit = new QLineEdit(password.password, editDialog);
     passwordEdit->setGeometry(100, 90, 330, 30);
     passwordEdit->setEchoMode(QLineEdit::Password);
 
+
+
     QPushButton *saveButton = new QPushButton("Save", editDialog);
     saveButton->setGeometry(350, 150, 80, 30);
 
+    QPushButton *cancelButton = new QPushButton("Cancel", editDialog);
+    cancelButton->setGeometry(260, 150, 80, 30);
+
+    // SHOW PASSWORD checkBox slot
+    connect(showPassword, &QCheckBox::stateChanged, [&, passwordEdit, editDialog](int state) {
+        if (state == Qt::Checked) {
+            passwordEdit->setEchoMode(QLineEdit::Normal);
+            showPassword->setIcon(QIcon(":/new/prefix1/resources/show.png"));
+        } else {
+            passwordEdit->setEchoMode(QLineEdit::Password);
+            showPassword->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+        }
+    });
+
+    // SAVE button slot
     connect(saveButton, &QPushButton::clicked, [&, websiteEdit, usernameEdit, passwordEdit, editDialog]() {
+        if (usernameEdit->text().isEmpty() || passwordEdit->text().isEmpty()) {
+            QMessageBox::warning(editDialog, "Validation Error", "Username and Password fields cannot be empty.");
+            return;
+        }
+
         password.website = websiteEdit->text();
         password.username = usernameEdit->text();
         password.password = passwordEdit->text();
+
         passwordManager.sortPasswordsAlphabetically();
+        loadPasswordsFromClass();
         editDialog->accept();
-        //loadPasswordsFromClass();
     });
+
+    // CANCEL button slot
+    connect(cancelButton, &QPushButton::clicked, editDialog, &QDialog::reject);
 
     editDialog->exec();
 }
@@ -249,6 +336,7 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
             }
 
             loadTabsFromClass();
+            loadPasswordsFromClass();
         }
     } else if (selectedAction == editNameAction) {
         if (tabName == "All") {
@@ -295,6 +383,7 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
             }
 
             loadTabsFromClass();
+            loadPasswordsFromClass();
         }
     }
 }
@@ -329,7 +418,7 @@ void MainWindow::on_addPassword_button_clicked() {
     ui->addPassword_lineEdit->clear();
     ui->addPassword_label->setText("");
 
-    loadTabsFromClass();
+    passwordManager.sortPasswordsAlphabetically();
     loadPasswordsFromClass();
 }
 
@@ -401,8 +490,10 @@ void MainWindow::on_genpassButton_clicked() {
 void MainWindow::on_checkBox_custom_stateChanged(int state) {
     if (state == Qt::Checked) {
         ui->customCS->setReadOnly(0);
+        ui->customCS->setStyleSheet("QLineEdit { background-color: #1B1E20; }");
     } else {
         ui->customCS->setReadOnly(1);
+        ui->customCS->setStyleSheet("QLineEdit { background-color: #2A2E32; }");
     }
 }
 

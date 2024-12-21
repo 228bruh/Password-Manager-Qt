@@ -1,16 +1,42 @@
 {
     "categories": {
-        "Qwerty": [
+        "Apple": [
             {
-                "password": "Qwerty",
-                "username": "Qwerty",
-                "website": "Qwerty"
+                "password": "2536bruh$",
+                "username": "kirill yarmak",
+                "website": "AppleId"
             },
             {
-                "password": "Zxcvbn",
-                "username": "Zxcvbn",
-                "website": "Zxcvbn"
+                "password": "45645646456",
+                "username": "unskill911",
+                "website": "Instagram"
             }
+        ],
+        "Google": [
+            {
+                "password": "25362536",
+                "username": "Kirill Yarmak",
+                "website": "Adrive.by"
+            },
+            {
+                "password": "123456789",
+                "username": "kirillarmak7@gmail.com",
+                "website": "Google"
+            }
+        ],
+        "Uni": [
+            {
+                "password": "456544586",
+                "username": "super_pro_228",
+                "website": "TLauncher"
+            },
+            {
+                "password": "cgfvvyubiu",
+                "username": "kirill",
+                "website": "codewars"
+            }
+        ],
+        "Work": [
         ]
     }
 }

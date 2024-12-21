@@ -18,6 +18,7 @@ public:
     Password(const QString &website, const QString &username, const QString &password);
 
     Password& operator=(const Password &other);
+    bool operator==(const Password &other) const;
 };
 
 class Category {

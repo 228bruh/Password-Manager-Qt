@@ -105,11 +105,14 @@
        <widget class="QScrollArea" name="scrollArea">
         <property name="geometry">
          <rect>
-          <x>4</x>
+          <x>-16</x>
           <y>0</y>
-          <width>931</width>
+          <width>951</width>
           <height>541</height>
          </rect>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
         </property>
         <property name="horizontalScrollBarPolicy">
          <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
@@ -122,7 +125,7 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>929</width>
+           <width>949</width>
            <height>539</height>
           </rect>
          </property>
@@ -717,6 +720,33 @@
         <height>30</height>
        </rect>
       </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>42</red>
+            <green>46</green>
+            <blue>50</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>42</red>
+            <green>46</green>
+            <blue>50</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled/>
+       </palette>
+      </property>
       <property name="maxLength">
        <number>50</number>
       </property>
@@ -1084,9 +1114,18 @@ li.checked::marker { content: &quot;\2612&quot;; }
   </widget>
  </widget>
  <tabstops>
-  <tabstop>generateButton</tabstop>
-  <tabstop>copyGenPassButton</tabstop>
-  <tabstop>clearButton</tabstop>
+  <tabstop>addWebsite_lineEdit</tabstop>
+  <tabstop>addUsername_lineEdit</tabstop>
+  <tabstop>addPassword_lineEdit</tabstop>
+  <tabstop>add_comboBox</tabstop>
+  <tabstop>addPassword_button</tabstop>
+  <tabstop>tabName_lineEdit</tabstop>
+  <tabstop>tabListWidget</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>mypassButton</tabstop>
+  <tabstop>genpassButton</tabstop>
+  <tabstop>logoutButton</tabstop>
   <tabstop>spinBox</tabstop>
   <tabstop>checkBox_123</tabstop>
   <tabstop>checkBox_abc</tabstop>
@@ -1095,11 +1134,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <tabstop>checkBox_custom</tabstop>
   <tabstop>customCS</tabstop>
   <tabstop>textEdit</tabstop>
-  <tabstop>mypassButton</tabstop>
-  <tabstop>genpassButton</tabstop>
-  <tabstop>logoutButton</tabstop>
-  <tabstop>tabWidget</tabstop>
-  <tabstop>tabName_lineEdit</tabstop>
+  <tabstop>generateButton</tabstop>
+  <tabstop>copyGenPassButton</tabstop>
+  <tabstop>clearButton</tabstop>
+  <tabstop>search_lineEdit</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>

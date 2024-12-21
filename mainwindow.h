@@ -38,6 +38,7 @@ public:
     void loadTabsFromClass();
     void loadPasswordsFromClass();
     void openEditDialog(Password &password);
+    QGroupBox* createPasswordBox(Password &password, QWidget *parent);
 
 private slots:
     // my passwords

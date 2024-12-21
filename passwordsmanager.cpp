@@ -13,6 +13,12 @@ Password& Password::operator=(const Password &other) {
     return *this;
 }
 
+bool Password::operator==(const Password &other) const {
+    return website == other.website &&
+           username == other.username &&
+           password == other.password;
+}
+
 // Category
 Category::Category(const QString &name) : name(name) {}
 
@@ -98,7 +104,7 @@ void PasswordManager::sortPasswordsAlphabetically() {
     for (Category &category : categories) {
         std::sort(category.passwords.begin(), category.passwords.end(),
                   [](const Password &a, const Password &b) {
-                      return a.website < b.website;
+                      return a.website.toLower() < b.website.toLower();
                   });
     }
 }
