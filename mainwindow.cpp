@@ -65,46 +65,64 @@ void MainWindow::loadTabsFromClass() {
 void MainWindow::loadPasswordsFromClass() {
     QVector<Category> &categories = passwordManager.getCategories();
 
-    QWidget *allTab = ui->tabWidget->widget(0);
-    QScrollArea *scrollArea = allTab->findChild<QScrollArea *>("scrollArea");
+    for (int i = 0; i < ui->tabWidget->count(); i++) {
+        QWidget *currentTab = ui->tabWidget->widget(i);
+        QString tabName = ui->tabWidget->tabText(i).remove('&');
 
-    QWidget *contentWidget = scrollArea->widget();
-    if (!contentWidget) {
-        contentWidget = new QWidget(scrollArea);
-        scrollArea->setWidget(contentWidget);
-    }
+        QScrollArea *scrollArea = currentTab->findChild<QScrollArea *>("scrollArea");
 
-    QLayout *layout = contentWidget->layout();
-    if (layout) {
-        QLayoutItem *item;
-        while ((item = layout->takeAt(0)) != nullptr) {
-            if (item->widget()) {
-                delete item->widget();
-            }
-            delete item;
+        if (!scrollArea) {
+            scrollArea = new QScrollArea(currentTab);
+            scrollArea->setObjectName("scrollArea");
+            scrollArea->setGeometry(-16, 0, 951, 541);
+            scrollArea->setWidgetResizable(true);
+            scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+            scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+            QWidget *contentWidget = new QWidget(scrollArea);
+            scrollArea->setWidget(contentWidget);
         }
-        delete layout;
-    }
 
-    QGridLayout *gridLayout = new QGridLayout(contentWidget);
-    contentWidget->setLayout(gridLayout);
+        QWidget *contentWidget = scrollArea->widget();
+        if (!contentWidget) {
+            contentWidget = new QWidget(scrollArea);
+            scrollArea->setWidget(contentWidget);
+        }
 
-    int row = 0, col = 0;
+        QLayout *layout = contentWidget->layout();
+        if (layout) {
+            QLayoutItem *item;
+            while ((item = layout->takeAt(0)) != nullptr) {
+                if (item->widget()) {
+                    delete item->widget();
+                }
+                delete item;
+            }
+            delete layout;
+        }
 
-    for (Category &category : categories) {
-        for (Password &password : category.passwords) {
-            QGroupBox *passwordBox = createPasswordBox(password, contentWidget);
-            gridLayout->addWidget(passwordBox, row, col);
+        QGridLayout *gridLayout = new QGridLayout(contentWidget);
+        contentWidget->setLayout(gridLayout);
 
-            col++;
-            if (col == 2) {
-                col = 0;
-                row++;
+        int row = 0, col = 0;
+
+        for (Category &category : categories) {
+            if (tabName == "All" || tabName == category.name) {
+                for (Password &password : category.passwords) {
+                    QGroupBox *passwordBox = createPasswordBox(password, contentWidget);
+                    gridLayout->addWidget(passwordBox, row, col);
+
+                    col++;
+                    if (col == 2) {
+                        col = 0;
+                        row++;
+                    }
+                }
             }
         }
-    }
 
-    contentWidget->setMinimumSize(scrollArea->width(), (row + 1) * 200);
+        contentWidget->setMinimumSize(scrollArea->width(), (row + 1) * 200);
+    }
 }
 
 QGroupBox* MainWindow::createPasswordBox(Password &password, QWidget *parent) {

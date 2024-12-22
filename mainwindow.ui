@@ -843,7 +843,7 @@
      <widget class="QPushButton" name="copyGenPassButton">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>310</x>
         <y>580</y>
         <width>31</width>
         <height>31</height>
@@ -871,9 +871,9 @@
      <widget class="QPushButton" name="clearButton">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>350</x>
         <y>580</y>
-        <width>51</width>
+        <width>31</width>
         <height>31</height>
        </rect>
       </property>
@@ -883,7 +883,10 @@
        </font>
       </property>
       <property name="text">
-       <string>Clear</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset theme="edit-clear"/>
       </property>
      </widget>
      <widget class="QLabel" name="copiedLabel">

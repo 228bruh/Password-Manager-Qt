@@ -1,35 +1,305 @@
 {
     "categories": {
         "Apple": [
+            {
+                "password": "Secure$Pass",
+                "username": "random_user",
+                "website": "App Store"
+            },
+            {
+                "password": "Passw0rd!",
+                "username": "user.apple",
+                "website": "App Store"
+            },
+            {
+                "password": "MagicMouse7",
+                "username": "mouse_user",
+                "website": "Apple Accessories"
+            },
+            {
+                "password": "1234iPhone",
+                "username": "john_smith",
+                "website": "Apple Developer"
+            },
+            {
+                "password": "Appl3Rocks",
+                "username": "user123",
+                "website": "Apple Music"
+            },
+            {
+                "password": "AirpodsL0ve",
+                "username": "music_lover",
+                "website": "Apple Music"
+            },
+            {
+                "password": "MacSafeKey",
+                "username": "safe_user",
+                "website": "Apple Security"
+            },
+            {
+                "password": "M1ProChip",
+                "username": "tech_fan",
+                "website": "Apple Store"
+            },
+            {
+                "password": "Apple4Life",
+                "username": "apple_fan",
+                "website": "AppleId"
+            },
+            {
+                "password": "aPp123#!vBn",
+                "username": "john_doe",
+                "website": "AppleId"
+            },
+            {
+                "password": "FaceID007",
+                "username": "secure_login",
+                "website": "AppleId"
+            },
+            {
+                "password": "KeychainLock",
+                "username": "secure_user",
+                "website": "AppleId"
+            },
+            {
+                "password": "SwiftDev007",
+                "username": "swift_coder",
+                "website": "Developer Portal"
+            },
+            {
+                "password": "iOSFan2024",
+                "username": "ios_guru",
+                "website": "iCloud"
+            },
+            {
+                "password": "Qwerty2023",
+                "username": "jane.appleseed",
+                "website": "iCloud"
+            },
+            {
+                "password": "TimeMachine!",
+                "username": "backup_user",
+                "website": "iCloud Backup"
+            },
+            {
+                "password": "iTune$123",
+                "username": "tunes_user",
+                "website": "iTunes"
+            },
+            {
+                "password": "MacBook123",
+                "username": "macbook_owner",
+                "website": "Mac Store"
+            },
+            {
+                "password": "BigSur2021",
+                "username": "mac_user",
+                "website": "macOS Updates"
+            },
+            {
+                "password": "SiriP@ss",
+                "username": "siri_user",
+                "website": "Siri"
+            }
         ],
         "Google": [
             {
-                "password": "1234567890",
-                "username": "kirill Bruh",
-                "website": "ChatGPT"
+                "password": "ChroMePa$$",
+                "username": "browser_user",
+                "website": "Chrome"
             },
             {
-                "password": "gc vhbjjn",
-                "username": "kirill",
-                "website": "FireFox"
+                "password": "Ggle9876#",
+                "username": "techy_guy",
+                "website": "Gmail"
             },
             {
-                "password": "svbhsvbefjhs",
-                "username": "kirillarmak7@gmail.com",
-                "website": "Google"
+                "password": "AdsPro!",
+                "username": "marketing_user",
+                "website": "Google Ads"
             },
             {
-                "password": "2536bruh$",
-                "username": "kirillarmak7@gmail.com",
-                "website": "Microsoft"
+                "password": "AIPro123",
+                "username": "ai_user",
+                "website": "Google AI"
             },
             {
-                "password": "2536bruh",
-                "username": "bruh",
-                "website": "Pornhub"
+                "password": "Calendar!",
+                "username": "planner",
+                "website": "Google Calendar"
+            },
+            {
+                "password": "CloudCompute",
+                "username": "cloud_user",
+                "website": "Google Cloud"
+            },
+            {
+                "password": "GDriveVault",
+                "username": "storage_user",
+                "website": "Google Drive"
+            },
+            {
+                "password": "P@ssw0rd123",
+                "username": "coolguy123@gmail.com",
+                "website": "Google Drive"
+            },
+            {
+                "password": "KeepNotes",
+                "username": "note_taker",
+                "website": "Google Keep"
+            },
+            {
+                "password": "MapsPro007",
+                "username": "explorer",
+                "website": "Google Maps"
+            },
+            {
+                "password": "MeetUp2023",
+                "username": "meeting_user",
+                "website": "Google Meet"
+            },
+            {
+                "password": "NestSecure",
+                "username": "smart_home",
+                "website": "Google Nest"
+            },
+            {
+                "password": "Scholar007",
+                "username": "researcher",
+                "website": "Google Scholar"
+            },
+            {
+                "password": "SearchXplore",
+                "username": "searcher",
+                "website": "Google Search"
+            },
+            {
+                "password": "SheetMaster!",
+                "username": "spreadsheet_user",
+                "website": "Google Sheets"
+            },
+            {
+                "password": "TranslateX",
+                "username": "language_user",
+                "website": "Google Translate"
+            },
+            {
+                "password": "Android$OS",
+                "username": "android_user",
+                "website": "Play Store"
+            },
+            {
+                "password": "YouTubeStar",
+                "username": "video_creator",
+                "website": "YouTube"
+            },
+            {
+                "password": "MusicPass",
+                "username": "music_user",
+                "website": "YouTube Music"
             }
         ],
-        "Uni": [
+        "Work": [
+            {
+                "password": "BizTools",
+                "username": "business_user",
+                "website": "Business Tools"
+            },
+            {
+                "password": "CEOAccess",
+                "username": "executive",
+                "website": "CEO Portal"
+            },
+            {
+                "password": "CloudSync",
+                "username": "cloud_worker",
+                "website": "Cloud Storage"
+            },
+            {
+                "password": "DevOps2023",
+                "username": "dev_user",
+                "website": "DevOps Tools"
+            },
+            {
+                "password": "FinanceX",
+                "username": "finance_user",
+                "website": "Finance Portal"
+            },
+            {
+                "password": "GitHubPass",
+                "username": "developer",
+                "website": "GitHub"
+            },
+            {
+                "password": "HRPortal",
+                "username": "employee_001",
+                "website": "HR System"
+            },
+            {
+                "password": "JiraSecure",
+                "username": "issue_tracker",
+                "website": "Jira"
+            },
+            {
+                "password": "LegalDocs",
+                "username": "legal_user",
+                "website": "Legal Portal"
+            },
+            {
+                "password": "Marketing!",
+                "username": "marketing_user",
+                "website": "Marketing Tools"
+            },
+            {
+                "password": "Off1ce365",
+                "username": "john.work",
+                "website": "Office365"
+            },
+            {
+                "password": "SalesForce",
+                "username": "sales_user",
+                "website": "SalesForce"
+            },
+            {
+                "password": "Slack123#",
+                "username": "team_user",
+                "website": "Slack"
+            },
+            {
+                "password": "DailyTasks",
+                "username": "task_manager",
+                "website": "Task Manager"
+            },
+            {
+                "password": "TeamDrive",
+                "username": "team_drive_user",
+                "website": "Team Drive"
+            },
+            {
+                "password": "Trello2024",
+                "username": "project_user",
+                "website": "Trello"
+            },
+            {
+                "password": "VPNAccess",
+                "username": "remote_worker",
+                "website": "VPN"
+            },
+            {
+                "password": "W0rkL!ve228",
+                "username": "kirill.work.hard",
+                "website": "WorkMail"
+            },
+            {
+                "password": "Workplace!",
+                "username": "workplace_user",
+                "website": "Workplace"
+            },
+            {
+                "password": "ZoomPro!",
+                "username": "zoom_user",
+                "website": "Zoom"
+            }
         ]
     }
 }

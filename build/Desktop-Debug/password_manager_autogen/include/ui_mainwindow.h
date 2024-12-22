@@ -374,7 +374,7 @@ public:
         generateButton->setFont(font1);
         copyGenPassButton = new QPushButton(page_2);
         copyGenPassButton->setObjectName("copyGenPassButton");
-        copyGenPassButton->setGeometry(QRect(290, 580, 31, 31));
+        copyGenPassButton->setGeometry(QRect(310, 580, 31, 31));
         copyGenPassButton->setFont(font1);
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/new/prefix1/resources/Copy.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
@@ -382,8 +382,10 @@ public:
         copyGenPassButton->setIconSize(QSize(20, 20));
         clearButton = new QPushButton(page_2);
         clearButton->setObjectName("clearButton");
-        clearButton->setGeometry(QRect(330, 580, 51, 31));
+        clearButton->setGeometry(QRect(350, 580, 31, 31));
         clearButton->setFont(font1);
+        QIcon icon2(QIcon::fromTheme(QString::fromUtf8("edit-clear")));
+        clearButton->setIcon(icon2);
         copiedLabel = new QLabel(page_2);
         copiedLabel->setObjectName("copiedLabel");
         copiedLabel->setGeometry(QRect(60, 620, 311, 21));
@@ -500,7 +502,7 @@ public:
         checkBox_custom->setText(QCoreApplication::translate("MainWindow", "Custom charset", nullptr));
         generateButton->setText(QCoreApplication::translate("MainWindow", "Generate", nullptr));
         copyGenPassButton->setText(QString());
-        clearButton->setText(QCoreApplication::translate("MainWindow", "Clear", nullptr));
+        clearButton->setText(QString());
         copiedLabel->setText(QString());
         label_5->setText(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
