@@ -24,7 +24,6 @@ private:
 public:
     AccountsManager(const QString &fileName = "accounts");
 
-    // ACCOUNTS file
     void initializeFile();
 
     int getIndex();

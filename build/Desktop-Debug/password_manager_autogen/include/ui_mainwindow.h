@@ -55,7 +55,6 @@ public:
     QLineEdit *addPassword_lineEdit;
     QCheckBox *showAddPass;
     QComboBox *add_comboBox;
-    QLineEdit *search_lineEdit;
     QLabel *addPassword_label;
     QWidget *page_2;
     QWidget *horizontalLayoutWidget;
@@ -239,11 +238,7 @@ public:
         add_comboBox->setGeometry(QRect(15, 150, 163, 30));
         add_comboBox->setEditable(true);
         add_comboBox->setFrame(true);
-        search_lineEdit = new QLineEdit(page);
-        search_lineEdit->setObjectName("search_lineEdit");
-        search_lineEdit->setGeometry(QRect(700, 100, 141, 30));
-        search_lineEdit->setMaxLength(50);
-        search_lineEdit->setClearButtonEnabled(true);
+        add_comboBox->setModelColumn(0);
         addPassword_label = new QLabel(page);
         addPassword_label->setObjectName("addPassword_label");
         addPassword_label->setGeometry(QRect(167, 180, 191, 21));
@@ -253,7 +248,6 @@ public:
         addPassword_label->setScaledContents(false);
         addPassword_label->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
         stackedWidget->addWidget(page);
-        search_lineEdit->raise();
         showAddPass->raise();
         tabWidget->raise();
         addPassword_button->raise();
@@ -466,7 +460,6 @@ public:
         QWidget::setTabOrder(textEdit, generateButton);
         QWidget::setTabOrder(generateButton, copyGenPassButton);
         QWidget::setTabOrder(copyGenPassButton, clearButton);
-        QWidget::setTabOrder(clearButton, search_lineEdit);
 
         retranslateUi(MainWindow);
 
@@ -490,8 +483,7 @@ public:
         addUsername_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "User Name*", nullptr));
         addPassword_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Password*", nullptr));
         showAddPass->setText(QString());
-        add_comboBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Select category", nullptr));
-        search_lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search...", nullptr));
+        add_comboBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Category", nullptr));
         addPassword_label->setText(QString());
         label_3->setText(QCoreApplication::translate("MainWindow", "Length:", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Charset's:", nullptr));

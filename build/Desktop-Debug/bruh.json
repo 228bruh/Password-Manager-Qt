@@ -42,23 +42,23 @@
                 "website": "Apple Store"
             },
             {
-                "password": "Apple4Life",
-                "username": "apple_fan",
-                "website": "AppleId"
-            },
-            {
                 "password": "aPp123#!vBn",
                 "username": "john_doe",
                 "website": "AppleId"
             },
             {
-                "password": "FaceID007",
-                "username": "secure_login",
+                "password": "Apple4Life",
+                "username": "apple_fan228",
                 "website": "AppleId"
             },
             {
                 "password": "KeychainLock",
                 "username": "secure_user",
+                "website": "AppleId"
+            },
+            {
+                "password": "FaceID007",
+                "username": "secure_login",
                 "website": "AppleId"
             },
             {
@@ -199,6 +199,13 @@
                 "website": "YouTube Music"
             }
         ],
+        "Uni": [
+            {
+                "password": "458912gh",
+                "username": "kirill yarmak",
+                "website": "Uni Library"
+            }
+        ],
         "Work": [
             {
                 "password": "BizTools",
@@ -279,11 +286,6 @@
                 "password": "Trello2024",
                 "username": "project_user",
                 "website": "Trello"
-            },
-            {
-                "password": "VPNAccess",
-                "username": "remote_worker",
-                "website": "VPN"
             },
             {
                 "password": "W0rkL!ve228",

@@ -134,7 +134,7 @@ QGroupBox* MainWindow::createPasswordBox(Password &password, QWidget *parent) {
     passwordBox->setStyleSheet("QGroupBox { border: none; }");
 
     QLineEdit *websiteEdit = new QLineEdit(password.website, passwordBox);
-    websiteEdit->setGeometry(20, 10, WIDTH - 20, 30);
+    websiteEdit->setGeometry(20, 10, WIDTH - 40, 30);
     websiteEdit->setReadOnly(true);
     websiteEdit->setStyleSheet("QLineEdit { background-color: #2A2E32; }");
 
@@ -145,7 +145,7 @@ QGroupBox* MainWindow::createPasswordBox(Password &password, QWidget *parent) {
     usernameLabel->setFont(boldFont);
 
     QLineEdit *usernameEdit = new QLineEdit(password.username, passwordBox);
-    usernameEdit->setGeometry(110, 50, WIDTH - 110, 30);
+    usernameEdit->setGeometry(110, 50, WIDTH - 130, 30);
     usernameEdit->setReadOnly(true);
     usernameEdit->setStyleSheet("QLineEdit { background-color: #2A2E32; }");
 
@@ -153,14 +153,19 @@ QGroupBox* MainWindow::createPasswordBox(Password &password, QWidget *parent) {
     passwordLabel->setGeometry(21, 90, 80, 30);
     passwordLabel->setFont(boldFont);
 
+    QCheckBox *ShowPassword = new QCheckBox(passwordBox);
+    ShowPassword->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+    ShowPassword->setGeometry(390, 98, 40, 15);
+
     QLineEdit *passwordEdit = new QLineEdit(password.password, passwordBox);
-    passwordEdit->setGeometry(110, 90, WIDTH - 110, 30);
+    passwordEdit->setGeometry(110, 90, WIDTH - 130, 30); // - 110
     passwordEdit->setEchoMode(QLineEdit::Password);
     passwordEdit->setReadOnly(true);
     passwordEdit->setStyleSheet("QLineEdit { background-color: #2A2E32; }");
 
     QLabel *copyLabel = new QLabel("", passwordBox);
-    copyLabel->setGeometry(150, 130, 180, 30);
+    copyLabel->setGeometry(130
+                           , 130, 180, 30);
     QFont smallFont;
     smallFont.setPointSize(8);
     copyLabel->setFont(smallFont);
@@ -168,17 +173,28 @@ QGroupBox* MainWindow::createPasswordBox(Password &password, QWidget *parent) {
     QPushButton *copyButton = new QPushButton(passwordBox);
     copyButton->setIcon(QIcon(":/new/prefix1/resources/Copy.png"));
     copyButton->setIconSize(QSize(18, 18));
-    copyButton->setGeometry(WIDTH - 30, 130, 30, 30);
+    copyButton->setGeometry(WIDTH - 50, 130, 30, 30);
 
     QPushButton *editButton = new QPushButton(passwordBox);
     editButton->setIcon(QIcon(":/new/prefix1/resources/edit.png"));
     editButton->setIconSize(QSize(24, 24));
-    editButton->setGeometry(WIDTH - 75, 130, 30, 30);
+    editButton->setGeometry(WIDTH - 100, 130, 30, 30);
 
     QPushButton *deleteButton = new QPushButton(passwordBox);
     deleteButton->setIcon(QIcon(":/new/prefix1/resources/delete.png"));
     deleteButton->setIconSize(QSize(20, 20));
-    deleteButton->setGeometry(WIDTH - 115, 130, 30, 30);
+    deleteButton->setGeometry(WIDTH - 140, 130, 30, 30);
+
+    // SHOW PASSWORD checkBox slot
+    connect(ShowPassword, &QCheckBox::stateChanged, [passwordEdit, ShowPassword](int state) {
+        if (state == Qt::Checked) {
+            passwordEdit->setEchoMode(QLineEdit::Normal);
+            ShowPassword->setIcon(QIcon(":/new/prefix1/resources/show.png"));
+        } else {
+            passwordEdit->setEchoMode(QLineEdit::Password);
+            ShowPassword->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+        }
+    });
 
     // COPY button slot
     connect(copyButton, &QPushButton::clicked, [password, copyLabel]() {
@@ -227,11 +243,13 @@ void MainWindow::openEditDialog(Password &password) {
 
     QLineEdit *websiteEdit = new QLineEdit(password.website, editDialog);
     websiteEdit->setGeometry(10, 10, 420, 30);
+    websiteEdit->setClearButtonEnabled(1);
 
     QLabel *usernameLabel = new QLabel("User Name:", editDialog);
     usernameLabel->setGeometry(11, 50, 80, 30);
     QLineEdit *usernameEdit = new QLineEdit(password.username, editDialog);
     usernameEdit->setGeometry(100, 50, 330, 30);
+    usernameEdit->setClearButtonEnabled(1);
 
     QCheckBox *showPassword = new QCheckBox(editDialog);
     showPassword->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
@@ -241,6 +259,7 @@ void MainWindow::openEditDialog(Password &password) {
     passwordLabel->setGeometry(11, 90, 80, 30);
     QLineEdit *passwordEdit = new QLineEdit(password.password, editDialog);
     passwordEdit->setGeometry(100, 90, 330, 30);
+    passwordEdit->setClearButtonEnabled(1);
     passwordEdit->setEchoMode(QLineEdit::Password);
 
 
@@ -250,6 +269,9 @@ void MainWindow::openEditDialog(Password &password) {
 
     QPushButton *cancelButton = new QPushButton("Cancel", editDialog);
     cancelButton->setGeometry(260, 150, 80, 30);
+
+    QPushButton *resetButton = new QPushButton("Reset", editDialog);
+    resetButton->setGeometry(10, 150, 50, 30);
 
     // SHOW PASSWORD checkBox slot
     connect(showPassword, &QCheckBox::stateChanged, [&, passwordEdit, editDialog](int state) {
@@ -278,6 +300,13 @@ void MainWindow::openEditDialog(Password &password) {
         editDialog->accept();
     });
 
+    // RESET button slot
+    connect(resetButton, &QPushButton::clicked, [&, websiteEdit, usernameEdit, passwordEdit, editDialog]() {
+        websiteEdit->setText(password.website);
+        usernameEdit->setText(password.username);
+        passwordEdit->setText(password.password);
+    });
+
     // CANCEL button slot
     connect(cancelButton, &QPushButton::clicked, editDialog, &QDialog::reject);
 
@@ -288,6 +317,7 @@ void MainWindow::openEditDialog(Password &password) {
 void MainWindow::on_tabName_lineEdit_returnPressed() {
     if (ui->tabName_lineEdit->text().isEmpty()) {
         ui->addTab_label->setText("Category must have a name");
+        QTimer::singleShot(3000, this, [this]() {ui->addTab_label->clear();});
         return;
     }
 
@@ -295,6 +325,7 @@ void MainWindow::on_tabName_lineEdit_returnPressed() {
 
     if (tabName == "All") {
         ui->addTab_label->setText("Reserved category name");
+        QTimer::singleShot(3000, this, [this]() {ui->addTab_label->clear();});
         return;
     }
 
@@ -307,6 +338,7 @@ void MainWindow::on_tabName_lineEdit_returnPressed() {
 
     if (it != categories.end()) {
         ui->addTab_label->setText("Category with this name already exists");
+        QTimer::singleShot(3000, this, [this]() {ui->addTab_label->clear();});
         return;
     }
 
@@ -414,6 +446,7 @@ void MainWindow::on_addPassword_button_clicked() {
 
     if (selectedCategory.isEmpty() || addedUsername.isEmpty() || addedPassword.isEmpty()) {
         ui->addPassword_label->setText("Fill the required fields");
+        QTimer::singleShot(3000, this, [this]() {ui->addPassword_label->clear();});
         return;
     }
 
@@ -428,6 +461,7 @@ void MainWindow::on_addPassword_button_clicked() {
         it->addPassword(Password(addedWebsite, addedUsername, addedPassword));
     } else {
         ui->addPassword_label->setText("Category not found");
+        QTimer::singleShot(3000, this, [this]() {ui->addPassword_label->clear();});
         return;
     }
 

@@ -484,29 +484,13 @@
        <bool>true</bool>
       </property>
       <property name="placeholderText">
-       <string>Select category</string>
+       <string>Category</string>
       </property>
       <property name="frame">
        <bool>true</bool>
       </property>
-     </widget>
-     <widget class="QLineEdit" name="search_lineEdit">
-      <property name="geometry">
-       <rect>
-        <x>700</x>
-        <y>100</y>
-        <width>141</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="maxLength">
-       <number>50</number>
-      </property>
-      <property name="placeholderText">
-       <string>Search...</string>
-      </property>
-      <property name="clearButtonEnabled">
-       <bool>true</bool>
+      <property name="modelColumn">
+       <number>0</number>
       </property>
      </widget>
      <widget class="QLabel" name="addPassword_label">
@@ -540,7 +524,6 @@
        <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
       </property>
      </widget>
-     <zorder>search_lineEdit</zorder>
      <zorder>showAddPass</zorder>
      <zorder>tabWidget</zorder>
      <zorder>addPassword_button</zorder>
@@ -1140,7 +1123,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <tabstop>generateButton</tabstop>
   <tabstop>copyGenPassButton</tabstop>
   <tabstop>clearButton</tabstop>
-  <tabstop>search_lineEdit</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>

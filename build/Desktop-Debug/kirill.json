@@ -1,6 +1,45 @@
 {
     "categories": {
+        "Apple": [
+            {
+                "password": "654658hjbjk",
+                "username": "super_pro",
+                "website": "App Store"
+            },
+            {
+                "password": "1498526375",
+                "username": "kirill yarmak",
+                "website": "AppleID"
+            },
+            {
+                "password": "56465545shb",
+                "username": "kirillarmak7@gmail.com",
+                "website": "iCloud"
+            }
+        ],
+        "Uni": [
+            {
+                "password": "snbjsc484dd",
+                "username": "kirill yarmak",
+                "website": "Uni Card"
+            },
+            {
+                "password": "125678hj",
+                "username": "kirill yarmak",
+                "website": "Uni Library"
+            }
+        ],
         "Work": [
+            {
+                "password": "qwerty123456",
+                "username": " Oleg",
+                "website": "Work Card"
+            },
+            {
+                "password": "5564654",
+                "username": "kirill",
+                "website": "Work PC"
+            }
         ]
     }
 }
