@@ -12,6 +12,7 @@
   /app/lib/clang/18/include/stdbool.h \
   /app/lib/clang/18/include/stddef.h \
   /home/kirill/qt\ creator/password_manager/passwordsmanager.h \
+  /usr/include/QtCore/QCryptographicHash \
   /usr/include/QtCore/QFile \
   /usr/include/QtCore/QJsonArray \
   /usr/include/QtCore/QJsonDocument \
@@ -58,6 +59,7 @@
   /usr/include/QtCore/qcoreapplication.h \
   /usr/include/QtCore/qcoreapplication_platform.h \
   /usr/include/QtCore/qcoreevent.h \
+  /usr/include/QtCore/qcryptographichash.h \
   /usr/include/QtCore/qdarwinhelpers.h \
   /usr/include/QtCore/qdatastream.h \
   /usr/include/QtCore/qdatetime.h \

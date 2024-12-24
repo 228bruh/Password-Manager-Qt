@@ -14,12 +14,15 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::setUsername(const QString &set_username) {
+void MainWindow::setUsername(const QString &set_username, bool newUser) {
     username = set_username;
     setWindowTitle("Password Manager - " + username);
-    passwordManager.loadFromJsonFileToClass(username + ".json");
-    loadTabsFromClass();
-    loadPasswordsFromClass();
+
+    if (!newUser) {
+        passwordManager.loadFromJsonFileToClass(username + ".json");
+        loadTabsFromClass();
+        loadPasswordsFromClass();
+    }
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
@@ -349,6 +352,7 @@ void MainWindow::on_tabName_lineEdit_returnPressed() {
     categories.insert(insertPos, Category(tabName));
 
     loadTabsFromClass();
+    loadPasswordsFromClass();
 
     ui->addTab_label->setText("");
     ui->tabName_lineEdit->clear();

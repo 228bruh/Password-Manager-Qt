@@ -65,18 +65,6 @@ void AccountsManager::addAccount(const QString &username, const QString &hashedP
     QTextStream out(&file);
     out << username << " " << hashedPassword << "\n";
     file.close();
-
-    QFile userFile(username + ".json");
-    if (!userFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        QMessageBox::warning(nullptr, "Error", QString("Failed to create file for user: %1").arg(username));
-        return;
-    }
-
-    QJsonObject rootObject;
-    rootObject["categories"] = QJsonObject();
-    QJsonDocument doc(rootObject);
-    userFile.write(doc.toJson(QJsonDocument::Indented));
-    userFile.close();
 }
 
 int AccountsManager::findUser(const QString &username, const QByteArray &hashedPassword) {

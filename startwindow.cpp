@@ -59,7 +59,7 @@ void Startwindow::createAccount() {
     }
 
     MainWindow *mainWindow = new MainWindow();
-    mainWindow->setUsername(username);
+    mainWindow->setUsername(username, 1);
     mainWindow->show();
     close();
 }
@@ -84,7 +84,7 @@ void Startwindow::login() {
         }
 
         MainWindow *mainWindow = new MainWindow();
-        mainWindow->setUsername(username);
+        mainWindow->setUsername(username, 0);
         mainWindow->show();
         close();
     } else {

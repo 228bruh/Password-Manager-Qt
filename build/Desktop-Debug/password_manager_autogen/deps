@@ -27,6 +27,7 @@ password_manager_autogen/timestamp: \
 	/home/kirill/qt\ creator/password_manager/resources.qrc \
 	/home/kirill/qt\ creator/password_manager/startwindow.cpp \
 	/home/kirill/qt\ creator/password_manager/startwindow.h \
+	/usr/include/QtCore/QCryptographicHash \
 	/usr/include/QtCore/QFile \
 	/usr/include/QtCore/QJsonArray \
 	/usr/include/QtCore/QJsonDocument \
@@ -73,6 +74,7 @@ password_manager_autogen/timestamp: \
 	/usr/include/QtCore/qcoreapplication.h \
 	/usr/include/QtCore/qcoreapplication_platform.h \
 	/usr/include/QtCore/qcoreevent.h \
+	/usr/include/QtCore/qcryptographichash.h \
 	/usr/include/QtCore/qdarwinhelpers.h \
 	/usr/include/QtCore/qdatastream.h \
 	/usr/include/QtCore/qdatetime.h \

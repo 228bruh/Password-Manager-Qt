@@ -1,5 +1,21 @@
 #include "passwordsmanager.h"
 
+namespace CryptoUtils {
+    const QByteArray key = QCryptographicHash::hash("your-secret-key", QCryptographicHash::Sha256);
+
+    QByteArray encrypt(const QByteArray &data) {
+        QByteArray result = data;
+        for (int i = 0; i < result.size(); ++i) {
+            result[i] = result[i] ^ key[i % key.size()];
+        }
+        return result;
+    }
+
+    QByteArray decrypt(const QByteArray &data) {
+        return encrypt(data);
+    }
+}
+
 // Password
 Password::Password(const QString &website, const QString &username, const QString &password)
     : website(website), username(username), password(password) {}
@@ -34,10 +50,12 @@ void PasswordManager::loadFromJsonFileToClass(const QString &fileName) {
         return;
     }
 
-    QByteArray data = file.readAll();
+    QByteArray encryptedData = file.readAll();
     file.close();
 
-    QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
+    QByteArray jsonData = CryptoUtils::decrypt(encryptedData);
+
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData);
     if (!jsonDoc.isObject()) {
         QMessageBox::warning(nullptr, "Error", "Invalid JSON format");
         return;
@@ -89,6 +107,9 @@ void PasswordManager::loadFromClassToJsonFile(const QString &fileName) {
     rootObject["categories"] = categoriesObject;
 
     QJsonDocument jsonDoc(rootObject);
+    QByteArray jsonData = jsonDoc.toJson(QJsonDocument::Indented);
+
+    QByteArray encryptedData = CryptoUtils::encrypt(jsonData);
 
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly)) {
@@ -96,7 +117,7 @@ void PasswordManager::loadFromClassToJsonFile(const QString &fileName) {
         return;
     }
 
-    file.write(jsonDoc.toJson(QJsonDocument::Indented));
+    file.write(encryptedData);
     file.close();
 }
 

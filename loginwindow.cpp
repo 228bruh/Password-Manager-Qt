@@ -50,7 +50,7 @@ void Loginwindow::login() {
     int foundIndex = accountsManager.findUser(storedUsername, passwordHash);
     if (foundIndex == index) {
         MainWindow *mainWindow = new MainWindow();
-        mainWindow->setUsername(storedUsername);
+        mainWindow->setUsername(storedUsername, 0);
         mainWindow->show();
         close();
     } else {

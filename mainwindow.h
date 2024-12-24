@@ -33,7 +33,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void setUsername(const QString &set_username);
+    void setUsername(const QString &set_username, bool newUser);
 
     void loadTabsFromClass();
     void loadPasswordsFromClass();
@@ -53,7 +53,6 @@ private slots:
     void on_generateButton_clicked();
     void on_copyGenPassButton_clicked();
     void on_clearButton_clicked();
-
     void on_genpassButton_clicked();
     void on_checkBox_custom_stateChanged(int state);
 
