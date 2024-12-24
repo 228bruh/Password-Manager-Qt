@@ -161,7 +161,7 @@ QGroupBox* MainWindow::createPasswordBox(Password &password, QWidget *parent) {
     ShowPassword->setGeometry(390, 98, 40, 15);
 
     QLineEdit *passwordEdit = new QLineEdit(password.password, passwordBox);
-    passwordEdit->setGeometry(110, 90, WIDTH - 130, 30); // - 110
+    passwordEdit->setGeometry(110, 90, WIDTH - 130, 30);
     passwordEdit->setEchoMode(QLineEdit::Password);
     passwordEdit->setReadOnly(true);
     passwordEdit->setStyleSheet("QLineEdit { background-color: #2A2E32; }");
@@ -369,6 +369,7 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
 
     QString tabName = item->text();
 
+    // DELETE action
     if (selectedAction == deleteAction) {
         if (tabName == "All") {
             QMessageBox::warning(this, "Error", "Cannot delete the 'All' tab.");
@@ -392,7 +393,7 @@ void MainWindow::on_tabListWidget_customContextMenuRequested(const QPoint &pos) 
             loadTabsFromClass();
             loadPasswordsFromClass();
         }
-    } else if (selectedAction == editNameAction) {
+    } else if (selectedAction == editNameAction) { // EDIT action
         if (tabName == "All") {
             QMessageBox::warning(this, "Error", "Cannot rename the 'All' tab.");
             return;

@@ -45,7 +45,6 @@ private slots:
     void on_tabName_lineEdit_returnPressed();
     void on_tabListWidget_customContextMenuRequested(const QPoint &pos);
     void on_addPassword_button_clicked();
-
     void on_mypassButton_clicked();
     void on_showAddPass_stateChanged(int state);
 
