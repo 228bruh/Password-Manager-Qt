@@ -17,37 +17,37 @@ Startwindow::~Startwindow() {
 void Startwindow::createAccount() {
     AccountsManager accountsManager;
 
-    QString username = ui->createUsername->text();
+    QString username = ui->createUsername->text().trimmed();
     QString password = ui->createPassword->text();
     QString confirmPassword = ui->confirmCreatePassword->text();
 
     if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-        ui->CAwarningMsgLabel->setText(" All fields are required");
+        ui->CAwarningMsgLabel->setText("All fields are required");
         return;
     }
 
     if (username.contains(" ")) {
-        ui->CAwarningMsgLabel->setText(" Spaces are not allowed in Username");
+        ui->CAwarningMsgLabel->setText("Spaces are not allowed in Username");
         return;
     }
 
     if (password != confirmPassword) {
-        ui->CAwarningMsgLabel->setText(" Passwords don't match");
+        ui->CAwarningMsgLabel->setText("Passwords don't match");
         return;
     }
 
     if (username.length() < 3) {
-        ui->CAwarningMsgLabel->setText(" Username must contain at least 3 characters");
+        ui->CAwarningMsgLabel->setText("Username must contain at least 3 characters");
         return;
     }
 
     if (password.length() < 4) {
-        ui->CAwarningMsgLabel->setText(" Password must contain at least 4 characters");
+        ui->CAwarningMsgLabel->setText("Password must contain at least 4 characters");
         return;
     }
 
     if (accountsManager.userExists(username)) {
-        ui->CAwarningMsgLabel->setText(" This username is already taken");
+        ui->CAwarningMsgLabel->setText("This username is already taken");
         return;
     }
 
@@ -65,11 +65,11 @@ void Startwindow::createAccount() {
 }
 
 void Startwindow::login() {
-    QString username = ui->loginUsername->text();
+    QString username = ui->loginUsername->text().trimmed();
     QString password = ui->loginPassword->text();
 
     if (username.isEmpty() || password.isEmpty()) {
-        ui->LIwarningMsgLabel->setText(" All fields are required");
+        ui->LIwarningMsgLabel->setText("All fields are required");
         return;
     }
 
@@ -88,7 +88,7 @@ void Startwindow::login() {
         mainWindow->show();
         close();
     } else {
-        ui->LIwarningMsgLabel->setText(" Invalid username or password");
+        ui->LIwarningMsgLabel->setText("Invalid username or password");
     }
 }
 
@@ -109,31 +109,23 @@ void Startwindow::on_loginPassword_returnPressed() {
 }
 
 void Startwindow::on_showLIpass_stateChanged(int state) {
-    if (state == Qt::Checked) {
-        ui->loginPassword->setEchoMode(QLineEdit::Normal);
-        ui->showLIpass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
-    } else {
-        ui->loginPassword->setEchoMode(QLineEdit::Password);
-        ui->showLIpass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
-    }
+    togglePasswordVisibility(ui->loginPassword, ui->showLIpass, ":/new/prefix1/resources/show.png", ":/new/prefix1/resources/hide.png");
 }
 
 void Startwindow::on_showCApass_stateChanged(int state) {
-    if (state == Qt::Checked) {
-        ui->createPassword->setEchoMode(QLineEdit::Normal);
-        ui->showCApass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
-    } else {
-        ui->createPassword->setEchoMode(QLineEdit::Password);
-        ui->showCApass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
-    }
+    togglePasswordVisibility(ui->createPassword, ui->showCApass, ":/new/prefix1/resources/show.png", ":/new/prefix1/resources/hide.png");
 }
 
 void Startwindow::on_showCAconfpass_stateChanged(int state) {
-    if (state == Qt::Checked) {
-        ui->confirmCreatePassword->setEchoMode(QLineEdit::Normal);
-        ui->showCAconfpass->setIcon(QIcon(":/new/prefix1/resources/show.png"));
+    togglePasswordVisibility(ui->confirmCreatePassword, ui->showCAconfpass, ":/new/prefix1/resources/show.png", ":/new/prefix1/resources/hide.png");
+}
+
+void Startwindow::togglePasswordVisibility(QLineEdit *lineEdit, QCheckBox *checkBox, const QString &showIcon, const QString &hideIcon) {
+    if (checkBox->isChecked()) {
+        lineEdit->setEchoMode(QLineEdit::Normal);
+        checkBox->setIcon(QIcon(showIcon));
     } else {
-        ui->confirmCreatePassword->setEchoMode(QLineEdit::Password);
-        ui->showCAconfpass->setIcon(QIcon(":/new/prefix1/resources/hide.png"));
+        lineEdit->setEchoMode(QLineEdit::Password);
+        checkBox->setIcon(QIcon(hideIcon));
     }
 }

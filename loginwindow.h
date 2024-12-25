@@ -10,28 +10,30 @@ class Loginwindow;
 class Loginwindow : public QWidget {
     Q_OBJECT
 
-private:
-    QString username;
-    int index;
-
 public:
     explicit Loginwindow(QWidget *parent = nullptr);
     ~Loginwindow();
 
     void setUsername();
 
+private:
+    Ui::Loginwindow *ui;
+
+    QString username;
+    int index;
+
     void login();
 
 private slots:
+    // Log in
     void on_loginButton_clicked();
     void on_loginPassword_returnPressed();
 
+    // Log out
     void on_logoutButton_clicked();
 
+    // Password visibility
     void on_showLIpass_stateChanged(int state);
-
-private:
-    Ui::Loginwindow *ui;
 };
 
 #endif // LOGINWINDOW_H

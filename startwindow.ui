@@ -228,7 +228,7 @@
   <widget class="QLabel" name="CAwarningMsgLabel">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>483</x>
      <y>460</y>
      <width>261</width>
      <height>16</height>
@@ -358,7 +358,7 @@
   <widget class="QLabel" name="LIwarningMsgLabel">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>53</x>
      <y>460</y>
      <width>261</width>
      <height>16</height>

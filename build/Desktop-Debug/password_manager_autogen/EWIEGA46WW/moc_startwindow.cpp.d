@@ -122,6 +122,7 @@
   /usr/include/QtCore/qtversionchecks.h \
   /usr/include/QtCore/qtypeinfo.h \
   /usr/include/QtCore/qtypes.h \
+  /usr/include/QtCore/qurl.h \
   /usr/include/QtCore/qutf8stringview.h \
   /usr/include/QtCore/qvariant.h \
   /usr/include/QtCore/qvarlengtharray.h \
@@ -141,18 +142,29 @@
   /usr/include/QtGui/qkeysequence.h \
   /usr/include/QtGui/qpaintdevice.h \
   /usr/include/QtGui/qpalette.h \
+  /usr/include/QtGui/qpen.h \
   /usr/include/QtGui/qpixelformat.h \
   /usr/include/QtGui/qpixmap.h \
   /usr/include/QtGui/qpolygon.h \
   /usr/include/QtGui/qregion.h \
   /usr/include/QtGui/qrgb.h \
   /usr/include/QtGui/qrgba64.h \
+  /usr/include/QtGui/qtextcursor.h \
+  /usr/include/QtGui/qtextdocument.h \
+  /usr/include/QtGui/qtextformat.h \
+  /usr/include/QtGui/qtextoption.h \
   /usr/include/QtGui/qtgui-config.h \
   /usr/include/QtGui/qtguiexports.h \
   /usr/include/QtGui/qtguiglobal.h \
   /usr/include/QtGui/qtransform.h \
   /usr/include/QtGui/qwindowdefs.h \
+  /usr/include/QtWidgets/QCheckBox \
+  /usr/include/QtWidgets/QLineEdit \
   /usr/include/QtWidgets/QWidget \
+  /usr/include/QtWidgets/qabstractbutton.h \
+  /usr/include/QtWidgets/qcheckbox.h \
+  /usr/include/QtWidgets/qframe.h \
+  /usr/include/QtWidgets/qlineedit.h \
   /usr/include/QtWidgets/qsizepolicy.h \
   /usr/include/QtWidgets/qtwidgets-config.h \
   /usr/include/QtWidgets/qtwidgetsexports.h \

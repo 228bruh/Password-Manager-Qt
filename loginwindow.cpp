@@ -34,13 +34,14 @@ void Loginwindow::setUsername() {
     }
 }
 
+// Log in
 void Loginwindow::login() {
     AccountsManager accountsManager;
 
     QString password = ui->loginPassword->text();
 
     if (password.isEmpty()) {
-        ui->LIwarningMsgLabel->setText(" Password field cannot be empty");
+        ui->LIwarningMsgLabel->setText("Password field cannot be empty");
         return;
     }
 
@@ -54,7 +55,7 @@ void Loginwindow::login() {
         mainWindow->show();
         close();
     } else {
-        ui->LIwarningMsgLabel->setText(" Incorrect password");
+        ui->LIwarningMsgLabel->setText("Incorrect password");
     }
 }
 
@@ -66,6 +67,7 @@ void Loginwindow::on_loginPassword_returnPressed() {
     login();
 }
 
+// Log out
 void Loginwindow::on_logoutButton_clicked() {
     AccountsManager accountsManager;
 
@@ -76,6 +78,7 @@ void Loginwindow::on_logoutButton_clicked() {
     close();
 }
 
+// Password visibility
 void Loginwindow::on_showLIpass_stateChanged(int state) {
     if (state == Qt::Checked) {
         ui->loginPassword->setEchoMode(QLineEdit::Normal);

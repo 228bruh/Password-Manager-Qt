@@ -28,6 +28,7 @@ public:
     QVector<Password> passwords;
 
     Category(const QString &name);
+
     void addPassword(const Password &password);
 };
 

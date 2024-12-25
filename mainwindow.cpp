@@ -3,7 +3,7 @@
 #include "accountsmanager.h"
 #include "./ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow), filename(username + ".json") {
     QShortcut *shortcut = new QShortcut(QKeySequence("Ctrl+Q"), this);
     connect(shortcut, &QShortcut::activated, qApp, &QApplication::quit);
 
@@ -36,7 +36,6 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 void MainWindow::loadTabsFromClass() {
     QVector<Category> &categories = passwordManager.getCategories();
     QStringList categoryNames;
-
     for (const Category &category : categories) {
         categoryNames.append(category.name);
     }
@@ -50,17 +49,14 @@ void MainWindow::loadTabsFromClass() {
         QVBoxLayout *layout = new QVBoxLayout(newTab);
         newTab->setLayout(layout);
 
-        int insertIndex = ui->tabWidget->count();
-        ui->tabWidget->insertTab(insertIndex, newTab, categoryName);
+        ui->tabWidget->insertTab(ui->tabWidget->count(), newTab, categoryName);
     }
 
     ui->tabListWidget->clear();
+    ui->add_comboBox->clear();
+
     for (const QString &categoryName : categoryNames) {
         ui->tabListWidget->addItem(categoryName);
-    }
-
-    ui->add_comboBox->clear();
-    for (const QString &categoryName : categoryNames) {
         ui->add_comboBox->addItem(categoryName);
     }
 }
@@ -73,7 +69,6 @@ void MainWindow::loadPasswordsFromClass() {
         QString tabName = ui->tabWidget->tabText(i).remove('&');
 
         QScrollArea *scrollArea = currentTab->findChild<QScrollArea *>("scrollArea");
-
         if (!scrollArea) {
             scrollArea = new QScrollArea(currentTab);
             scrollArea->setObjectName("scrollArea");
@@ -188,7 +183,7 @@ QGroupBox* MainWindow::createPasswordBox(Password &password, QWidget *parent) {
     deleteButton->setIconSize(QSize(20, 20));
     deleteButton->setGeometry(WIDTH - 140, 130, 30, 30);
 
-    // SHOW PASSWORD checkBox slot
+    // PASSWORD VISIBILITY checkBox slot
     connect(ShowPassword, &QCheckBox::stateChanged, [passwordEdit, ShowPassword](int state) {
         if (state == Qt::Checked) {
             passwordEdit->setEchoMode(QLineEdit::Normal);

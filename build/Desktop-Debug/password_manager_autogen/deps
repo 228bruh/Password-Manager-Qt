@@ -222,12 +222,16 @@ password_manager_autogen/timestamp: \
 	/usr/include/QtGui/qvector2d.h \
 	/usr/include/QtGui/qvectornd.h \
 	/usr/include/QtGui/qwindowdefs.h \
+	/usr/include/QtWidgets/QCheckBox \
 	/usr/include/QtWidgets/QGroupBox \
 	/usr/include/QtWidgets/QInputDialog \
+	/usr/include/QtWidgets/QLineEdit \
 	/usr/include/QtWidgets/QMainWindow \
 	/usr/include/QtWidgets/QMenu \
 	/usr/include/QtWidgets/QMessageBox \
 	/usr/include/QtWidgets/QWidget \
+	/usr/include/QtWidgets/qabstractbutton.h \
+	/usr/include/QtWidgets/qcheckbox.h \
 	/usr/include/QtWidgets/qdialog.h \
 	/usr/include/QtWidgets/qdialogbuttonbox.h \
 	/usr/include/QtWidgets/qframe.h \

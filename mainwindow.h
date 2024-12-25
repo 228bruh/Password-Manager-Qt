@@ -25,7 +25,7 @@ private:
     PasswordManager passwordManager;
 
     QString username;
-    QString filename = username + ".json";
+    QString filename;
 
     QString generatedPassword;
 

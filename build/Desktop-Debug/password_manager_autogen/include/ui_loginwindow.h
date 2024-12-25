@@ -48,7 +48,7 @@ public:
         Loginwindow->setMaximumSize(QSize(500, 400));
         LIwarningMsgLabel = new QLabel(Loginwindow);
         LIwarningMsgLabel->setObjectName("LIwarningMsgLabel");
-        LIwarningMsgLabel->setGeometry(QRect(30, 210, 261, 16));
+        LIwarningMsgLabel->setGeometry(QRect(33, 210, 261, 16));
         QFont font;
         font.setPointSize(8);
         LIwarningMsgLabel->setFont(font);

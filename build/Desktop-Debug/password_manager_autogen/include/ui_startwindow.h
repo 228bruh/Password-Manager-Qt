@@ -171,7 +171,7 @@ public:
         loginButton->setFont(font4);
         CAwarningMsgLabel = new QLabel(Startwindow);
         CAwarningMsgLabel->setObjectName("CAwarningMsgLabel");
-        CAwarningMsgLabel->setGeometry(QRect(480, 460, 261, 16));
+        CAwarningMsgLabel->setGeometry(QRect(483, 460, 261, 16));
         QFont font5;
         font5.setPointSize(8);
         CAwarningMsgLabel->setFont(font5);
@@ -225,7 +225,7 @@ public:
 
         LIwarningMsgLabel = new QLabel(Startwindow);
         LIwarningMsgLabel->setObjectName("LIwarningMsgLabel");
-        LIwarningMsgLabel->setGeometry(QRect(50, 460, 261, 16));
+        LIwarningMsgLabel->setGeometry(QRect(53, 460, 261, 16));
         LIwarningMsgLabel->setFont(font5);
         LIwarningMsgLabel->setAlignment(Qt::AlignmentFlag::AlignBottom|Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft);
         label_6 = new QLabel(Startwindow);

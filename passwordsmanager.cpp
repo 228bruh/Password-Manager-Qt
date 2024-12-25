@@ -1,20 +1,29 @@
 #include "passwordsmanager.h"
 
 namespace CryptoUtils {
-    const QByteArray key = QCryptographicHash::hash("your-secret-key", QCryptographicHash::Sha256);
-
-    QByteArray encrypt(const QByteArray &data) {
-        QByteArray result = data;
-        for (int i = 0; i < result.size(); ++i) {
-            result[i] = result[i] ^ key[i % key.size()];
-        }
-        return result;
-    }
-
-    QByteArray decrypt(const QByteArray &data) {
-        return encrypt(data);
-    }
+QString secretKey;
+void set_secret_key(const QString &fileName) {
+    secretKey = fileName + "228bruh";
 }
+
+QByteArray getKey() {
+    return QCryptographicHash::hash(secretKey.toUtf8(), QCryptographicHash::Sha256);
+}
+
+QByteArray encrypt(const QByteArray &data) {
+    QByteArray result = data;
+    QByteArray key = getKey();
+    for (int i = 0; i < result.size(); ++i) {
+        result[i] ^= key[i % key.size()];
+    }
+    return result;
+}
+
+QByteArray decrypt(const QByteArray &data) {
+    return encrypt(data);
+}
+}
+
 
 // Password
 Password::Password(const QString &website, const QString &username, const QString &password)
@@ -44,6 +53,8 @@ void Category::addPassword(const Password &password) {
 
 // PasswordManager
 void PasswordManager::loadFromJsonFileToClass(const QString &fileName) {
+    CryptoUtils::set_secret_key(fileName);
+
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) {
         QMessageBox::warning(nullptr, "Error", "Failed to open file for reading");
@@ -86,6 +97,8 @@ void PasswordManager::loadFromJsonFileToClass(const QString &fileName) {
 }
 
 void PasswordManager::loadFromClassToJsonFile(const QString &fileName) {
+    CryptoUtils::set_secret_key(fileName);
+
     QJsonObject rootObject;
     QJsonObject categoriesObject;
 
